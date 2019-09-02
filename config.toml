@@ -19,7 +19,7 @@ paginate = 5
 
 	email = "vineethpothulapati@outlook.com"
 
-	profilepic = "static/img/profile.png"
+	profilepic = "img/profile.png"
 	
 	title = "Vineeth Pothulapati"
 	subtitle = "DEVELOPER"
