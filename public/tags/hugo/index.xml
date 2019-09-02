@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hugo on Vineeth&#39;s profile!</title>
-    <link>http://vineethweb.com/tags/hugo/</link>
+    <link>https://vineethweb.com/tags/hugo/</link>
     <description>Recent content in hugo on Vineeth&#39;s profile!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 04 Mar 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://vineethweb.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vineethweb.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting Started With hugo-geo</title>
-      <link>http://vineethweb.com/tutorial/getting-started/</link>
+      <link>https://vineethweb.com/tutorial/getting-started/</link>
       <pubDate>Fri, 04 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://vineethweb.com/tutorial/getting-started/</guid>
+      <guid>https://vineethweb.com/tutorial/getting-started/</guid>
       <description>&lt;p&gt;Setting up and configuring hugo-geo is as simple as changing a few values in your site &lt;code&gt;config.toml&lt;/code&gt;. Lets look at this example site&amp;rsquo;s config and go over what
 each of hugo-geo&amp;rsquo;s site &lt;code&gt;[params]&lt;/code&gt; do.&lt;/p&gt;
 
