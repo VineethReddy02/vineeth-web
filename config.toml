@@ -1,4 +1,4 @@
-baseurl = "https://vineethweb.com/"
+baseurl = "http://vineethweb.com/"
 theme = "hugo-geo"
 relativeURLs = false
 languageCode = "en-us"
@@ -19,7 +19,7 @@ paginate = 5
 
 	email = "vineethpothulapati@outlook.com"
 
-	profilepic = "img/profile.png"
+	profilepic = "static/img/profile.png"
 	
 	title = "Vineeth Pothulapati"
 	subtitle = "DEVELOPER"
@@ -38,7 +38,7 @@ paginate = 5
 
 	[[params.navlinks]]
 	name = "About"
-	url = "/about/"
+	url = "about/"
 	
 	[[params.navlinks]]
 	name = "Blog"

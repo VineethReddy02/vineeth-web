@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>kubernetes on Vineeth&#39;s profile!</title>
-    <link>https://vineethweb.com/tags/kubernetes/</link>
+    <link>http://vineethweb.com/tags/kubernetes/</link>
     <description>Recent content in kubernetes on Vineeth&#39;s profile!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 28 Jul 2015 09:32:45 -0400</lastBuildDate>
     
-	<atom:link href="https://vineethweb.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://vineethweb.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Inspecting Kubernetes Theoritically</title>
-      <link>https://vineethweb.com/post/intro-to-k8s/</link>
+      <link>http://vineethweb.com/post/intro-to-k8s/</link>
       <pubDate>Tue, 28 Jul 2015 09:32:45 -0400</pubDate>
       
-      <guid>https://vineethweb.com/post/intro-to-k8s/</guid>
+      <guid>http://vineethweb.com/post/intro-to-k8s/</guid>
       <description>Kubernetes Kubernetes only understands pods not containers.
 Pod Creation Requests  Bare pod RelplicaSet Deployment  Multi Container Pods  Share access to memory space Connect to each other using localhost Share access to the same volumes (storage abstraction) Tightly coupled. One crashes, all crashes. Same parameters such as config maps.  Pod Atomic Unit in Kubernetes is Pod
 In a pod either all conatiners or none of them run.</description>
