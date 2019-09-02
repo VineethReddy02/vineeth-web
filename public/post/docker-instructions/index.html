@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="All About Docker Instructions">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2015-07-28">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://example.com/post/docker-instructions/">
+    <meta property="og:site_name" content="Vineeth&#39;s profile!">
+    
+    <meta property="og:tags" content="docker">
+    
+    <meta name="generator" content="Hugo 0.56.3" />
+    <title>All About Docker Instructions &middot; Vineeth&#39;s profile!</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="http://example.com/css/style.css">
+    
+    <link href="http://example.com/index.xml" rel="alternate" type="application/rss+xml" title="Vineeth&#39;s profile!" />
+    
+    
+    <link rel="icon" href="http://example.com/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://example.com/">Vineeth Pothulapati</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://example.com/about">About</a></li>
+				
+					<li><a href="http://example.com/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="http://example.com/">Vineeth Pothulapati</a></h1>
+		
+		
+		
+			<small class="text-center center-block">DEVELOPER</small>
+		
+		
+		
+			<img id="profile-pic" src="http://example.com//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/VineethReddy02"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://twitter.com/VineethReddy02"><i class="fa fa-twitter fa-2x"></i></a>
+			
+				<a href="https://www.linkedin.com/in/vineeth-pothulapati-312b11120/"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+
+			<a href="mailto:vineethpothulapati@outlook.com"><i class="fa fa-envelope-o fa-2x"></i></a>
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://example.com/about">About</a>
+			
+				<a href="http://example.com/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<main>
+	<header>
+		<h1>All About Docker Instructions</h1>
+	</header>
+
+	<article>
+		
+
+<p><br/></p>
+
+<p>The main intention behind writing this blog is to understand docker instructions and it&rsquo;s capabilities while writing a Dockerfile.</p>
+
+<p>In the recent past it&rsquo;s hard to find an application without a Dockerfile. 😃</p>
+
+<ul>
+<li>INSTRUCTIONS used in Dockerfile
+
+<ul>
+<li>FROM</li>
+<li>MAINTAINER</li>
+<li>RUN</li>
+<li>CMD</li>
+<li>LABEL</li>
+<li>EXPOSE</li>
+<li>ENV</li>
+<li>ADD</li>
+<li>COPY</li>
+<li>ENTRYPOINT</li>
+<li>VOLUME</li>
+<li>USER</li>
+<li>WORKDIR</li>
+<li>ARG</li>
+<li>ONBUILD</li>
+<li>STOPSIGNAL</li>
+<li>HEALTHCHECK</li>
+<li>SHELL</li>
+</ul></li>
+</ul>
+
+<h3 id="from">FROM</h3>
+
+<pre><code>FROM &lt;image&gt;                # picks latest by default
+FROM &lt;image&gt;:&lt;tag&gt;          # specific version can be pulled
+FROM &lt;image&gt;@&lt;digest&gt;       # This makes sure we pull the specific image with provided digest, 
+                            # If image content is changed digest also changes.
+</code></pre>
+
+<ul>
+<li><p>FROM cmd can be used multiple times in the same Dockerfile to build multiple images. This generates unique Id for each image.</p>
+
+<pre><code>from alpine:3.5
+from python
+FROM aquadev/database@sha256:f808cc97eaf718f8550b346e0554eab705f2da707a0d2fb41cab01e6a445ab5a
+</code></pre></li>
+</ul>
+
+<h3 id="maintainer">MAINTAINER</h3>
+
+<p>MAINTAINER <name></p>
+
+<ul>
+<li><p>This is deprecated as docker LABEL instruction does exactly the same.</p>
+
+<pre><code>FROM alpine
+MAINTAINER vineeth
+</code></pre></li>
+</ul>
+
+<h3 id="label">LABEL</h3>
+
+<p>LABEL ABC=&ldquo;XYZ&rdquo; DEF=&ldquo;MNO&rdquo;
+LABEL ABC=&ldquo;XYZ&rdquo;  <br />
+              DEF=&ldquo;MNO&rdquo;  <br />
+              GHI=&ldquo;PQR&rdquo;</p>
+
+<ul>
+<li>The LABEL cmd adds metadata to an image. A LABEL is a key-value pair.</li>
+
+<li><p>If same key has different values the last occurring will take the precedence.</p>
+
+<pre><code>FROM alpine:3.3
+LABEL fruit=&quot;APPLE&quot; \
+  vegetable=&quot;TOMATO&quot; \
+  fruit=&quot;BANANA&quot;
+LABEL abc=&quot;DEF&quot; hjk=&quot;PQR&quot;
+</code></pre></li>
+</ul>
+
+<h3 id="run">RUN</h3>
+
+<pre><code>RUN [&quot;npm&quot;,&quot;start&quot;]   # exec form
+RUN npm start         # shell form
+</code></pre>
+
+<p>Difference between shell form and exec form. By default shell form executes the commands in /bin/bash -c  context
+But exec form needs explicit context to be set. As it doesn&rsquo;t pick /bin/bash -c by default.</p>
+
+<pre><code>FROM ubuntu
+RUN apt-get update -y
+ENV myName=&quot;John Doe&quot; myDOg=Rex\ The\ Dog \
+        myCat=fluffy
+ENTRYPOINT [&quot;/bin/bash&quot;,&quot;-c&quot;,&quot;echo $myName&quot;] or ENTRYPOINT echo $myName
+</code></pre>
+
+<p>The above docker instrctions are combination of shell and exec form in the ENTRYPOINT instruction.</p>
+
+<h3 id="cmd">CMD</h3>
+
+<pre><code>CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;] (exec form this is preferred form)
+CMD [&quot;param1&quot;,&quot;param2&quot;] (used to provide default parameters to ENTRYPOINT])
+CMD &lt;command&gt; &lt;param1&gt; &lt;param2&gt;
+</code></pre>
+
+<ul>
+<li>CMD is used to provide a instruction to Dockerfile which also can overwritted using docker run cmd, Also used to provide defaults to the
+ENTRYPOINT cmd this defaults are also overwritted using docker run cmd .</li>
+</ul>
+
+<h3 id="entrypoint">ENTRYPOINT</h3>
+
+<ul>
+<li><p>Difference between CMD and ENTRYPOINT, CMD is used only once if it&rsquo;s provided multiple times last provided one will take precedence. CMD is     overwritted when we pass any command with docker run IMAGENAME XYZ ENTRYPOINT is used as the command which cannot be overwritten. But we can    append parameters to the ENTRYPOINT either by CMD after ENTRYPOINT in Dockerfile or else by passing from docker run command.</p>
+
+<pre><code>FROM ubuntu
+ENTRYPOINT [&quot;echo&quot;]
+CMD [&quot;VINEETH&quot;]
+</code></pre></li>
+</ul>
+
+<p>In the above docker instruction CMD instruction is taken by default if any string is provided with docker run IMAGENAME AQUA will override the default CMD.
+If no CMD is provided. Any command provided with docker run will be appended to ENTRYPOINT command.</p>
+
+<h3 id="shell">SHELL</h3>
+
+<ul>
+<li>The SHELL instruction is particularly used on windows. where there are two commonly used and quite different native shells: CMD and
+POWERSHELL. as well as alternate shells available including sh.</li>
+
+<li><p>The SHELL instruction can be used multiple times. But the previous SHELL instruction is ignored and current SHELL instruction affects all the
+subsequent instructions.</p>
+
+<pre><code>FROM microsoft/windowsservercore
+
+# Executed as cmd /S /C echo default
+RUN echo default
+
+# Executed as cmd /S /C powershell -command Write-Host default
+RUN powershell -command Write-Host default
+
+# Executed as powershell -command Write-Host hello
+SHELL [&quot;powershell&quot;, &quot;-command&quot;]
+RUN Write-Host hello
+
+# Executed as cmd /S /C echo hello
+SHELL [&quot;cmd&quot;, &quot;/S&quot;, &quot;/C&quot;]
+RUN echo hello
+
+</code></pre></li>
+</ul>
+
+<h3 id="healthcheck">HEALTHCHECK</h3>
+
+<ul>
+<li><p>HEALTHCHECK instruction is used to check the health of the container based on some validations. This lets us know whether the container is
+not only just up and running but also serving the requests as intended.</p>
+
+<pre><code>From node:latest
+COPY ./ ./app
+EXPOSE 4200
+WORKDIR /app
+RUN npm install
+#STOPSIGNAL SIGKILL
+#HEALTHCHECK CMD sleep 50
+HEALTHCHECK --interval=1s --timeout=1s --retries=1 CMD curl --fail http://localhost:4200/ || exit 1
+CMD [&quot;npm&quot;,&quot;start&quot;]
+</code></pre></li>
+</ul>
+
+<p>&ndash;interval is used to check for time interval in checking the health
+&ndash;timeout is used to limit the timeout for each check
+&ndash;retries set retries to confirm unhealthy upon specific consecutive failures</p>
+
+<h3 id="stopsignal">STOPSIGNAL</h3>
+
+<ul>
+<li><p>STOPSIGNAL instruction is used to pass a signal to the container when we try stopping the container with docker stop it executes SIGTERM (this gives the graceful time to terminate the process if not it will kill the process) and docker kill executes SIGQUIT or SIGKILL.</p>
+
+<pre><code>from ubuntu
+STOPSIGNAL SIGKILL
+CMD [&quot;sleep&quot;,&quot;5000&quot;]
+</code></pre></li>
+</ul>
+
+<h3 id="add">ADD</h3>
+
+<ul>
+<li><p>ADD instruction is used same as COPY instruction but it has some additional functionalities such as ADD from remote URL, extracting the tar from the host machine to docker image during build without multiple instruction which in return creates the multiple layers besides from this functionalities it also does all functionalities COPY instruction does.</p>
+
+<pre><code>from ubuntu
+RUN mkdir node
+ADD node-v8.10.0-linux-x64.tar.xz /node
+ADD https://nodejs.org/dist/v8.10.0/node-v8.10.0-linux-x64.tar.xz .
+CMD [&quot;sleep&quot;,5000&quot;]
+</code></pre></li>
+</ul>
+
+<h3 id="copy">COPY</h3>
+
+<ul>
+<li><p>COPY instruction is used to copy data from host machine to container. With COPY instruction we specify the src and destination.</p>
+
+<pre><code>from ubuntu
+COPY . .
+CMD [&quot;sleep&quot;,&quot;5000&quot;]
+</code></pre></li>
+</ul>
+
+<h3 id="env">ENV</h3>
+
+<ul>
+<li><p>ENV instruction is used to pass the environment varibales to the container runtime. It works same as environment variables in host level.</p>
+
+<pre><code>FROM ubuntu
+ENV myName=&quot;John Doe&quot; myDOg=Rex\ The\ Dog \
+    myCat=fluffy
+ENTRYPOINT [&quot;/bin/bash&quot;,&quot;-c&quot;,&quot;echo $myName&quot;]
+</code></pre></li>
+</ul>
+
+<h3 id="arg">ARG</h3>
+
+<ul>
+<li>ARG instruction is used to pass dynamic values during docker build with
+docker build &ndash;build-arg VALUE=1.0<br /></li>
+<li>ARG instruct can optionally contain default value if no value is passed during docker build.</li>
+
+<li><p>When both ARG and ENV is used with same name ENV will override the ARG.</p>
+
+<pre><code>FROM ubuntu
+ARG app=nodejs
+RUN apt-get update &amp;&amp; apt-get install -y $app
+CMD [&quot;sleep&quot;,&quot;5000&quot;]
+</code></pre></li>
+</ul>
+
+<p>Above ARG instruction can we overrided during the build time using docker build &ndash;build-arg app=python . In the above docker instructions app = nodejs, But this can be overrided using docker build.</p>
+
+<h3 id="onbuild">ONBUILD</h3>
+
+<ul>
+<li>ONBUILD instruction is used to perform an action on the image which uses it as base image. Triggers are inherited by the &ldquo;child&rdquo; build only. In other words, they are not inherited by &ldquo;grand-children&rdquo; builds.</li>
+
+<li><p>The ONBUILD instruction may not trigger FROM, MAINTAINER, or ONBUILD instructions.</p>
+
+<pre><code>from ubuntu
+ONBUILD RUN mkdir VINEETH
+</code></pre></li>
+</ul>
+
+<p>The above docker image will create VINEETH directory to all the images which use the above image as base image. i.e Build the above image using</p>
+
+<pre><code>docker build -t vineeth  .
+</code></pre>
+
+<pre><code>from vineeth
+</code></pre>
+
+<p>This image on build will perform the action which is mentioned in the base image with ONBUILD instruction.</p>
+
+<h3 id="workdir">WORKDIR</h3>
+
+<ul>
+<li><p>WORKDIR instruction is used to predefine the current directory in which build CMD, RUN instructions needs to be executed on. Even when we bash into the container we get into the WORKDIR by default.</p>
+
+<pre><code>from ubuntu
+RUN [&quot;mkdir&quot;,&quot;sample&quot;]
+WORKDIR sample/
+ADD https://nodejs.org/dist/v8.10.0/node-v8.10.0-linux-x64.tar.xz .
+CMD [&quot;sleep&quot;,&quot;5000&quot;]
+</code></pre></li>
+</ul>
+
+<h3 id="user">USER</h3>
+
+<ul>
+<li><p>USER instruction is used to set the default user to the container and this gets validated and impacted when we run the container. Even if a user is invalid build succeeds. This instruction teakes action during docker run step.</p>
+
+<pre><code>from ubuntu
+RUN useradd -ms /bin/bash  vineeth
+USER vineeth
+CMD [&quot;sleep&quot;,&quot;500&quot;]
+
+</code></pre></li>
+</ul>
+
+<h3 id="tips">Tips</h3>
+
+<ul>
+<li>During docker build the docker cli tries sending the entire content of Dockerfile directory to the docker daemon to increase the build’s performance, exclude files and directories by adding a .dockerignore file to the context directory.</li>
+<li>Starting with version 18.09, Docker supports a new backend for executing your builds that is provided by the moby/buildkit project. The BuildKit backend provides many benefits compared to the old implementation. To use the BuildKit backend, you need to set an environment variable DOCKER_BUILDKIT=1 on the CLI before invoking docker build.</li>
+</ul>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	<a href=" http://example.com/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+</div>
+
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "shortcode-here" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'code-here', 'auto');
+    ga('send', 'pageview');
+    window.baseURL = "http:\/\/example.com\/";
+  </script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="http://example.com//js/App.js"></script>
+  
+</body>
+</html>

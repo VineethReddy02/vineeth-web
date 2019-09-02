@@ -1,0 +1,46 @@
+baseurl = "https://vineethweb.com/"
+theme = "hugo-geo"
+relativeURLs = false
+languageCode = "en-us"
+title = "Vineeth's profile!"
+disqusShortname = "shortcode-here"
+paginate = 5
+
+[taxonomies]
+	tag = "tags"
+	tutorial = "tutorials"
+
+[params]
+	showglobe = true
+
+	favicon = "favicon.ico"
+	
+	analytics = "code-here"
+
+	email = "vineethpothulapati@outlook.com"
+
+	profilepic = "img/profile.png"
+	
+	title = "Vineeth Pothulapati"
+	subtitle = "DEVELOPER"
+
+	# Social buttons for sidebar
+	# Each of these are optional
+	[[params.socialbuttons]]
+	faicon = "github"
+	url = "https://github.com/VineethReddy02"
+	[[params.socialbuttons]]
+	faicon = "twitter"
+	url = "https://twitter.com/VineethReddy02"
+	[[params.socialbuttons]]
+	faicon = "linkedin"
+	url = "https://www.linkedin.com/in/vineeth-pothulapati-312b11120/"
+
+	[[params.navlinks]]
+	name = "About"
+	url = "/about/"
+	
+	[[params.navlinks]]
+	name = "Blog"
+	url = ""
+	

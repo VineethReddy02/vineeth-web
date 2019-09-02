@@ -1,0 +1,1996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="Inspecting Kubernetes Theoritically">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2015-07-28">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://example.com/post/intro-to-k8s/">
+    <meta property="og:site_name" content="Vineeth&#39;s profile!">
+    
+    <meta property="og:tags" content="kubernetes">
+    
+    <meta name="generator" content="Hugo 0.56.3" />
+    <title>Inspecting Kubernetes Theoritically &middot; Vineeth&#39;s profile!</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="http://example.com/css/style.css">
+    
+    <link href="http://example.com/index.xml" rel="alternate" type="application/rss+xml" title="Vineeth&#39;s profile!" />
+    
+    
+    <link rel="icon" href="http://example.com/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://example.com/">Vineeth Pothulapati</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://example.com/about">About</a></li>
+				
+					<li><a href="http://example.com/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="http://example.com/">Vineeth Pothulapati</a></h1>
+		
+		
+		
+			<small class="text-center center-block">DEVELOPER</small>
+		
+		
+		
+			<img id="profile-pic" src="http://example.com//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/VineethReddy02"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://twitter.com/VineethReddy02"><i class="fa fa-twitter fa-2x"></i></a>
+			
+				<a href="https://www.linkedin.com/in/vineeth-pothulapati-312b11120/"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+
+			<a href="mailto:vineethpothulapati@outlook.com"><i class="fa fa-envelope-o fa-2x"></i></a>
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://example.com/about">About</a>
+			
+				<a href="http://example.com/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<main>
+	<header>
+		<h1>Inspecting Kubernetes Theoritically</h1>
+	</header>
+
+	<article>
+		
+
+<p><br/></p>
+
+<h2 id="kubernetes">Kubernetes</h2>
+
+<p>Kubernetes only understands pods not containers.</p>
+
+<h3 id="pod-creation-requests">Pod Creation Requests</h3>
+
+<ol>
+<li>Bare pod</li>
+<li>RelplicaSet</li>
+<li>Deployment</li>
+</ol>
+
+<h3 id="multi-container-pods">Multi Container Pods</h3>
+
+<ol>
+<li>Share access to memory space</li>
+<li>Connect to each other using localhost</li>
+<li>Share access to the same volumes (storage abstraction)</li>
+<li>Tightly coupled.</li>
+<li>One crashes, all crashes.</li>
+<li>Same parameters such as config maps.</li>
+</ol>
+
+<h3 id="pod">Pod</h3>
+
+<p>Atomic Unit in Kubernetes is Pod</p>
+
+<p>In a pod either all conatiners or none of them run.
+It&rsquo;s always a pod runs on single node.
+Which pod runs on which node decided be scheduler.
+If a pod is failed kubelet notifies to k8s control plane.</p>
+
+<h3 id="higher-level-kubernetes-objects">Higher level Kubernetes Objects</h3>
+
+<p>Replicaset, ReplicationController: Scaling and healing
+Deployment: Versioning and rollback
+Service: Static (non-epemeral) IP and networking
+Volume: Non-ephemeral storage</p>
+
+<h3 id="k8s-nodes-contains">K8s nodes contains</h3>
+
+<ol>
+<li>Kubelet</li>
+<li>Kube proxy</li>
+<li>Conatiner Runtime.</li>
+</ol>
+
+<p>Pod cannot be auto scaled or self healed for tis cases we need higher level objects such as
+ReplicaSet, ReplicationController, Deployment.</p>
+
+<h3 id="micro-services">Micro-Services</h3>
+
+<p>Bare Metal: Apps ere very tightly coupled.
+Virtual Machines: Less tighly coupled, but not yet micro-services.
+Containers for Micro-Services: Simple, Independent components.</p>
+
+<h3 id="resource-in-conatiners">Resource in Conatiners</h3>
+
+<ol>
+<li>Usually the conatianers are aloocated with deafult resources in kubernetes.</li>
+<li>By providng Resource Request we are seeking resources as requested to be default resources.</li>
+<li>By providing limit in resources. You are restricting conatiner to occupy till the limit mentioned
+starting from default/Requested resources.</li>
+<li>You can even mention both request and limit or either of them or neither of them.</li>
+</ol>
+
+<h3 id="communicaion-between-master-and-cluster">Communicaion between Master and Cluster</h3>
+
+<p>Kubernetes Master Conatins  following components</p>
+
+<ol>
+<li>Kube-scheduler</li>
+<li>Controller-Manager this is based n where k8s cluster is running. If it is not on cloud provider
+then Kube-controller manager, If it is cloud then cloud contoller manager.
+
+<ol>
+<li>Cloud controller Manager</li>
+<li>Kube-controller Manager</li>
+</ol></li>
+<li>etcd</li>
+<li>Kube-apiserver</li>
+</ol>
+
+<h3 id="cluster-to-master">Cluster to Master</h3>
+
+<p>Only APISERVER will be exposed outside(i.e to cluster) none of the other components are
+exposed outside.</p>
+
+<p>All cluster to master communication happen with only API-SERVER.</p>
+
+<p>Relatively Secure</p>
+
+<h3 id="master-to-cluster">Master to Cluster</h3>
+
+<ol>
+<li>APISERVER to Kubelet</li>
+</ol>
+
+<p>These are not safe in public or untusted networks</p>
+
+<ol>
+<li>Certificate not verified by default.</li>
+<li>Vulnerable to man in the middle attacks.</li>
+<li>Dont run on public network</li>
+
+<li><p>To hardern.</p>
+
+<ol>
+<li>set- -kubelet-certificate-authority</li>
+<li>Use SSH tunneling.<br />
+<br /></li>
+</ol></li>
+
+<li><p>APISERVER to nodes/pods/Services</p>
+
+<ul>
+<li>Not safe</li>
+<li>Plain HTTP</li>
+<li>Neither authenticated or encrypted.</li>
+<li>On public clouds, SSH tunneling provided by cloud provider e.g. GCP.
+<br />
+<br />
+<br /></li>
+</ul></li>
+</ol>
+
+<h3 id="where-can-we-run-kubernetes">Where can we run kubernetes</h3>
+
+<ol>
+<li><p>Public Clouds</p>
+
+<ol>
+<li>AWS</li>
+<li>Azure</li>
+<li>GCP</li>
+</ol></li>
+
+<li><p>Bootstrap for running k8s cluster on private cloud or on prem. Using kubeadm we configure the
+kubernetes.</p></li>
+
+<li><p>Playgrounds.</p>
+
+<ol>
+<li>PWK</li>
+<li>MINIKUBE
+<br /></li>
+</ol></li>
+</ol>
+
+<h3 id="hybrid-multi-cloud">Hybrid, Multi-Cloud</h3>
+
+<p><strong>Hybrid</strong>: On-prem + Public Cloud</p>
+
+<p><strong>Multi-Cloud</strong>: More than 1 public cloud.</p>
+
+<h3 id="federated-clusters">Federated Clusters</h3>
+
+<ol>
+<li>Nodes in multiple clusters.</li>
+<li>Administer with kubefed.</li>
+</ol>
+
+<h3 id="individual-cluster">Individual cluster</h3>
+
+<ol>
+<li>All nodes on sae infra.</li>
+<li>Administer with kubectl.</li>
+</ol>
+
+<h3 id="kubernetes-provides">Kubernetes Provides</h3>
+
+<ol>
+<li><strong>Fault-tolerance:</strong> Pod/Node faiures</li>
+<li><strong>Rollback:</strong> Advanced Deployment options</li>
+<li><strong>Auto-healing:</strong> Crashed conatiner restart</li>
+<li><strong>Auto-scaling:</strong> More clients? More demand</li>
+<li><strong>Load-balancing:</strong> Distribute client requets</li>
+<li><strong>Isolation:</strong> Sanboxes so that containers don&rsquo;t interfere.</li>
+</ol>
+
+<h4 id="how-to-interact-with-kubernetes">How to interact with kubernetes</h4>
+
+<ul>
+<li><strong>kubectl:</strong> Most common command line utility. Makes POST requests to apiserver of control plane.</li>
+<li><strong>kubeadm:</strong> Bootstrap cluster when not on cloud kubernetes service. To create cluster out of individual infra nodes.</li>
+<li><strong>kubefed:</strong> Administer federated cluters. Federated cluster -&gt; group of multiple clusters (multi-cloud,hybrid)</li>
+</ul>
+
+<p>kubelet, kube-proxy,&hellip;. these are different cmd line utilities to interact with different components of k8s cluster.</p>
+
+<h3 id="kubernetes-api">Kubernetes API</h3>
+
+<ol>
+<li>APISERVER within conrol plane exposes API endpoints</li>
+<li>CLients hit these endpoints with RESTful API calls.</li>
+<li>These clients could be command line tools such as kubectl, kubeadm&hellip;..</li>
+<li>Could also be programmatic calls using client libraries.</li>
+</ol>
+
+<h3 id="objects">Objects</h3>
+
+<ol>
+<li>Kubernetes Objects are persistent entities.</li>
+<li>Everything is an object&hellip;.</li>
+<li>Pod, RelplicaSet, Deployment, Node &hellip;. all are objects</li>
+<li>Send object specification (usually in .yaml or json)</li>
+</ol>
+
+<h3 id="important-points">IMPORTANT POINTS</h3>
+
+<ul>
+<li>Pods doen&rsquo;t support auto-healing or auto scaling.</li>
+<li>Kube-apiserver - Accepts incming HTTP post requests from users.</li>
+<li>Etcd - Stores metadata that forms the state of the cluster.</li>
+<li>Kube-scheduler - Makes Decision about where and when the pods should run.</li>
+<li>CLoud-controller manager - Keeps the actual and desired state of the cluster in synch.</li>
+</ul>
+
+<h3 id="three-object-management-methods">Three object Management Methods</h3>
+
+<ol>
+<li><p>Imperative Commands
+No .yaml or config files
+eg: kubectl run &hellip;, kubectl expose &hellip;, kubectl autscale ..
+For this happen the objects should be live in cluster and this is the least robust way of managing objects.</p></li>
+
+<li><p>Imperative Object Configuration
+kubectl + yaml or config files used.
+eg:
+kubectl create -f config.yaml
+kubectl replace  -f config.yaml
+kubectl delete -f config.yaml</p></li>
+
+<li><p>Declarative Object Configuration
+Only .yaml or configfiles used
+eg:
+kubectl apply -f config.yaml
+This is the most preferred way of handling objects.</p></li>
+</ol>
+
+<p>Note: Don&rsquo;t mix and match different methods in handling k8s objects.</p>
+
+<h3 id="imperative-commands">Imperative Commands</h3>
+
+<pre><code>kubectl run nginx --image nginx
+kubectl create deployment nginx --image nginx
+</code></pre>
+
+<ul>
+<li>No config file.</li>
+
+<li><p>Imperative: intent is in command.</p></li>
+
+<li><p>Pro:</p>
+
+<ul>
+<li>Simple</li>
+</ul></li>
+
+<li><p>Cons:</p>
+
+<ul>
+<li>No audit trail or review mechanism</li>
+<li>Cant reuse or use in template.</li>
+</ul></li>
+</ul>
+
+<h4 id="imperative-object-configuration">Imperative Object Configuration</h4>
+
+<pre><code>kubectl create -f nginx.yaml
+kubectl delete -f nginx.yaml
+kubectl replace -f nginx.yaml
+</code></pre>
+
+<p>config file required
+Still imperative: intent is in cmd.</p>
+
+<p>Pros:
+-still simple
+-Robust - files checked into repo
+-One file for multiple operations</p>
+
+<h3 id="declarative-object-configuration-used-in-production">Declarative Object Configuration used in production</h3>
+
+<p>kubectl apply -f configs/</p>
+
+<p>config files are all that is required.
+Declarative not imperative.</p>
+
+<p>Pros;
+-Most robust - review,repos,audit trails.
+-k8s will automatically figure out intents
+-Can specify multiple files/directories recursively.</p>
+
+<p>Declarative Configuration has three phases.</p>
+
+<ul>
+<li>Live object configuration</li>
+<li>Current object configuration file.</li>
+<li>Last-applied object configuration file.</li>
+</ul>
+
+<p>Merging changes.</p>
+
+<ul>
+<li><p>Primitive fields</p>
+
+<ul>
+<li>String, int, boolean,images or replicas</li>
+<li>Replace old state with current object configuration file.
+<br /></li>
+</ul></li>
+
+<li><p>Map fields</p>
+
+<ul>
+<li>Merge old state with current state with current object configuration file.</li>
+</ul></li>
+
+<li><p>List fields</p>
+
+<ul>
+<li>Complex- varies by field.
+<br /></li>
+</ul></li>
+</ul>
+
+<h3 id="volumes-and-persistentvolumes">VOLUMES AND PersistentVolumes</h3>
+
+<ul>
+<li><p>Volumes(in general): lifespan of abstraction = lifetime of pod.</p>
+
+<ul>
+<li>Note that this is longer than lifetime of any container inside pod.</li>
+<li>Persistent Volumes.
+<br /></li>
+</ul></li>
+
+<li><p>Persistent Volumes: lifetime of abstraction independent of pod lifetime.</p></li>
+</ul>
+
+<p>Using Volumes</p>
+
+<pre><code class="language-apiVersion:">kind: Pod
+metadata: 
+		name: configmap-pod
+spec:
+   containers:
+	- name: test
+	  image: bisybox
+    volumeMounts:         // Each container will mount independently
+	- name : config-vol
+	  mountPath: /etc/config					// different paths in each container.
+    volumes:                                                   //Define volume in pod spec
+	-name: config-vol
+	configMap:
+	   name: log-config
+	   items:
+	      - key: log_level
+	        path: log_level
+</code></pre>
+
+<p>Volumes binded to pod are persistent across the lifecyclces of containers. But when pod restarts the vlumes are last.
+emptyDir comes with empty volume initially and also when pod restarts it loses all the data in it.</p>
+
+<h3 id="important-types-of-volumes-are">Important types of volumes are</h3>
+
+<ol>
+<li>configMap</li>
+<li>emptyDir</li>
+<li>gitRepo</li>
+<li>secret</li>
+<li>hostPath</li>
+</ol>
+
+<h4 id="emptydir">emptyDir</h4>
+
+<p>This is not persistent. his exists as long as the pod exists. Created as empty volume.
+Share space/state across conatiners in same pod.
+When the pod is removed the emptyDir volume is lost.</p>
+
+<p>When pod removed/crashes. data lost
+When conatiner crashes data remains
+Usecases: Scartch space, checkpointing</p>
+
+<h4 id="hostpath">hostPath</h4>
+
+<p>Mount file/directory from node filesystem into pod
+Uncommon - pods should be independent of nodes
+Makes pod-node coupling tight
+Usecases: Access docker internals, running cAdvisor
+BLock devices or sockets on host</p>
+
+<h4 id="gitrepo">gitRepo</h4>
+
+<p>This volume will create an empty directory and go ahead and clone git repo to our volume so that our conatiners can use it.</p>
+
+<h4 id="configmap">configMap</h4>
+
+<p>Used to inject paraeters and configuration data into pods.
+configMap volume mount data from configmap object
+configMap objects define key-value pairs
+configMap objects inject parameters into pods</p>
+
+<p>Two main usecases:
+1.Providing config information for apps running inside pods
+2. Specifying config infrmation for control plane(controllers )</p>
+
+<p>kubectl create configmap fmap &ndash;from-file=file1.txt &ndash;from-file=file2.txt</p>
+
+<pre><code>apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: special-config
+  namespace: default
+data:
+  special.how: very
+  
+ Inside pod yaml file
+ 
+ env:
+   - name: SPECIAL_LEVEL_KEY
+     valueFrom:
+       configMapKeyRef:
+         name: special-config
+	 key: special.how
+</code></pre>
+
+<h3 id="secret">Secret</h3>
+
+<p>Pass sensitive information to pods.
+You can store secrets using kubernetes api and mount those secrets as files these files will be available to use by pods.
+using the secret volume
+You should know secrets are backed by RAM based file system which ensures contents of this files are never written to non volatile storage.</p>
+
+<pre><code>	apiVersion: v1
+	kind: Secret
+	metadata:
+	     name: test-secret
+	data:
+	     username: VINEETH
+	     password: ###@!#
+</code></pre>
+
+<p>Once the secrets are created we can access from volumes inside the pod yaml file.</p>
+
+<pre><code>spec:
+   conatiners:
+   - name: test-container
+     image: nginx
+     volumeMounts:
+     // name must matc the voume name below
+     - name: secret-volume
+       mountPath: /etc/secret-volume
+   // The secret data is exposed to containers in the Pod through a volume.
+   volumes:
+   	- name: secret-volume
+	  secret:
+	     secretName: test-secret
+</code></pre>
+
+<p>We can access this secret by getting into the container shell and by going to etc/secret-volume.</p>
+
+<p>We can create secrets directly from files.</p>
+
+<p>kubectl create secret generic sensitive &ndash;from-file=./username.txt &ndash;from-file=./password.txt
+Inside pod yaml file</p>
+
+<pre><code>env:
+   - name: SECRET_USERNAME
+     valueFrom:
+        secretKeyRef:
+	   name: sensitive
+	   key: username.txt
+  - name: SECRET_PASSWORD
+    valueFrom:
+         secretKeyRef:
+	    name: sensitive
+	    key: password.txt
+</code></pre>
+
+<h3 id="using-persistentvolumes">Using PersistentVolumes</h3>
+
+<p>we mount the persistnt volumes with containers</p>
+
+<pre><code>volumeMounts:
+- mountPath: /test-pd
+  name: test-volume
+</code></pre>
+
+<h3 id="conatiners-in-pod">Conatiners in Pod</h3>
+
+<ol>
+<li>Configure Nodes to Authenticate to Private Repos. All pods can pull any image.</li>
+<li>Pre-pull images. Pods can only use cached images.</li>
+<li>ImagePullSecrets on each pod. Only pods with secret can pull secrets.</li>
+</ol>
+
+<p>What Environment Do Containers See ?</p>
+
+<ol>
+<li><p>Filesystem
+Image(at root)
+Associated Volumes</p>
+
+<ul>
+<li>ordinary</li>
+<li>persistent
+<br /></li>
+</ul></li>
+
+<li><p>Container
+Hostname
+Hostname refers to the pod name in which conatiner is running.
+We can get by cmd hostname or gethostname function call from libc.</p></li>
+
+<li><p>Pod
+Pod Name
+User-defined
+environment variables using Downward API</p></li>
+
+<li><p>Services
+List of all services</p></li>
+</ol>
+
+<h3 id="services-for-stable-ip-addresses">Services for stable IP Addresses</h3>
+
+<p>Service object - load balancer
+Service = Logical set of backend pods + stable front-end
+Front-end: Static clusterIP address + Port + DNS Name
+Back-end: Logical set of backend pods(label selector)</p>
+
+<h4 id="setting-up-environment-varibales">Setting up environment varibales</h4>
+
+<pre><code>spec:
+  conatiners:
+  - name: envar-demo-container
+    image: gcr.io/google-samples/node-hello:1.0
+    env:
+    - name: DEMO
+      value: &quot;HELLO&quot;
+    - name: DEMO1
+      valueL &quot;HEY&quot;
+</code></pre>
+
+<p>kubectl exec -it demo-pod &ndash; /bin/bash
+This will take into the bash shell within our conatiner.
+<code>printenv</code> \ will print all env variables.</p>
+
+<h3 id="downward-api">Downward API</h3>
+
+<p>Passing information from pod to conatiner such as metadata, annotations.</p>
+
+<p>pods/inject/dapi-volume.yaml</p>
+
+<pre><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: kubernetes-downwardapi-volume-example
+  labels:
+    zone: us-est-coast
+    cluster: test-cluster1
+    rack: rack-22
+  annotations:
+    build: two
+    builder: john-doe
+spec:
+  containers:
+    - name: client-container
+      image: k8s.gcr.io/busybox
+      command: [&quot;sh&quot;, &quot;-c&quot;]
+      args:
+      - while true; do
+          if [[ -e /etc/podinfo/labels ]]; then
+            echo -en '\n\n'; cat /etc/podinfo/labels; fi;
+          if [[ -e /etc/podinfo/annotations ]]; then
+            echo -en '\n\n'; cat /etc/podinfo/annotations; fi;
+          sleep 5;
+        done;
+      volumeMounts:
+        - name: podinfo
+          mountPath: /etc/podinfo
+          readOnly: false
+  volumes:
+    - name: podinfo
+      downwardAPI:
+        items:
+          - path: &quot;labels&quot;
+            fieldRef:
+              fieldPath: metadata.labels
+          - path: &quot;annotations&quot;
+            fieldRef:
+              fieldPath: metadata.annotations
+</code></pre>
+
+<p>In the above example we are making pod metadata such as labels, annotations available for conatiners.
+etc/podinfo/annotations annotations are available in this file.
+etc/podinfo/labels labels are available in this file.</p>
+
+<h3 id="conatiner-lifecycle-hooks">Conatiner Lifecycle Hooks</h3>
+
+<ol>
+<li>Post Start</li>
+</ol>
+
+<p>Called immediately after conatiner created
+No parameters</p>
+
+<ol>
+<li>Pre Stop</li>
+</ol>
+
+<p>Immediately before conatiner terminates.</p>
+
+<p>Blocking - must complete before conatiner can be deleted. This is synchronous.</p>
+
+<ol>
+<li><p>Hook handkers</p>
+
+<ul>
+<li>Exec //This executes shell scripts by getting inside conatiner</li>
+
+<li><p>HTTP // We can make calls to specific endpoint on the conatiner</p>
+
+<pre><code>apiVersion: v1
+kind: Pod
+metadata:
+name: lifecycle-demo
+spec:
+conatiners:
+- name: lifecycle-demo-container
+image: nginx
+lifecycle:
+postStart:
+exec:
+	  command: [&quot;/bin/sh&quot;, &quot;-c&quot;, &quot;echo Hello from the postStart handler &gt; /usr/share/message&quot;]
+preStop:
+exec:
+	  command: [&quot;/usr/sbin/nginx&quot;,&quot;-s&quot;,&quot;quit&quot;]
+</code></pre></li>
+</ul></li>
+</ol>
+
+<h3 id="pod-node-matching">Pod Node Matching</h3>
+
+<p>How can pods be assigned to specific nodes?</p>
+
+<p>Handled by kube-scheduler
+    -Quite smart (it makes sure the nodes which has resources gets the pod assigned.)
+  Granular usecases:
+    -specific hardware: SSD required by pod
+    -Colocate pods on same node: they communicate a lot.
+    -High-availability:force pods to be an different nodes.</p>
+
+<p>nodeSelector (nodes have predefined labels hostname, zone, OS, instance type&hellip;)
+-Simple
+-Tag nodes with labels
+-Add nodeSelector to pod template
+-Pods will only reside on nodes that are selected ny nodeSelector
+-Simple but crude - hard constriant</p>
+
+<h4 id="affinity-and-anti-affinity">Affinity and Anti-Affinity</h4>
+
+<p>Node Affinity (nodes have predefined labels hostname, zone, OS, instance type&hellip;)
+-steer pod to node
+- can be &lsquo;soft&rsquo;
+-Only affinity (for anti-affinity use taints)</p>
+
+<h3 id="pod-affinity">Pod Affinity</h3>
+
+<p>-Steer pods towards or away from pods.
+-Affinity: pods close to each other
+-Anti-Affinity: pods away from each other.</p>
+
+<pre><code>apiVersion: v1
+kind: Pod
+metadata: Pod
+  name: nginx
+  labels:
+    env: test
+spec:
+  conatiners:
+  - name: nginx
+    image: nginx
+    imagePullPolicy: IfNotPresent
+  nodeSelector:
+    disktype: ssd
+</code></pre>
+
+<h3 id="taints-and-tolerations">Taints and Tolerations</h3>
+
+<p>Using nodeslector you can make sure this pod should run on specific node but using taints and tolerations you can make sure certain pods can only run on certain nodes.</p>
+
+<p>Dedicated nodes for certain users
+  - Taint subset of nodes
+  - Only add tolerations to pods of those users.
+Nodes with special hardware
+  - Taint nodes with GPUs
+  - Add toleration only pods running ML jobs</p>
+
+<p>Taints based on Node Condition</p>
+
+<ul>
+<li>New feature - in Alpha in v1.8</li>
+<li>Taints added by node controller</li>
+</ul>
+
+<p>Taints added by node controller
+  - node.kubernetes.io/memory-pressure
+  - node.kubernetes.io/disk-pressure
+  - node.kubernetes.io/out-of-disk</p>
+
+<p>Pods with tolerations are scheduled on this nodes.
+ This will happen if flag set on nodes
+  - TaintNodesByCondition=true</p>
+
+<p>To taint a node</p>
+
+<pre><code class="language-kubectl">  kubectl label deployments/nginx env=dev
+</code></pre>
+
+<p>The above cmds makes sure the pods from the deployment are not schduled on tainted node because
+  env=dev:NoSchedule the pods with this label will not be scheduled on the node.</p>
+
+<pre><code>  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: nginx-deployment
+    labels:
+      app: nginx
+spec:
+  replicas: 7
+  selector: 
+    matchLabels:
+      app: ngnix
+  template:
+    metadata:
+      labels:
+        app: nginx
+   spec:
+     containers:
+     - name: nginx
+       image: nginx:latest
+       ports:
+       - containerPort: 80
+     tolerations:
+     - key: &quot;dev&quot;
+       operator: &quot;Equal&quot;
+       value: &quot;env&quot;
+       effect: &quot;NoSchedule&quot;
+</code></pre>
+
+<p>The above deployment has toleration so the pods can even be schduled on tainted nodes.</p>
+
+<p>### Init Containers ###</p>
+
+<ul>
+<li>Run before app containers.</li>
+<li>Always run-to-completion</li>
+<li>Run serially (each only starts after previous one finishes)
+If init containers fails kubernetes will repeatedly restart the pod to succeed the init containers.</li>
+</ul>
+
+<p>Usecases:
+ - Run utilities that should run before app container.
+ - Different namespace/isolation from app containers.
+ - Security reasons.
+ - Include utilities or setup (gitclone, register app)
+ - BLock or delay start of app contianer.</p>
+
+<p>Downward API is used to share metadata from the pod to the container.</p>
+
+<pre><code>  apiVersion: v1
+  kind: Pod
+  metadata: 
+      name: init-demo
+  spec:
+      containers:
+      - name: nginx
+        image: nginx
+	ports:
+	- containerPort: 80
+	volumeMunts:
+	- name: workdir
+	  mountPath: /usr/share/nginx/html
+      # These containers are run during pod initialization
+      initContainers:
+      - name: install
+        image: busybox
+	command:
+	- wget
+	- &quot;-O&quot;
+	- &quot;/work-dir/index.html&quot;
+	- http://google.com
+	volumeMounts:
+	- name: workdir
+	  mountPath: &quot;/work-dir&quot;
+       dnsPolicy: Default
+       volumes:
+       - name:workdir
+         emptyDir: {}
+	 
+</code></pre>
+
+<p>### Pod Lifecycle</p>
+
+<ul>
+<li>Pending: Request accepted, but not yet fully created</li>
+<li>Running: Pod bound to node, all containers started</li>
+<li>Succeeded: All containers are terminated successfully (will not be restarted).</li>
+<li>Failed: All containers have terminated, and at least one failed.</li>
+<li>Unknown: Pod status could not be queried - host error likely.
+<br /></li>
+</ul>
+
+<p>Note:
+   - Container within pod are deployed in an all or nothing manner.
+   - Entire pod is hosted on the same node.</p>
+
+<p>Restart policy for conatiners in a Pod.</p>
+
+<ul>
+<li>Always (default)</li>
+<li>On-failure</li>
+<li>Never
+<br /></li>
+</ul>
+
+<h3 id="probes">Probes</h3>
+
+<p>Kubelet sends probes to containers</p>
+
+<p>All succeeded? Pod status = Succeeded
+Any failed? Pod status = Failed
+Any running? Pod status = Running</p>
+
+<h4 id="liveness-probes">Liveness Probes</h4>
+
+<ul>
+<li>Failed? Kubelet assumes container dead( This probe certifies that pod is running else
+retries until the probe succeeds.)</li>
+<li>Restart policy will kick in.</li>
+</ul>
+
+<p>Usecase: Kill and restart if probe fails. Add liveness probe, Specify restart plicy of Always or On-Failure.</p>
+
+<h4 id="readiness-probes">Readiness Probes</h4>
+
+<ul>
+<li>Ready to service requests?</li>
+<li>Failed? Endpoint object will remove pod from services.</li>
+</ul>
+
+<p>Usecase: Send traffic only after probe succeeds. Pod goes live, But will only accept traffic after readiness
+  probe succeeds. This is also referred as &ldquo;Container that takes itself down&rdquo;.</p>
+
+<pre><code>apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: livesness
+  namee: livesness-exec
+spec:
+  containers:
+  - name: liveness
+    image: k8s.gcr.io/busybox
+    args:
+    - /bin/sh
+    - -c
+    - touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600
+    livenessProbe:
+      exec:
+        command:
+	- cat
+	- /tmp/healthy
+      initialDelaySeconds: 5 //it says to wait 5 sec before starting first probe.
+      periodSeconds: 5 // kubelet will perform liveness probe for every 5 seconds.
+      
+</code></pre>
+
+<p>In the above pod livenessProbe has a cmd if cmd fails it will go ahead and kill the container.</p>
+
+<h3 id="pod-presets">Pod Presets</h3>
+
+<p>Pod Presets are way to inject values during pod creation using labels which makes them loosely coupled. Values we pass may involve secrets, volumes, voumeMounts and environment variables.</p>
+
+<h3 id="pod-priorities">Pod Priorities</h3>
+
+<p>Create PriorityClass Object</p>
+
+<pre><code>apiVersion: v1appha1
+kind: PriorityClass
+metadata:
+  name: high-priority
+value: 1000000
+globalDefault: false
+description: &quot;XYZ&quot;
+</code></pre>
+
+<p>Reference from Pod Spec</p>
+
+<pre><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    env: test
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    imagePullPolicy: IfNotPresent
+  priorityClassName: high-priority
+  
+</code></pre>
+
+<h4 id="scheduling-order">Scheduling Order</h4>
+
+<p>High-priority pod can &lsquo;jump the queue&rsquo;.</p>
+
+<h4 id="preemption">Preemption</h4>
+
+<ul>
+<li>Low-priority pod maybe pre-empted to make way( if no node currently available to run gigh-priority pod). Preempted pod gets a graceful termination period.</li>
+</ul>
+
+<h3 id="replicasets">ReplicaSets</h3>
+
+<p>Pod
+  - Containers inside pod template</p>
+
+<p>ReplicaSet:
+  - pod template
+  - number of replicas
+  - self-healing and scaling</p>
+
+<p>Deployment:
+  - Conatins spec of ReplicaSet within it
+  - Versioning
+  - Fast rollback
+  - Advanced deployments</p>
+
+<pre><code>apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+  labels:
+    app: guestbook
+    tier: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+    matchExpressions:
+      - {key: tier, operator: In, value: [frontend]}
+  template:
+    metadata:
+      labels:
+        apps: guestbook
+	tier: frontend
+   spec:
+     containers:
+     - name: php-redis
+       image: hello:v3
+       ports:
+       - containerPort:80
+</code></pre>
+
+<p>Deleting ReplicaSets</p>
+
+<ul>
+<li><p>Deleting RelicaSet and its Pods</p>
+
+<ul>
+<li>Use kubectl delete
+<br /></li>
+</ul></li>
+
+<li><p>Deleting just ReplicaSet but not its Pods</p>
+
+<ul>
+<li>Use kubectl delete &ndash;cascade=false
+<br /></li>
+</ul></li>
+
+<li><p>Deleting ReplicaSet orphans its pods</p>
+
+<ul>
+<li>Pods are now vulnerable to crashes
+<br /></li>
+</ul></li>
+
+<li><p>Probably want a new RelicaSet to adopt them</p>
+
+<ul>
+<li>pod template will not apply.
+<br />
+<br /></li>
+</ul></li>
+</ul>
+
+<p>Auto-Scaling a ReplicaSet</p>
+
+<ul>
+<li><p>Horizontal Pod Autoscaler Target</p>
+
+<pre><code>apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata: 
+name: frontend-scaler
+spec:
+scaleTargetRef:
+kind: ReplicaSet
+name: frontend
+minReplicas: 3
+maxReplicas: 10
+targetCPUUtilizationPercentage: 50
+</code></pre>
+
+<ul>
+<li>Control-loop to track actual and desired CPU utilisation in pod.</li>
+<li>Target: ReplicationCOntroller, Deployments, ReplicaSets</li>
+<li>Policy CPU utilisation or custom metrics</li>
+<li>Won&rsquo;t work with non scaling objects: DaemonSets
+<br /></li>
+</ul></li>
+</ul>
+
+<p>Working with Horizontal Pod AutoScalers</p>
+
+<pre><code>  $kubectl create hpa
+  $kubectl get hpa 
+  $kubectl describe hpa
+  $kubectl autoscale rs front-end --min=3 --max=10 --cpu-percent=50
+</code></pre>
+
+<p>Thrashing is always a risk with autoscaling. i.e immediate scale up and down based on target metrics.
+Cooldown periods help HPA avoid this
+  -horizontal-pod-autoscaler-downscale-delay
+  -horizontal-pod-autoscaler-upscale-delay</p>
+
+<pre><code>kubectl delete pods --all
+</code></pre>
+
+<p>But replicaset will create the deleted pods from the above cmd  pods associated with is label.</p>
+
+<p>To delete this pods completely. Use the below cmd</p>
+
+<pre><code>kubectl delete rs/frontend
+</code></pre>
+
+<p>To remove the replicationSet controller on the pods.</p>
+
+<pre><code>kubectl delete rs/frontend --cascade=false
+</code></pre>
+
+<p>This will not delete the pods but the association between replicationSet and pods is detached.
+After this operation pods will not be created on deleton. They are vulnerable to crashes. As they are not governed by replicaset.
+This will delete the replicaSet object.</p>
+
+<pre><code>kubectl get rs
+</code></pre>
+
+<p>//This will shows no replicaSet as its deleted</p>
+
+<p>ReplicaSets are lossely couple by the labels. As they are binded using labels. We can delete replicaset without touching underlying pods.
+We can even isolate the pods from the replicaSet by changing the labels.</p>
+
+<p>To modify the live running pod run below cmd. By this we can detach the live pod from repicaset by changing the label. After this replicaset will create again detached pods as it always works for desired state.</p>
+
+<pre><code>$KUBE_EDITOR=&quot;nano&quot; kubectl edit pod frontend-2d5b4  // Scaling replicaSet object
+$nano frontend.yaml //modify replicas field to desired number.
+$kubectl apply -f frontend.yaml // This will apply the modified changes to existing replicaset. But not good practice.
+</code></pre>
+
+<h3 id="deployments">Deployments</h3>
+
+<ul>
+<li><p>Deployments are the important objects in kubernetes. Usually deployments are used in production abd they comprise of replicaset template within them. When we use deployments we don&rsquo;t directly work with pods or replicaset objects.</p></li>
+
+<li><p>When a container version inside a deployment object is updated. The new replicaset and new pods are created. Old replicaset continues to exist. Pods in old replicaset gradually reduced to zero.</p></li>
+</ul>
+
+<p>Deployment objects provide
+- Versioning
+- Instant rollback
+- Rolling deployments
+- Blue-green
+- Canary deployments</p>
+
+<p>Deployment Usecases</p>
+
+<ul>
+<li>Primary usecase: To rollout a ReplicaSet( create new pods)</li>
+<li>Update state of existing deployment: just update pod template
+
+<ul>
+<li>new replicaset created, pods moved over in a controlled manner.</li>
+</ul></li>
+<li>Rollback to earlier version: simply go back to previous revision of deployment.</li>
+<li>Scale up: edit number of replicas.</li>
+<li>Pause/Resume deployments mid-way (after fixing bugs)</li>
+<li>Check status of deployments (using the status field)</li>
+<li>Clean up old replicasets that are not needed any more.</li>
+</ul>
+
+<p>Fields in Deployment</p>
+
+<ul>
+<li>Selector: Make sure the selector labels in the deployment are unique in every other deployment. This selector label is used replicaset to govern its pods.</li>
+<li>Strategy: How will old pods be replaced.
+
+<ul>
+<li>.spec.strategy.type == Recreate</li>
+<li>.spec.strategy.type == RollingUpdate</li>
+</ul></li>
+
+<li><p>More Hooks for Rolling Update:</p>
+
+<ul>
+<li>.spec.strategy.rollingUpdate.maxUnavailable // This will make only specific number of pods to be deleted at a particular instance. Can be mentioned in number or percentage of pods.</li>
+<li>.spec.strategy.rollingUpdate.maxSurge
+<br /></li>
+</ul></li>
+
+<li><p>progressDeadlineSeconds // This tells the kubernetes how long should it wait before confirming it as failed.</p></li>
+
+<li><p>minReadySeconds</p></li>
+
+<li><p>rollbackTo</p></li>
+
+<li><p>revisionHistoryLimit</p></li>
+
+<li><p>paused.</p></li>
+</ul>
+
+<p>Rolling back Deployment</p>
+
+<ul>
+<li>New revisions are created for any change in pod template
+
+<ul>
+<li>These changes are trivial to roll back.</li>
+</ul></li>
+<li>Other changes to manifest: eg. scaling do not create new revision
+
+<ul>
+<li>Can not roll back scaling easily.
+<br /></li>
+</ul></li>
+</ul>
+
+<p>kubectl apply -f foo.yaml &ndash;record // The flag &ndash;records the changes made to specific object.
+kubectl rollout history deploymentname // This gives the history of changes applied on specific deployment. With revision number
+kubectl rollout undo deployment/nginx-deployment // will undo the rollout.
+kubectl rollout undo deployment/nginx-deployment &ndash;to-revision=2 // This the revision you want to roll back to. This revision number can be obtained by cmd kubectl rollout history deploymentname.</p>
+
+<p>Pausing and Resuming Deployments.</p>
+
+<p>Imperative kubectl resume/pause commands</p>
+
+<pre><code>   $kubectl rollout resume deploy/nginx-deployment
+   deployment &quot;nginx&quot; resumed
+   $kubectl rollout pause deployment/nginx-deployment
+   deployment &quot;nginx-deployment&quot; paused
+   $kubectl rollout status deployment/nginx-deployment
+</code></pre>
+
+<p>Declarative: Change spec.Paused boolean
+  - Does not change pod template.
+  - Does mot trigger revision creation.</p>
+
+<ul>
+<li>Can make changes or debug while paused.</li>
+<li>Changes to pod template while paused will not take effect until resumed.</li>
+<li>Can not rollback paused deployment need to resume it first.</li>
+</ul>
+
+<h3 id="clean-up-policy">Clean-Up Policy</h3>
+
+<ul>
+<li>Important: Don&rsquo;t change this unless you understand it.</li>
+<li>Replicasets associated with deployment
+
+<ul>
+<li>New Replicaset for each revision</li>
+<li>So, one Replicaset for each change to pod template.</li>
+<li>Over period of time. We end up with so many revisions. We can clear them up or we can maintain desired number of older revisions.</li>
+<li>.spec.revisionHistoryLimit controls how many such revisions kept.</li>
+</ul></li>
+<li>Setting .spec.revisionHistoryLimit = 0 c;eans up all history, no rollback possible.</li>
+</ul>
+
+<h3 id="scaling-deployments">Scaling Deployments</h3>
+
+<ul>
+<li><p>Imperative: kubectl scale commands</p>
+
+<pre><code>kubectl scale deployments nginx-deployment --replicaa=10
+deployment &quot;nginx-deployment&quot; scaled
+</code></pre></li>
+
+<li><p>Declarative: Change number of repplicas and re-apply</p>
+
+<ul>
+<li>Scaling does not change pod template.</li>
+<li>So does not trigger creation of a new version.</li>
+<li>Can&rsquo;t rollback scaling that easily.
+<br /></li>
+</ul></li>
+
+<li><p>Can also scale using horizontal pod autoscaler (HPA)</p>
+
+<pre><code>kubectl autoscale deployment nginx-deployment --min=10 --max=15 --cpu-percent=80
+deployment &quot;nginx-deployment&quot; autoscaled&quot;
+</code></pre></li>
+</ul>
+
+<p>Proportinate Scaling</p>
+
+<ul>
+<li>During rolling deployments, two ReplicaSets exist
+
+<ul>
+<li>old version</li>
+<li>new version</li>
+</ul></li>
+<li>Proportinate scaling will scale pods in both ReplicaSets.</li>
+</ul>
+
+<p>Imperative way of scaling</p>
+
+<pre><code>kubectl scale deployments nginx-deployment --replicas=3
+</code></pre>
+
+<p>Declarative way of scaling</p>
+
+<p>By editing yaml file and updating replicas field and kubectl apply -f name.yaml will scale declaratively.</p>
+
+<p>Imperative way of changing the image version</p>
+
+<pre><code> kubectl set image deployment/nginx-deployment nginx=nginx:1.9.1
+</code></pre>
+
+<p>### Stateful Sets</p>
+
+<ul>
+<li>Manage Pods</li>
+<li>Maintians a sticky identity</li>
+<li>Pods are created from the same spec</li>
+<li>Not interchangable</li>
+<li>Identifier maintains across any rescheduling.</li>
+</ul>
+
+<p>Use cases</p>
+
+<ul>
+<li>Ordered, graceful deployment and scaling</li>
+<li>Ordered, graceful deletion and termination.</li>
+<li>Ordered, automated rolling updates.</li>
+<li>Stable, unique network identifiers.</li>
+<li>Stable, persistent storage.</li>
+</ul>
+
+<p>Limitations:</p>
+
+<ul>
+<li>Pod must either be provisioned by a PersistentVolume Provisioner or k8s admin.</li>
+<li>Deleting and/or scaling a StatefulSet down will not delete the volumes associated with the statefulSet.</li>
+<li>StatefulSets currently require a Headless Service.</li>
+</ul>
+
+<p>Deployment and Scaling Guarantees.</p>
+
+<ul>
+<li>N replicas, when Pods are being deployed, created sequentially, in order from (0&hellip;N-1)</li>
+<li>When Pods are being deleted, they are terminated in reverse order from (N-1&hellip;0)</li>
+<li>Before a scaling operation is applied to a Pod, all of its predecessors must be Running and Ready.</li>
+
+<li><p>Before a Pod is terminated, all of its successors must be completely shutdown.</p>
+
+<pre><code>apiVersion: v1
+kind: StatefulSet
+metadata:
+name: web
+spec:
+serviceName: &quot;nginx&quot;
+replicas: 2
+selector: 
+matchLabels:
+  app: nginx
+template:
+metadata:
+  labels:
+    app: nginx
+spec:
+  containers:
+  - name: nginx
+    port: 8080
+	
+</code></pre></li>
+</ul>
+
+<p>In statefulsets pods have sequentially naming no random generation of names.</p>
+
+<h3 id="daemonset">DaemonSet</h3>
+
+<ul>
+<li>As we add nodes to the k8s cluster this type pods are also added to node. In precise they are bacckground processes such log collection etc&hellip;</li>
+<li>Deleting the daemon set will clear the pods it has created.</li>
+</ul>
+
+<p>Usecases
+- Cluster storage daemons
+- log Collection daemons
+- node monitoring darmons.</p>
+
+<p>There are alternatives to daemon sets by directly creating daemon process on nodes by initialisation scripts.
+Satic pods these are controlled by kubelet they are not handled by api server or using kubectl.</p>
+
+<h3 id="cron-jobs">Cron-Jobs</h3>
+
+<p>Pods that do their job, then go away.
+- Create pods
+- Track their completion.
+- Ensure specified number terminate successfully.
+- Deleting job cleans up pods.</p>
+
+<p>Types of Jobs
+- Non-parallel jobs: Can use to force 1 pod to run successfully.
+- Parallel jobs with fixed completion count: Job completess when number of completions reaches target.
+- Parallel jobs with work queue: Requires coordination.</p>
+
+<p>Tracking Pods of Jobs
+- Once completed: no more pods created
+- Existing pods not deleted.
+- State set to terminated.
+- Can find them using kubectl show pods -a
+- You can delete them after listing them using above cmd.</p>
+
+<p>If pods keeps failing, jobs keep creating. this leads to infinite loop. Use spec.activeDeadlineSeconds field to prevent this. The job will be ended after the mentioned time.</p>
+
+<p>Usecases
+-Manages time based job
+  - Once at a specified point in time.
+  - Repeatedly at a specified point in time.
+-Schedule a job execution at a given point in time.</p>
+
+<p>Limitations:
+- Jobs should be idempotent
+- Only responsible for creating jobs that match its schedule.</p>
+
+<h3 id="batch-processing">Batch Processing</h3>
+
+<pre><code>apiVersion: batch/v1
+kind: Job
+metadata: 
+  name: pi
+spec:
+  template: 
+    spec:
+      containers:
+      - name: pi
+        image: per1
+	command: [&quot;perl&quot;, &quot;-Mbignum=bpi&quot;, &quot;-wle&quot;, &quot;print bpi(2000)&quot;]
+      restartPolicy: Never
+   backoffLimit: 4
+   
+</code></pre>
+
+<pre><code>kubectl get pods --show-all
+</code></pre>
+
+<p>we need to use &ndash;show-all flag as the job objects come into existence execute its payload and gets completed.</p>
+
+<h3 id="services">Services</h3>
+
+<ul>
+<li>Pod IP addresses keep changing as they go down and come up.</li>
+<li>For instance, when RepplicaSets or Deployments take pods up/down, IP addresses will change.</li>
+<li>Services help in maintaining stable network to the group of pods.</li>
+</ul>
+
+<h3 id="types-of-services">Types of Services</h3>
+
+<ul>
+<li><p>ClusterIP:</p>
+
+<ul>
+<li>Statis lifetime IP of service.</li>
+<li>Service only accesible within cluster.</li>
+<li>ClusterIP address is independent of nackend pods.</li>
+<li>Default type of service.</li>
+<li>Created by default even for NodePort, LoadBalancer service objects
+<br /></li>
+</ul></li>
+
+<li><p>NodePort:</p>
+
+<ul>
+<li>Service will also be exposed on each node on static port.</li>
+<li>External clients can hit Node IP + NodePort</li>
+<li>Request will be relayed/redirected to clusterIP + NodePort
+<br /></li>
+</ul></li>
+
+<li><p>LoadBalancer:</p>
+
+<ul>
+<li>External loadbalancer object</li>
+<li>Use LBs provided by AWS, GCP, Azure&hellip;</li>
+<li>Will automatically create NodePort and ClusterIP services under the hood.</li>
+<li>External LB -&gt; NodePort -&gt; ClusterIP -&gt; Backend Pod.
+<br /></li>
+</ul></li>
+
+<li><p>ExternalName:</p>
+
+<ul>
+<li>Map service to external service residing outside the cluster.</li>
+<li>Can only be accessed via kube-dns.</li>
+<li>No selectors in service spec.</li>
+</ul></li>
+</ul>
+
+<h3 id="networking-in-pods-and-containers">Networking in Pods and Containers</h3>
+
+<p>Docker
+- Host-private private networking
+- Ports must be allocated on node IPs
+- Containers need to allocate ports.
+- Burden of networking lies on containers.</p>
+
+<p>Kubernetes
+- Pod can always communicate with each other
+- Inter- pod communication independent of nodes
+- Pods have private IP addresses(within cluster)
+- Containers within pod: use localhost
+- Containers across pods: pod IP address.</p>
+
+<p>Service = Logical set of backend pods + stable front-end
+Front-end: Static IP address+ Port+DNS Name
+Back-end: Logical set of backend pods(label selector)</p>
+
+<p>ClusterIP</p>
+
+<ul>
+<li>When service object created, ClusterIP is assigned</li>
+<li>Tied to service object through lifetime.</li>
+<li>Independent of lifespan of any backend pod.</li>
+<li>Any other pods can talk to CLusterIp and always access backend</li>
+<li>Service objects also has a static port assigned to it.</li>
+</ul>
+
+<p>How labels are matched between pods and service objects.</p>
+
+<p>Service object</p>
+
+<pre><code>selector:
+  matchLabels:
+    tier: frontend
+  matchExpressions:
+    - {key: tier, operator: In, values: [frontend]}
+    
+</code></pre>
+
+<p>Pod Object</p>
+
+<pre><code>Labels
+{
+tier: frontend,
+env: prod,
+geo: India
+}
+</code></pre>
+
+<p>Endpoint Object</p>
+
+<ul>
+<li>Dynamic list of pods hat are selected by a service.</li>
+<li>Each service object has an associated endpoint object.</li>
+<li>Kubernetes evaluates service label selector vs all pods in cluster.</li>
+<li>Dynamic list is updated as pods are created/deleted.</li>
+</ul>
+
+<p>No selector - No Endpoint Object</p>
+
+<ul>
+<li>No endpoint object created
+
+<ul>
+<li>Need to manually map the service to specific IP or address.</li>
+</ul></li>
+<li>ExternalName service: this is a service with no selector, no port
+
+<ul>
+<li>alias to external service in another cluster.</li>
+</ul></li>
+</ul>
+
+<p>Services for STable IP Addresses</p>
+
+<p>From Within Cluster</p>
+
+<ul>
+<li>Endpoint object</li>
+<li>Dynamic list of pods</li>
+<li>Based on label selection</li>
+</ul>
+
+<p>From Outside Cluster</p>
+
+<ul>
+<li>Virtual IP</li>
+<li>Can be accessed via any Node IP</li>
+<li>Node will relay to clusterIP</li>
+</ul>
+
+<h3 id="multi-port-services">Multi-Port Services</h3>
+
+<ul>
+<li>Simply add multiple ports in the servie spec</li>
+
+<li><p>Each port must be named</p>
+
+<ul>
+<li><p>will have DNS SRV record</p>
+
+<pre><code>kind: Service
+apiVersion:: v1
+metadata:
+name: my-service
+spec:
+selector: 
+app: MyApp
+ports:
+- name: http
+protocol: TCP
+port: 80
+targetPort: 9376
+- name: https
+protocol: TCP
+port: 443
+targetPort: 9377
+</code></pre></li>
+</ul></li>
+</ul>
+
+<h3 id="service-discovery">Service Discovery</h3>
+
+<ul>
+<li>Say a pod knows it needs to access some service.</li>
+<li>How do containers in that pod actually go about doing so?</li>
+<li>This is called Service Discovery</li>
+<li>Two methods:
+
+<ul>
+<li>DNS lookup: Preferred</li>
+<li>Environment Variables.
+<br /></li>
+</ul></li>
+</ul>
+
+<h4 id="dns-service-discovery">DNS Service Discovery</h4>
+
+<ul>
+<li>Requires dns add-on</li>
+<li>DNS server listens on creation of new services.</li>
+<li>When new service object created, DNS records created.</li>
+<li>All nodes can resolve service using name alone.</li>
+</ul>
+
+<h4 id="dns-service-discovery-of-clusterip">DNS Service Discovery of ClusterIP</h4>
+
+<ul>
+<li>Service name: my-service, Namespace: my-namespace</li>
+<li>Pods in my-namespace: simply DNS name lookup my-service.</li>
+<li>Pods in other namespaces: DNS name lookup my-service.my-namespace</li>
+<li>DNS Name lookup will return CLusterIP of service.</li>
+</ul>
+
+<h4 id="dns-lookup">DNS lookup</h4>
+
+<ul>
+<li>Dynamic</li>
+<li>Preferred</li>
+<li>Requires DNS add-on</li>
+</ul>
+
+<h4 id="environment-variables">Environment Variables</h4>
+
+<ul>
+<li>Static</li>
+<li>Kubelet configures env variables for containers.</li>
+<li>Each service has environment variables for
+
+<ul>
+<li>host</li>
+<li>port</li>
+<li>Static - not updated after pod creation.
+<br /></li>
+</ul></li>
+</ul>
+
+<h4 id="headless-service">Headless Service</h4>
+
+<p>Usually a clusterIP is created only once no matter how many ever pods come and go. This is static.</p>
+
+<ul>
+<li>Service without CLuster IP = Headless service</li>
+<li>Use if you don&rsquo;t need
+
+<ul>
+<li>Load balancing.</li>
+<li>cluster IP.</li>
+</ul></li>
+<li>Headless with selector? Associate with pods in this cluster.</li>
+<li>Headless without selector? Forward to ExternalName services
+
+<ul>
+<li>resolution for service in another cluster.
+<br />
+<br /></li>
+</ul></li>
+</ul>
+
+<h3 id="rbac-role-based-access-control">RBAC (Role based Access Control)</h3>
+
+<h4 id="identity-and-access-management-iam">Identity and Access Management (IAM)</h4>
+
+<ul>
+<li><p>Identities</p>
+
+<ul>
+<li>Individual Users(for users)</li>
+<li>Groups(for users)</li>
+<li>Service Accounts( not for humans)
+<br /></li>
+</ul></li>
+
+<li><p>Access</p>
+
+<ul>
+<li>RBAC</li>
+<li>ACLs(Access Control List)
+<br /></li>
+</ul></li>
+</ul>
+
+<p>RBAC has two types of Roles</p>
+
+<ul>
+<li>Roles: They govern the permissions for set of resources within namespace.</li>
+<li>ClusterRoles: Apply across entire cluster, All namespaces in cluster.</li>
+</ul>
+
+<h4 id="there-are-two-types-of-bindings">There are two types of bindings</h4>
+
+<p>This are used to bind the identities and access
+- RoleBinding: Bind to specific namespace, Can bind either Role or ClusterRole.
+- ClusterRoleBinding: Bind across entire clutser, all namespaces in cluster, Can bind either Role or ClusterRole.</p>
+
+<p>A role contains rules that represent a group of permissions.</p>
+
+<pre><code>kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata: 
+  namespace: default //Applicable to default namespace
+  name: pod-reader
+rules:
+  - apiGroups: [&quot;&quot;]
+    resources: [&quot;pods&quot;] // only for pods objects
+    verbs: [&quot;gets&quot;,&quot;watch&quot;,&quot;list&quot;] // this are actions can be performed.
+</code></pre>
+
+<p>As the above object is role its confined to a namespace. After creating the above object in k8s we don&rsquo;t see any difference till we create rolebinding object.</p>
+
+<p>A ClusterRole can be used to grant the same permissions as a Role, but because ther are cluster scoped, they can also be used to grant access to:</p>
+
+<ul>
+<li>cluster-scoped resources (like nodes)</li>
+<li>non-resources endpoints(like &ldquo;/healthz&rdquo;)</li>
+
+<li><p>namespaced resources (like pods) across all namespaces (needed to run kubectl get pods &ndash;all-namespaces, for example)</p>
+
+<pre><code>kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+	name: secret-reader
+rules:
+- apiGroups: [&quot;&quot;]
+- resources: [&quot;secrets&quot;]
+  verbs: [&quot;get&quot;,&quot;watch&quot;,&quot;list&quot;]
+</code></pre></li>
+</ul>
+
+<p>Once the role is created it can be bound to rolebind or clusterrolebinding.
+  A rolebinding can be used by not only role but also clusterrole. The identities bound can be either users, groups or service accounts.</p>
+
+<pre><code>  kind: RoleBinding
+  apiVersion: rbac.authorization.k8s.io/v1
+  metadata:
+    name: read-pods
+    namespace: default
+  subjects:
+  - kind: User
+    name: jane
+    apiGroup: rbac.authorization.k8s.io
+  roleRef:
+    kind: Role  // You bind here cluster role as well but this role binding is applicable only to namespace that refered in metadata.
+    name: pod-reader // This refers to the role with name pod-reader.
+    apiGroup: rbac.authorization.k8s.io
+</code></pre>
+
+<p>ClusterRoleBinding doesn&rsquo;t include namespace field as it is applicable to the cluster as whole.</p>
+
+<pre><code>   kind: ClusterRoleBinding
+   apiVersion: rbac.authorization.k8s.io/v1
+   metadata:
+     name: read-secrets-global
+   subjects:
+   - kind: Group
+     name: manager
+     apiGroup: rbac.authorization.k8s.io
+   roleRef:
+     kind: ClusterRole
+     name: secret-reader
+     apiGroup: rbac.authorization.k8s.io
+
+</code></pre>
+
+<h3 id="api-version-s-for-specific-objects">API VERSION&rsquo;s for specific objects</h3>
+
+<p><br/></p>
+
+<h4 id="kind-apiversion">KIND -&gt; APIVERSION</h4>
+
+<p><pre>
+CertificateSigningRequest     ======================&gt;   certificates.k8s.io/v1beta1
+ClusterRoleBinding            ======================&gt;   rbac.authorization.k8s.io/v1
+ClusterRole                   ======================&gt;   rbac.authorization.k8s.io/v1
+ComponentStatus               ======================&gt;   v1
+ConfigMap                     ======================&gt;   v1|
+ControllerRevision            ======================&gt;   apps/v1
+CronJob                       ======================&gt;   batch/v1beta1
+DaemonSet                     ======================&gt;   extensions/v1beta1
+Deployment                    ======================&gt;   extensions/v1beta1
+Endpoints                     ======================&gt;   v1
+Event                         ======================&gt;   v1
+HorizontalPodAutoscaler       ======================&gt;   autoscaling/v1
+Ingress                       ======================&gt;   extensions/v1beta1
+Job                           ======================&gt;   batch/v1
+LimitRange                    ======================&gt;   v1
+Namespace                     ======================&gt;   v1
+NetworkPolicy                 ======================&gt;   extensions/v1beta1
+Node                          ======================&gt;   v1
+PersistentVolumeClaim         ======================&gt;   v1
+PersistentVolume              ======================&gt;   v1
+PodDisruptionBudget           ======================&gt;   policy/v1beta1
+Pod                           ======================&gt;   v1
+PodSecurityPolicy             ======================&gt;   extensions/v1beta1
+PodTemplate                   ======================&gt;   v1
+ReplicaSet                    ======================&gt;   extensions/v1beta1
+ReplicationController         ======================&gt;   v1
+ResourceQuota                 ======================&gt;   v1
+RoleBinding                   ======================&gt;   rbac.authorization.k8s.io/v1|
+Role                          ======================&gt;   rbac.authorization.k8s.io/v1|
+Secret                        ======================&gt;   v1
+ServiceAccount                ======================&gt;   v1
+Service                       ======================&gt;   v1
+StatefulSet                   ======================&gt;   apps/v1
+ </pre></p>
+
+<p>What does each apiVersion mean?</p>
+
+<h3 id="alpha">alpha</h3>
+
+<p>API versions with ‘alpha’ in their name are early candidates for new functionality coming into Kubernetes. These may contain bugs and are not guaranteed to work in the future.</p>
+
+<h3 id="beta">beta</h3>
+
+<p>‘beta’ in the API version name means that testing has progressed past alpha level, and that the feature will eventually be included in Kubernetes. Although the way it works might change, and the way objects are defined may change completely, the feature itself is highly likely to make it into Kubernetes in some form.</p>
+
+<h3 id="stable">stable</h3>
+
+<p>These do not contain ‘alpha’ or ‘beta’ in their name. They are safe to use.</p>
+
+<h3 id="v1">v1</h3>
+
+<p>This was the first stable release of the Kubernetes API. It contains many core objects.</p>
+
+<h3 id="apps-v1">apps/v1</h3>
+
+<p>apps is the most common API group in Kubernetes, with many core objects being drawn from it and v1. It includes functionality related to running applications on Kubernetes, like Deployments, RollingUpdates, and ReplicaSets.</p>
+
+<h3 id="autoscaling-v1">autoscaling/v1</h3>
+
+<p>This API version allows pods to be autoscaled based on different resource usage metrics. This stable version includes support for only CPU scaling, but future alpha and beta versions will allow you to scale based on memory usage and custom metrics.</p>
+
+<h3 id="batch-v1">batch/v1</h3>
+
+<p>The batch API group contains objects related to batch processing and job-like tasks (rather than application-like tasks like running a webserver indefinitely). This apiVersion is the first stable release of these API objects.</p>
+
+<h3 id="batch-v1beta1">batch/v1beta1</h3>
+
+<p>A beta release of new functionality for batch objects in Kubernetes, notably including CronJobs that let you run Jobs at a specific time or periodicity.</p>
+
+<h3 id="certificates-k8s-io-v1beta1">certificates.k8s.io/v1beta1</h3>
+
+<p>This API release adds functionality to validate network certificates for secure communication in your cluster. You can read more on the official docs.</p>
+
+<h3 id="extensions-v1beta1">extensions/v1beta1</h3>
+
+<p>This version of the API includes many new, commonly used features of Kubernetes. Deployments, DaemonSets, ReplicaSets, and Ingresses all received significant changes in this release.</p>
+
+<p>Note that in Kubernetes 1.6, some of these objects were relocated from extensions to specific API groups (e.g. apps). When these objects move out of beta, expect them to be in a specific API group like apps/v1. Using extensions/v1beta1 is becoming deprecated—try to use the specific API group where possible, depending on your Kubernetes cluster version.</p>
+
+<h3 id="policy-v1beta1">policy/v1beta1</h3>
+
+<p>This apiVersion adds the ability to set a pod disruption budget and new rules around pod security.</p>
+
+<h3 id="rbac-authorization-k8s-io-v1">rbac.authorization.k8s.io/v1</h3>
+
+<p>This apiVersion includes extra functionality for Kubernetes role-based access control. This helps you to secure your cluster.</p>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	<a href=" http://example.com/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+</div>
+
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "shortcode-here" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'code-here', 'auto');
+    ga('send', 'pageview');
+    window.baseURL = "http:\/\/example.com\/";
+  </script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="http://example.com//js/App.js"></script>
+  
+</body>
+</html>
