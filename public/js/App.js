@@ -19,7 +19,7 @@ $(document).ready(function() {
 		var href = $(el).attr("href");
 		
 		if (typeof href === "string" && href.indexOf(window.location.origin) === -1 && "/.#".indexOf(href[0]) === -1) {
-			$(el).attr("target", "_blank");
+			$(el).attr("target", "");
 		}
 	});
 	
