@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vineeth&#39;s profile!</title>
-    <link>https://vineethweb.com/</link>
+    <link>http://vineethweb.com/</link>
     <description>Recent content on Vineeth&#39;s profile!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 04 Mar 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://vineethweb.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://vineethweb.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting Started With hugo-geo</title>
-      <link>https://vineethweb.com/tutorial/getting-started/</link>
+      <link>http://vineethweb.com/tutorial/getting-started/</link>
       <pubDate>Fri, 04 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://vineethweb.com/tutorial/getting-started/</guid>
+      <guid>http://vineethweb.com/tutorial/getting-started/</guid>
       <description>&lt;p&gt;Setting up and configuring hugo-geo is as simple as changing a few values in your site &lt;code&gt;config.toml&lt;/code&gt;. Lets look at this example site&amp;rsquo;s config and go over what
 each of hugo-geo&amp;rsquo;s site &lt;code&gt;[params]&lt;/code&gt; do.&lt;/p&gt;
 
@@ -25,10 +25,10 @@ each of hugo-geo&amp;rsquo;s site &lt;code&gt;[params]&lt;/code&gt; do.&lt;/p&gt
     
     <item>
       <title>About Me</title>
-      <link>https://vineethweb.com/about/</link>
+      <link>http://vineethweb.com/about/</link>
       <pubDate>Tue, 28 Jul 2015 09:51:51 -0400</pubDate>
       
-      <guid>https://vineethweb.com/about/</guid>
+      <guid>http://vineethweb.com/about/</guid>
       <description>Hey! Vineeth here, I am a student. I love to explore new tech and spend time in learning new things which come on my way and take opportunities which cross my path. Am also a member of kubernetes community.
  I interned with Google Summer of Code with The Postgres Operator. You can know more about my GSoC work here
  I worked with OpenText as an intern for 3 months.</description>
@@ -36,10 +36,10 @@ each of hugo-geo&amp;rsquo;s site &lt;code&gt;[params]&lt;/code&gt; do.&lt;/p&gt
     
     <item>
       <title>All About Docker Instructions</title>
-      <link>https://vineethweb.com/post/docker-instructions/</link>
+      <link>http://vineethweb.com/post/docker-instructions/</link>
       <pubDate>Tue, 28 Jul 2015 09:32:45 -0400</pubDate>
       
-      <guid>https://vineethweb.com/post/docker-instructions/</guid>
+      <guid>http://vineethweb.com/post/docker-instructions/</guid>
       <description>The main intention behind writing this blog is to understand docker instructions and it&amp;rsquo;s capabilities while writing a Dockerfile.
 In the recent past it&amp;rsquo;s hard to find an application without a Dockerfile. 😃
  INSTRUCTIONS used in Dockerfile  FROM MAINTAINER RUN CMD LABEL EXPOSE ENV ADD COPY ENTRYPOINT VOLUME USER WORKDIR ARG ONBUILD STOPSIGNAL HEALTHCHECK SHELL   FROM FROM &amp;lt;image&amp;gt; # picks latest by default FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt; # specific version can be pulled FROM &amp;lt;image&amp;gt;@&amp;lt;digest&amp;gt; # This makes sure we pull the specific image with provided digest, # If image content is changed digest also changes.</description>
@@ -47,10 +47,10 @@ In the recent past it&amp;rsquo;s hard to find an application without a Dockerfi
     
     <item>
       <title>Inspecting Kubernetes Theoritically</title>
-      <link>https://vineethweb.com/post/intro-to-k8s/</link>
+      <link>http://vineethweb.com/post/intro-to-k8s/</link>
       <pubDate>Tue, 28 Jul 2015 09:32:45 -0400</pubDate>
       
-      <guid>https://vineethweb.com/post/intro-to-k8s/</guid>
+      <guid>http://vineethweb.com/post/intro-to-k8s/</guid>
       <description>Kubernetes Kubernetes only understands pods not containers.
 Pod Creation Requests  Bare pod RelplicaSet Deployment  Multi Container Pods  Share access to memory space Connect to each other using localhost Share access to the same volumes (storage abstraction) Tightly coupled. One crashes, all crashes. Same parameters such as config maps.  Pod Atomic Unit in Kubernetes is Pod
 In a pod either all conatiners or none of them run.</description>
