@@ -3,81 +3,81 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://vineethweb.com/tutorial/getting-started/</loc>
+    <loc>https://vineethweb.com/tutorial/getting-started/</loc>
     <lastmod>2016-03-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vineethweb.com/tags/</loc>
-    <lastmod>2016-03-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://vineethweb.com/tutorial/</loc>
+    <loc>https://vineethweb.com/tags/</loc>
     <lastmod>2016-03-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://vineethweb.com/</loc>
+    <loc>https://vineethweb.com/tutorial/</loc>
     <lastmod>2016-03-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://vineethweb.com/tags/hugo/</loc>
+    <loc>https://vineethweb.com/</loc>
     <lastmod>2016-03-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://vineethweb.com/tags/series/</loc>
+    <loc>https://vineethweb.com/tags/hugo/</loc>
     <lastmod>2016-03-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://vineethweb.com/tags/tutorial/</loc>
+    <loc>https://vineethweb.com/tags/series/</loc>
     <lastmod>2016-03-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://vineethweb.com/about/</loc>
+    <loc>https://vineethweb.com/tags/tutorial/</loc>
+    <lastmod>2016-03-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/about/</loc>
     <lastmod>2015-07-28T09:51:51-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vineethweb.com/post/docker-instructions/</loc>
+    <loc>https://vineethweb.com/post/docker-instructions/</loc>
     <lastmod>2015-07-28T09:32:45-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vineethweb.com/post/intro-to-k8s/</loc>
+    <loc>https://vineethweb.com/post/intro-to-k8s/</loc>
     <lastmod>2015-07-28T09:32:45-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vineethweb.com/post/</loc>
-    <lastmod>2015-07-28T09:32:45-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://vineethweb.com/tags/docker/</loc>
+    <loc>https://vineethweb.com/post/</loc>
     <lastmod>2015-07-28T09:32:45-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://vineethweb.com/tags/kubernetes/</loc>
+    <loc>https://vineethweb.com/tags/docker/</loc>
     <lastmod>2015-07-28T09:32:45-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://vineethweb.com/tutorials/</loc>
+    <loc>https://vineethweb.com/tags/kubernetes/</loc>
+    <lastmod>2015-07-28T09:32:45-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/tutorials/</loc>
     <priority>0</priority>
   </url>
   
