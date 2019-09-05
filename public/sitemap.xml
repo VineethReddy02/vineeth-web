@@ -71,6 +71,11 @@
   </url>
   
   <url>
+    <loc>https://vineethweb.com/post/kubectl-pg-plugin/</loc>
+    <lastmod>2015-07-28T09:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://vineethweb.com/tags/kubernetes/</loc>
     <lastmod>2015-07-28T09:32:45-04:00</lastmod>
     <priority>0</priority>

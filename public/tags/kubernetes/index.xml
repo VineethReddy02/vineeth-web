@@ -22,5 +22,15 @@ Pod Creation Requests  Bare pod RelplicaSet Deployment  Multi Container Pods  Sh
 In a pod either all conatiners or none of them run.</description>
     </item>
     
+    <item>
+      <title>kubectl pg plugin for Zalando&#39;s Postgres Operator</title>
+      <link>https://vineethweb.com/post/kubectl-pg-plugin/</link>
+      <pubDate>Tue, 28 Jul 2015 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/post/kubectl-pg-plugin/</guid>
+      <description>#kubectl pg plugin for Zalando&amp;rsquo;s Postgres Operator
+Project Abstract The Postgres Operator is a project to create an open-sourced managed Postgres service for Kubernetes. The Postgres operator manages Postgres clusters on Kubernetes. kubectl plugins enable extending the Kubernetes command-line client kubectl with commands to manage custom resources. The task is to design and implement a plugin for the kubectl postgres command. My project aims to simplify and ease the usage of postgres clusters using the kubectl plugin.</description>
+    </item>
+    
   </channel>
 </rss>
