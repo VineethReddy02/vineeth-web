@@ -11,4 +11,4 @@ Hey! Vineeth here, I am a student. I love to explore new tech and spend time in 
 
 - I worked with OpenText as an intern for 3 months.
 
-- Feel free to reach out to me in organising tech meetups in and around Hyderabad. Would love to make things happen.
+- Feel free to reach out to me in organising tech meetups in and around Hyderabad. Would love to collaborate.

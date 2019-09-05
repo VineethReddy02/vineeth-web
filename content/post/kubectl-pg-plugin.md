@@ -1,5 +1,5 @@
 +++
-date = "2015-07-28T09:32:45-04:00"
+date = "2019-09-02T09:32:45-04:00"
 draft = false
 title = "kubectl pg plugin for Zalando's Postgres Operator"
 tags = ["kubernetes"]

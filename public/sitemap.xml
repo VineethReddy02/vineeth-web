@@ -3,24 +3,57 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://vineethweb.com/tutorial/getting-started/</loc>
-    <lastmod>2016-03-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vineethweb.com/tags/</loc>
-    <lastmod>2016-03-04T00:00:00+00:00</lastmod>
+    <loc>https://vineethweb.com/post/</loc>
+    <lastmod>2019-09-02T09:32:45-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://vineethweb.com/tutorial/</loc>
-    <lastmod>2016-03-04T00:00:00+00:00</lastmod>
+    <loc>https://vineethweb.com/tags/</loc>
+    <lastmod>2019-09-02T09:32:45-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://vineethweb.com/</loc>
+    <lastmod>2019-09-02T09:32:45-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/post/kubectl-pg-plugin/</loc>
+    <lastmod>2019-09-02T09:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/tags/kubernetes/</loc>
+    <lastmod>2019-09-02T09:32:45-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/post/intro-to-k8s/</loc>
+    <lastmod>2019-08-15T09:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/post/docker-instructions/</loc>
+    <lastmod>2019-07-02T09:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/tags/docker/</loc>
+    <lastmod>2019-07-02T09:32:45-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/tutorial/getting-started/</loc>
+    <lastmod>2016-03-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/tutorial/</loc>
     <lastmod>2016-03-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -46,39 +79,6 @@
   <url>
     <loc>https://vineethweb.com/about/</loc>
     <lastmod>2015-07-28T09:51:51-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vineethweb.com/post/docker-instructions/</loc>
-    <lastmod>2015-07-28T09:32:45-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vineethweb.com/post/intro-to-k8s/</loc>
-    <lastmod>2015-07-28T09:32:45-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vineethweb.com/post/</loc>
-    <lastmod>2015-07-28T09:32:45-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vineethweb.com/tags/docker/</loc>
-    <lastmod>2015-07-28T09:32:45-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vineethweb.com/post/kubectl-pg-plugin/</loc>
-    <lastmod>2015-07-28T09:32:45-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vineethweb.com/tags/kubernetes/</loc>
-    <lastmod>2015-07-28T09:32:45-04:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

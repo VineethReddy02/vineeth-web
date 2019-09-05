@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Vineeth&#39;s profile!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Mar 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Sep 2019 09:32:45 -0400</lastBuildDate>
     
 	<atom:link href="https://vineethweb.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://vineethweb.com/tags/kubernetes/</link>
+      <pubDate>Mon, 02 Sep 2019 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://vineethweb.com/tags/docker/</link>
+      <pubDate>Tue, 02 Jul 2019 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/tags/docker/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>hugo</title>
@@ -35,24 +53,6 @@
       <pubDate>Fri, 04 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>https://vineethweb.com/tags/tutorial/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://vineethweb.com/tags/docker/</link>
-      <pubDate>Tue, 28 Jul 2015 09:32:45 -0400</pubDate>
-      
-      <guid>https://vineethweb.com/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>https://vineethweb.com/tags/kubernetes/</link>
-      <pubDate>Tue, 28 Jul 2015 09:32:45 -0400</pubDate>
-      
-      <guid>https://vineethweb.com/tags/kubernetes/</guid>
       <description></description>
     </item>
     

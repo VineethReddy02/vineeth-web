@@ -1,5 +1,5 @@
 +++
-date = "2015-07-28T09:32:45-04:00"
+date = "2019-07-02T09:32:45-04:00"
 draft = false
 title = "All About Docker Instructions"
 tags = ["docker"]

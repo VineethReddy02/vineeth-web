@@ -1,5 +1,5 @@
 +++
-date = "2015-07-28T09:32:45-04:00"
+date = "2019-08-15T09:32:45-04:00"
 draft = false
 title = "Inspecting Kubernetes Theoritically"
 tags = ["kubernetes"]
