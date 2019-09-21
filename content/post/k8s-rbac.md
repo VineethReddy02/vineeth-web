@@ -25,11 +25,11 @@ As we all know role based access control plays a vital role. when we have multip
 
 RBAC mainly deals with three entities
 
-1. subject: Users(i.e humans & services)
-2. verb:    Action a subject can perform
-3. object:  Victim for an action from a subject
+1. **subject**: Users(i.e humans & services)
+2. **verb**:    Action a subject can perform
+3. **object**:  Victim for an action from a subject
 
-Can mike(subject) get(verb) pods(object)?
+**Can mike(subject) get(verb) pods(object)?**
 
 Kubernetes provides following resources to manage RBAC:
 
@@ -95,7 +95,7 @@ metadata:
 rules:
 - apiGroups: ["", "apps","extensions"]
   resources: ["pods","pods/log","deployments"]
-  #resourceNames: ["nginx-deployment"] #Providing the resource name privileges are confined to that resource.
+  #resourceNames: ["nginx-deployment"] #Confines privileges to specified resource name
   verbs: ["get","list"]
 - apiGroups: ["batch"]
   resources:
@@ -265,7 +265,7 @@ helm install stable/mysql
 By this you have successfully configured helm in your cluster which needs special privileges to communicate with API-SERVER.
 
 
-Note:
+**Note:**
 
 1. By default when a new namespace is created a default ServiceAccount specific to that namespace is created but this serviceaccount has no authorization privileges all the resources running in this namespace will use the default ServiceAccount, Unless we need any privileges specific to a resource we need to specify it in resource.yaml as mentioned in below example.
 
@@ -284,5 +284,6 @@ spec:
 
 2. We can also bind a ClusterRole to a RoleBinding which provides privileges to subject provided in RoleBinding but the scope is specific to namespace mentioned in the RoleBinding. 
 
+Slides used in my talk on RBAC can be found [here](https://drive.google.com/file/d/1FGjjYQDRdoB1geNh4D_gRuZutCha8LdW/view)
 
 *Cheers!*
