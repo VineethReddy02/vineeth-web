@@ -11,7 +11,7 @@ tags = ["kubernetes"]
 
 As we all know role based access control plays a vital role. when we have multiple people using the same resources for different purposes. We need to handle this scenarios by providing the users unique identification mechanism and privileges required for that particular user.
 
-**RBAC in kubernetes follows the least privilege mechanism.**
+**RBAC in kubernetes adheres to least privilege principle.**
 
 ### Need for RBAC 
 
@@ -125,7 +125,7 @@ roleRef:
 
 Token based authentication deals with service account. Firstly we create a service account which has internal RoleBinding or ClusterRoleBinding based on the requirement. And this has a secret token encoded in base64 and also a certificate. We need secret token and certificate to authenticate with cluster. We rovide this values in KUBEONFIG file.
 
-Creating a serviceaccount in test namespace.
+- Creating a serviceaccount in test namespace.
 
 ```
 apiVersion: v1
@@ -135,7 +135,7 @@ metadata:
   namespace: test
 ```
 
-Creating a clusterrole with privileges
+- Creating a clusterrole with privileges
 
 ```
 kind: ClusterRole
@@ -153,7 +153,7 @@ rules:
   verbs: ["*"]
 ```
 
-Creating a clusterrolebinding by binding a serviceaccount to it.
+- Creating a clusterrolebinding by binding a serviceaccount to it.
 
 ```
 kind: ClusterRoleBinding
@@ -170,25 +170,25 @@ roleRef:
   name: test-user-full-access
 ```
 
-Get the service account secret for the provided namespace
+- Get the service account secret for the provided namespace
 
 ```
 kubectl describe sa test-user -n test
 ```
 
-Get the service account token 
+- Get the service account token 
 
 ```
 kubectl get secret test-user-token-xxxxx -n test -o "jsonpath={.data.token}" | base64 -d
 ```
 
-Get the certificate authority
+- Get the certificate authority
 
 ```
 kubectl get secret test-user-token-xxxxx -n test -o "jsonpath={.data['ca\.crt']}"
 ```
 
-Template for KUBECONFIG file.
+**Template for KUBECONFIG file.**
 
 Add the kubernetes api endpoint, certificate and token in the below KUBECONFIG file.
 
@@ -284,6 +284,6 @@ spec:
 
 2. We can also bind a ClusterRole to a RoleBinding which provides privileges to subject provided in RoleBinding but the scope is specific to namespace mentioned in the RoleBinding. 
 
-Slides prepared for my talk on RBAC can be found [here](https://drive.google.com/file/d/1FGjjYQDRdoB1geNh4D_gRuZutCha8LdW/view)
+Slides prepared fors my talk on RBAC can be found [here](https://drive.google.com/file/d/1FGjjYQDRdoB1geNh4D_gRuZutCha8LdW/view)
 
 *Cheers!*
