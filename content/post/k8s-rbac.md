@@ -1,5 +1,5 @@
 +++
-date = "2019-08-15T09:32:45-04:00"
+date = "2019-09-21T09:32:45-04:00"
 draft = false
 title = "Limiting Privileges In Kubernetes"
 tags = ["kubernetes"]
@@ -11,19 +11,20 @@ tags = ["kubernetes"]
 
 As we all know role based access control plays a vital role. when we have multiple people using the same resources for different purposes. We need to handle this scenarios by providing the users unique identification mechanism and privileges required for that particular user.
 
-RBAC in kubernetes follows the least privilege mechanism.
+**RBAC in kubernetes follows the least privilege mechanism.**
 
 ### Need for RBAC 
 
-As Kubernetes has tens of resources with many functionalities. Different users use them for different use cases. Unnecessary privileges leads to increasing the attack surface.
+- As Kubernetes has tens of resources with many functionalities. Different users use them for different use cases. Unnecessary privileges leads to increasing the attack surface.
 
-Like every other role based access control system kubernetes also deals with authentication and authorization.
+- Like every other role based access control system kubernetes also deals with authentication and authorization.
 
-Authentication deals with does a specific user, group or a service from a machine can authenticate or access this system.
+**Authentication** deals with does a specific user, group or a service from a machine can authenticate or access this system.
 
-Authorization deals with does a specific user have an required privileges to perform a particular action on a specific resource or subresource or group of resources.
+**Authorization** deals with does a specific user have an required privileges to perform a particular action on a specific resource or subresource or group of resources.
 
 RBAC mainly deals with three entities
+
 1. subject: Users(i.e humans & services)
 2. verb:    Action a subject can perform
 3. object:  Victim for an action from a subject
@@ -40,15 +41,15 @@ Kubernetes provides following resources to manage RBAC:
 5. ServiceAccount
 
 
-Role: Roles defines the set of privileges allowed on specific resource by it's name or on group of resources or set of subresourcesand this is confined to a specific namespace.
+**Role**: Roles defines the set of privileges allowed on specific resource by it's name or on group of resources or set of subresourcesand this is confined to a specific namespace.
 
-ClusterRole: ClusterRole defines the set of privileges allowed on specific resource by it's name or on group of resources or set of subresources and this is applicable on cluster as a whole.
+**ClusterRole**: ClusterRole defines the set of privileges allowed on specific resource by it's name or on group of resources or set of subresources and this is applicable on cluster as a whole.
 
-RoleBinding: Rolebinding binds the user or group or serviceaccount to a role. This makes sure the subject provided in rolebinding has all the privileges provided within a role.
+**RoleBinding**: Rolebinding binds the user or group or serviceaccount to a role. This makes sure the subject provided in rolebinding has all the privileges provided within a role.
 
-ClusterRoleBinding: ClusterRolebinding binds the user or group or serviceaccount to a role. This makes sure the subject provided in clusterrolebinding has all the privileges provided within a clusterrole.
+**ClusterRoleBinding**: ClusterRolebinding binds the user or group or serviceaccount to a role. This makes sure the subject provided in clusterrolebinding has all the privileges provided within a clusterrole.
 
-ServiceAccount: Serviceaccount authorizes account to perform specific action based on the rolebinding or clusterrolebinding it is associated with.
+**ServiceAccount**: Serviceaccount authorizes account to perform specific action based on the rolebinding or clusterrolebinding it is associated with.
 
 In this blog we will be looking at two ways of creating KUBECONFIG file they are
 
@@ -57,19 +58,31 @@ In this blog we will be looking at two ways of creating KUBECONFIG file they are
 
 ### Certificate based authentication
 
-```openssl genrsa -out new-user.key 2048```
+Generate the private key file.
+
+```
+openssl genrsa -out new-user.key 2048
+```
 
 Create a certificate sign request new-user.csr using the private key you just created (new-user.key in this
 example). Make sure you specify your username and group in the -subj section (CN is for the username and O for
 the group). As previously mentioned, we will use new-user as the name and bitnami as the group:
 
-```openssl req -new -key employee.key -out new-user.csr -subj "/CN=new-user/O=aqua"```
+```
+openssl req -new -key employee.key -out new-user.csr -subj "/CN=new-user/O=aqua"
+```
 
-```openssl x509 -req -in new-user.csr -CA CA_LOCATION/ca.crt -CAkey CA_LOCATION/ca.key -CAcreateserial -out new-user.crt -days 500```
+```
+openssl x509 -req -in new-user.csr -CA CA_LOCATION/ca.crt -CAkey CA_LOCATION/ca.key -CAcreateserial -out new-user.crt -days 500
+```
 
-```kubectl config set-credentials new-user --client-certificate=/home/new-user/.certs/new-user.crt --client-key=/home/new-user/.certs/new-user.key```
+```
+kubectl config set-credentials new-user --client-certificate=/home/new-user/.certs/new-user.crt --client-key=/home/new-user/.certs/new-user.key
+```
 
-```kubectl config set-context new-context --cluster=minikube --namespace=test --user=new-user```
+```
+kubectl config set-context new-context --cluster=minikube --namespace=test --user=new-user
+```
 
 After running the above steps we have successfully created a user with name as new-user belonging to aqua group. But this user doesn't have any previleges by defaults nil privileges will be assigned to the user. We need to explicitly grant the access privilges required by the user.
 
@@ -159,15 +172,21 @@ roleRef:
 
 Get the service account secret for the provided namespace
 
-```kubectl describe sa test-user -n test```
+```
+kubectl describe sa test-user -n test
+```
 
 Get the service account token 
 
-```kubectl get secret test-user-token-xxxxx -n test -o "jsonpath={.data.token}" | base64 -d```
+```
+kubectl get secret test-user-token-xxxxx -n test -o "jsonpath={.data.token}" | base64 -d
+```
 
 Get the certificate authority
 
-```kubectl get secret test-user-token-xxxxx -n test -o "jsonpath={.data['ca\.crt']}"```
+```
+kubectl get secret test-user-token-xxxxx -n test -o "jsonpath={.data['ca\.crt']}"
+```
 
 Template for KUBECONFIG file.
 
@@ -233,19 +252,22 @@ After creating the above ServiceAccount and ClusterRoleBinding
 
 Run the tiller
 
-```helm init --service-account tiller```
+```
+helm init --service-account tiller
+```
 
 Check the helm installation and validate ServiceAccount by running following command
 
-```helm install stable/mysql```
+```
+helm install stable/mysql
+```
 
 By this you have successfully configured helm in your cluster which needs special privileges to communicate with API-SERVER.
 
 
 Note:
 
-1. We can also bind a ClusterRole to a RoleBinding which provides privileges to subject provided in RoleBinding but the scope is specific to namespace mentioned in the RoleBinding. 
-2. By default when a new namespace is created a default ServiceAccount specific to that namespace is created but this serviceaccount has no authorization privileges all the resources running in this namespace will use the default ServiceAccount, Unless we need any privileges specific to a resource we need to specify it in resource.yaml as mentioned in below example.
+1. By default when a new namespace is created a default ServiceAccount specific to that namespace is created but this serviceaccount has no authorization privileges all the resources running in this namespace will use the default ServiceAccount, Unless we need any privileges specific to a resource we need to specify it in resource.yaml as mentioned in below example.
 
 ```
 apiVersion: v1
@@ -260,4 +282,7 @@ spec:
     image: vineeth97/nginx-pod-creator
 ```
 
-Cheers!
+2. We can also bind a ClusterRole to a RoleBinding which provides privileges to subject provided in RoleBinding but the scope is specific to namespace mentioned in the RoleBinding. 
+
+
+*Cheers!*

@@ -5,6 +5,8 @@ title = "kubectl pg plugin for Zalando's Postgres Operator"
 tags = ["kubernetes"]
 +++
 
+<br/><br/>
+
 ## Project Abstract
 The Postgres Operator is a project to create an open-sourced managed Postgres service for Kubernetes. 
 The Postgres operator manages Postgres clusters on Kubernetes. kubectl plugins enable extending the Kubernetes command-line client kubectl with commands to manage custom resources. The task is to design and implement a plugin for the kubectl 
