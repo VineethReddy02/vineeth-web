@@ -284,6 +284,6 @@ spec:
 
 2. We can also bind a ClusterRole to a RoleBinding which provides privileges to subject provided in RoleBinding but the scope is specific to namespace mentioned in the RoleBinding. 
 
-Slides prepared fors my talk on RBAC can be found [here](https://drive.google.com/file/d/1FGjjYQDRdoB1geNh4D_gRuZutCha8LdW/view)
+Slides prepared for my talk on RBAC can be found [here](https://drive.google.com/file/d/1FGjjYQDRdoB1geNh4D_gRuZutCha8LdW/view)
 
 *Cheers!*
