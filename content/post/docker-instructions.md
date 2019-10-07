@@ -49,7 +49,7 @@ FROM <image>@<digest>       # This makes sure we pull the specific image with pr
 ```
  from alpine:3.5
  from python
- FROM aquadev/database@sha256:f808cc97eaf718f8550b346e0554eab705f2da707a0d2fb41cab01e6a445ab5a
+ FROM vineeth97/saanvidashboard@sha256:ff6893d0750268ecfcdbe1e4a4d6f70b1a2ef43c5054ff11da0d5bc3595a79ec
 ```
 
 
