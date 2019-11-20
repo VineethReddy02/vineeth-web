@@ -43,7 +43,7 @@ The introduction of the new binary framing mechanism changes how the data is exc
 
 ### HTTP/2 vs HTTP 1.1
 
-COmparing REST and gRPC. REST, as mentioned earlier, depends heavily on HTTP (usually HTTP 1.1) and the request-response model. On the other hand, gRPC uses the newer HTTP/2 protocol.
+Comparing REST and gRPC. REST, as mentioned earlier, depends heavily on HTTP (usually HTTP 1.1) and the request-response model. On the other hand, gRPC uses the newer HTTP/2 protocol.
 
 The probelms with HTTP 1.1 that HTTP/2 fixes.
 
@@ -91,10 +91,6 @@ So every connections starts out as H1 and then it upgrades to H2 and if this cli
 What is HTTP/2 exactly? It's a single TLS encrypted connection.
 So HOL blocking is addressed at protocol level by single connection.
 
-
-# Proto-Buffers-gRPC
-FIndings and Explorations in protocol buffers and gRPC
-
 ## Limitations with HTTP/1.1
 
 1. HTTP 1.1 opens a new TCP connection to a server at each request.
@@ -124,24 +120,24 @@ FIndings and Explorations in protocol buffers and gRPC
    
 ## Scalability in gRPC
 
-1. gRPC servers are asynchronous by default
-2. This means they do not block threads on request
-3. Therefore each gRPC server can serve millions of requets in parallel
-4. gRPC Clients can be asynchronous or synchronous (blocking)
-5. The client decides which model works best for the performance needs
-6. gRPC Clients can perform client side load balancing
+1. gRPC servers are asynchronous by default.
+2. This means they do not block threads on request.
+3. Therefore each gRPC server can serve millions of requets in parallel.
+4. gRPC Clients can be asynchronous or synchronous (blocking).
+5. The client decides which model works best for the performance needs.
+6. gRPC Clients can perform client side load balancing.
 
 ### gRPC vs REST
 
 ***gRPC***
 
-1. Protocol Buffers - smaller,faster
-2. HTTP/2(lower latency) 
-3. Bidirectional & Async
-4. Stream Support
-5. API oriented (no constraints-free design)
-6. Code Generation through Protocol Buffers in any language-1st  class citizen
-7. RPC based- gRPC does the plumbing for us
+1. Protocol Buffers - smaller,faster.
+2. HTTP/2(lower latency).
+3. Bidirectional & Async.
+4. Stream Support.
+5. API oriented (no constraints-free design).
+6. Code Generation through Protocol Buffers in any language-1st  class citizen.
+7. RPC based gRPC does the plumbing for us.
 
 ***REST***
 
@@ -155,7 +151,7 @@ FIndings and Explorations in protocol buffers and gRPC
 
 ### Protobuf vs JSON
 
-One of the biggest differences between REST & gRPC is the format of the payload. REST messages typically contain JSON. The whole REST ecosystem—including tooling, best practices, and tutorials—is focused on JSON. It is safe to say that, with very few exceptions, REST APIs accept and return JSON.
+One of the biggest differences between REST & gRPC is the format of the payload. REST messages typically contain JSON. The whole REST ecosystem including tooling, best practices, and tutorials is focused on JSON. It is safe to say that, with very few exceptions, REST APIs accept and return JSON.
 
 gRPC, on the other hand, accepts and returns Protobuf messages. I will discuss the strong typing later, but just from a performance point of view, Protobuf is a very efficient and packed format. JSON, on the other hand, is a textual format. You can compress JSON, but then you lose the benefit of a textual format that you can easily expect.
 
@@ -201,14 +197,14 @@ Usecases:
 
 - Bi Directional Streaming RPC are well suited for
     - When the client and the server needs to send a lot of data asynronously
-    - "Chat" protocol
+    - Chat protocol
     - Long running connections
 
 - In gRPC Bi Directional Streaming API are defined using the keyword "stream", twice
 - As for each RPC call we have to define a "Request" message and a "Response"
 message.w
 
-### Below is the .proto file which contains the message definitions & stream declarations. 
+#### Below is the .proto file which contains the message definitions & stream declarations. 
 
 ```
 syntax = "proto3";
@@ -244,9 +240,14 @@ service Registration_service {
 }
 ```
 
+In Protocol buffers to consume the ablove defined messages & services. We generate the code using the below command
+
+```protoc registration.proto --go_out=plugins=grpc:.```
+
 ### Status Codes in gRPC
 
-Codes in gRPC are imported from a package ***google.golang.org/grpc/codes***
+Codes in gRPC are imported from a package 
+```google.golang.org/grpc/codes```
 
 Example:
 ```
@@ -280,7 +281,7 @@ What is SSL?
 
 ### Language Interoperatability
 
-In gRPC interoperatability is possible go server serve the requets to java client and vice versa.
+In gRPC interoperatability is possible go server can serve the requets to java client and vice versa.
 
 ### gRPC Reflection & evans cli
 
@@ -312,12 +313,12 @@ show service // shows all the available services in the gRPC server.
 
 show message // shows all the messages defined in protocol buffers.
 
-call register // T test the respective service in interactive mode
+call register // Test the respective service in interactive mode
 ```
 
 ### Demo App
 
-Let's create a server when the client registers. It displays a message saying registration successsful.
+Let's create a server that registers the client requests and displays a message saying registration successsful.
 When client sends register request to server it returns a unique id is returned, on successful registration.
 
 Checkout the demo app on gRPC [here](https://github.com/VineethReddy02/gRPC-demo/tree/master)
