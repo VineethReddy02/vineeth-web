@@ -1,5 +1,5 @@
 +++
-date = "2019-09-21T09:32:45-04:00"
+date = "2019-11-21T09:32:45-04:00"
 draft = false
 title = "Understanding gRPC"
 tags = ["Networking"]
@@ -80,7 +80,7 @@ The probelem raises in HTTP/1 with HOL (Head of line blocking) when we sent a re
 
 ### Metadata
 
-Headers repeat alot across the request. The headers taht repeat are uer-agents & cookies ther are long and static and they are keep being added for each and every request. This is because HTTP was designed to be completely stateless and independent from the next. And then people started using sessions and these are identified with a long UUID and they are appended to every request being sent over & over which is waste of bandwidth. Though the headers are highly compressable they cannot be gzipped as data which is a actually a miss opportunity.
+Headers repeat alot across the request. The headers that repeat are user-agents & cookies ther are long and static and they are being added for each and every request. This is because HTTP was designed to be completely stateless and independent from the next. And then people started using sessions and these are identified with a long UUID and they are appended to every request being sent over & over which is waste of bandwidth. Though the headers are highly compressable they cannot be gzipped as data which is a actually a miss opportunity.
 
 HTTP/2 follows the semantics of HTTP/1 this requets contain the headers i.e key/value pairs and body conetent which doesn't need any code related changes. The changes involve in how they are encoded in wire in transit(i.e into binary level)
 
@@ -112,11 +112,11 @@ So HOL blocking is addressed at protocol level by single connection.
 
 ## Types of API in gRPC
 
-1. Unary (default client to server request/response based communication).
-2. Server Streaming (client request server and server responds back with stream of responses).
-3. Client Streaming (client creates a streaming request connection with server and server sends back a single response).
-4. Bi Directional Streaming (client sends a stream of requests to server and server sends back stream of responses 
-   back to client) 
+1. **Unary** default client to server request/response based communication.
+2. **Server Streaming** client request server and server responds back with stream of responses.
+3. **Client Streaming** client creates a streaming request connection with server and server sends back a single response.
+4. **Bi Directional Streaming** client sends a stream of requests to server and server sends back stream of responses 
+   back to client.
    
 ## Scalability in gRPC
 
@@ -247,9 +247,11 @@ In Protocol buffers to consume the ablove defined messages & services. We genera
 ### Status Codes in gRPC
 
 Codes in gRPC are imported from a package 
+
 ```google.golang.org/grpc/codes```
 
 Example:
+
 ```
 const (
 	OK Code = 0
@@ -288,7 +290,7 @@ In gRPC interoperatability is possible go server can serve the requets to java c
 We may ask server what API's do you have? That's reflection.
 
 We want reflection for two reasons
- - Having servers "expose" which endpoints are available.
+ - Having servers expose which endpoints are available.
  - Allowing command line interfaces (CLI) to talk to our server without preliminary .proto file.
 
 The below code snippet allows to expose endpoints of the respective server.
