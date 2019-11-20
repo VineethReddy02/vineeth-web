@@ -1,5 +1,5 @@
 +++
-date = "2019-09-21T09:32:45-04:00"
+date = "2019-12-21T09:32:45-04:00"
 draft = false
 title = "Hello, Prometheus"
 tags = ["Monitoring"]
@@ -18,8 +18,9 @@ time series are identified by metric name and set of key/value pairs.
 You can download the full distriution from
 https://github.com/prometheus/prometheus/releases
 
-After extracting you eill get a prometheus executable (prometheus.exe for windows), which 
-yoy can use to run prometheus, for example:
+After extracting you will get a prometheus executable (prometheus.exe for windows), which 
+you can use to run prometheus, for example:
+
 ```./prometheus --config.file /path/to/prometheus.yaml```
 
 ### Install prometheus with this script
@@ -58,6 +59,7 @@ cp prometheus.yml /etc/prometheus/prometheus.yml
 
 chown -R prometheus:prometheus /etc/prometheus/consoles
 chown -R prometheus:prometheus /etc/prometheus/console_libraries
+```
 
 ### Installing Grafana
 
@@ -73,7 +75,9 @@ systemctl start grafana-server
 systemctl enable grafana-server.service
 ```
 
-# setup systemd
+### setup systemd
+
+```
 echo '[Unit]
 Description=Prometheus
 Wants=network-online.target
@@ -97,9 +101,10 @@ systemctl enable prometheus
 systemctl start prometheus
 ```
 
-All data is stored in timer series format.
+All data is stored in time series format.
 The notation of time series is often
-<metric-name>[<label name>=<label value>,...] 
+
+```<metric-name>[<label name>=<label value>,...]```
 
 ### Prometheus configuration
 
@@ -197,12 +202,12 @@ job in prometheus.yml and reload promethus to confiure the the job added.
 
 ### Types of metrics
 
-- Counter:    A value that only goes up (e.g. Viists to a website)
-- Gauge:      Single numeric value hat can go up and down (e.g. CPU load, temperature)
-- Histogram:  Samples observations (e.g. request durations or response sizes) and
+- **Counter**:    A value that only goes up (e.g. Viists to a website)
+- **Gauge**:      Single numeric value hat can go up and down (e.g. CPU load, temperature)
+- **Histogram**:  Samples observations (e.g. request durations or response sizes) and
   these observations get counted into buckets. Includes (_count and _sum). Main purpose is
   calculating quantities.
-- Summary:    Similar to a histogram a summary samples observations (e.g. request ddurations
+- **Summary**:    Similar to a histogram a summary samples observations (e.g. request ddurations
   or response sizes). A summary also provides a total count of observations and a sum of all
   observed values, it calculates configurable quantities over a sliding time window.
 
@@ -215,7 +220,7 @@ job in prometheus.yml and reload promethus to confiure the the job added.
 ### Client libraries
 
 In order to fetch the metrics of the applications. We need to instrument the app to expose
-metrics. There are bunch of officially supportd client libraries for Go, Pythn, Java etc..
+metrics. There are bunch of officially supported client libraries for Go, Pythn, Java etc..
 and also tens of unofficial client libraries.
 
 Golang Example
@@ -257,7 +262,7 @@ func init() {
   prometheus.MustRegister(jobsQueued)
 }
 
-func eenqueueJob(job Job) {
+func enqueueJob(job Job) {
     queue.Add(job)
     jobsQueued.withLabelValues(job.Type().Inc())
 }
@@ -288,6 +293,7 @@ start := time.Now()
 job.Run()
 duration := time.Since(start)
 jobsDurationHistogram.withLabelValues(job.Type()).Observe(duration.Seconds())
+```
 
 Summary
 
@@ -301,14 +307,14 @@ prometehus.NewSummary()
 
    App ---> Push Gateway <------> Prometheus
 
-- Sometimes metrics cannt b scraped.
+- Sometimes metrics cannt be scraped.
   example: batch jobs, servers are not reachable due to NAT, firewall
 
-- pushgateways is used as an intermediary servic which allow you to push metrics.
+- pushgateways is used as an intermediary service which allow you to push metrics.
 - Pitfalls
-  1. Most of the times this is a single instance so this results ina SPOF.
+  1. Most of the times this is a single instance so this results in a SPOF.
   2. Prometheus's automatic instance health monitoring is not possible.
-  3. The pushgateway never forgets the metrics iunless they are deleted.
+  3. The pushgateway never forgets the metrics unless they are deleted.
 
 Go Example:
 ```
@@ -343,8 +349,8 @@ if err := push.Collectors(
 - Prometehus provides a functional expression language called "PromQL"
 - PromQL is read only.
 
-1. Instant vector - A set of time series containing a single sample for each ime series,
-all sharing th same timestamp.
+1. Instant vector - A set of time series containing a single sample for each time series,
+all sharing the same timestamp.
 Example: node_cpu_seconds_total
 
 2. Range vector - A set of time series containing a range of data points over time for 
@@ -367,7 +373,7 @@ Example query
 http_requests_total{code!~"4.."} #This gives the requests which are not 400
 
 A single Prometheus server is able to ingest up to one million
-samples per econd as several million time series.
+samples per second as several million time series.
 
 prometheus.yml file will have all targets to scrape and alert manager
 configurations and also pushgateways endpoints.
@@ -378,7 +384,7 @@ to query prometheus database. It has capabilities like arithmetic,
 logical and aggregation operations.
 
 
-ALERT MANAGER:
+### ALERT MANAGER:
 
 Alert manager runs has a service and we define alerting rules in 
 prometheus. when rule criteria is fulfilled we send alerting request to
@@ -392,18 +398,20 @@ This alerting rules and alert manager configuration needs to configured
 in prometheus.yml
 
 The best practice is to have alert.rules file and maintain all the rules in
-this and this file needs to included in promethes config.
+this and this file needs to included in prometheus config.
 
-### ALERT FORMAT
-
+#### ALERT FORMAT
+```
 ALERT <alert name>
 IF <expression>
 [ FOR <duration> ]
 [ LABELS <label set> ]
 [ ANNOTATIONS <label set> ]
+```
 
-### ALERT EXAMPLE 
+**ALERT EXAMPLE** 
 
+```
 groups:
   - name: example
     rules:
@@ -414,3 +422,4 @@ groups:
         severity: critical
       anntations:
          summary: Machine under heavy load
+```
