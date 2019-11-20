@@ -1,5 +1,5 @@
 +++
-date = "2019-11-21T09:32:45-04:00"
+date = "2019-11-20T09:32:45-04:00"
 draft = false
 title = "Understanding gRPC"
 tags = ["Networking"]
@@ -80,7 +80,7 @@ The probelem raises in HTTP/1 with HOL (Head of line blocking) when we sent a re
 
 ### Metadata
 
-Headers repeat alot across the request. The headers that repeat are user-agents & cookies ther are long and static and they are being added for each and every request. This is because HTTP was designed to be completely stateless and independent from the next. And then people started using sessions and these are identified with a long UUID and they are appended to every request being sent over & over which is waste of bandwidth. Though the headers are highly compressable they cannot be gzipped as data which is a actually a miss opportunity.
+Headers repeat alot across the request. The headers that repeat are user-agents & cookies ther are long and static and they are keep being added for each and every request. This is because HTTP was designed to be completely stateless and independent from the next. And then people started using sessions and these are identified with a long UUID and they are appended to every request being sent over & over which is waste of bandwidth. Though the headers are highly compressable they cannot be gzipped as data which is a actually a miss opportunity.
 
 HTTP/2 follows the semantics of HTTP/1 this requets contain the headers i.e key/value pairs and body conetent which doesn't need any code related changes. The changes involve in how they are encoded in wire in transit(i.e into binary level)
 
