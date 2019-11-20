@@ -242,7 +242,9 @@ service Registration_service {
 
 In Protocol buffers to consume the ablove defined messages & services. We generate the code using the below command
 
-```protoc registration.proto --go_out=plugins=grpc:.```
+```
+protoc registration.proto --go_out=plugins=grpc:.
+```
 
 ### Status Codes in gRPC
 
