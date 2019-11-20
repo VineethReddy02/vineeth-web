@@ -255,7 +255,8 @@ google.golang.org/grpc/codes
 ```
 
 Example:
-These are the status codes defined in ***grpc/codes***.
+
+Below are some of the status codes defined in ***grpc/codes***.
 
 ```
 const (
@@ -312,15 +313,20 @@ https://github.com/ktr0731/evans/releases
 
 
 ```
-./evans -p 6666 -r // To connect to the gRPC server using evans cli
+#To connect to the gRPC server using evans cli
+./evans -p 6666 -r 
 
-show package // Shows the package in protocol buffers
+#Shows the package in protocol buffers
+show package
 
-show service // shows all the available services in the gRPC server.
+#Shows all the available services in the gRPC server.
+show service 
 
-show message // shows all the messages defined in protocol buffers.
+#Shows all the messages defined in protocol buffers.
+show message 
 
-call register // Test the respective service in interactive mode
+#Test the respective service in interactive mode.
+call register 
 ```
 
 ### Demo App
