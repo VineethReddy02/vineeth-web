@@ -248,10 +248,12 @@ In Protocol buffers to consume the ablove defined messages & services. We genera
 
 Codes in gRPC are imported from a package 
 
-```google.golang.org/grpc/codes```
+```
+google.golang.org/grpc/codes
+```
 
 Example:
-
+These are the status codes defined in ***grpc/codes***.
 ```
 const (
 	OK Code = 0
