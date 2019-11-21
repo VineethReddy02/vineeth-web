@@ -7,7 +7,7 @@ tags = ["Networking"]
 
 ## gRPC
 
-gRPC is a RPC platform developed by Google. The letters gRPC are a recursive acronym which means, gRPC Remote Procedure Call.
+gRPC is a RPC platform initially developed by Google and now a project under CNCF. The letters gRPC are a recursive acronym which means, gRPC Remote Procedure Call.
 
 gRPC has two parts, the gRPC protocol, and the data serialization. By default gRPC utilizes Protobuf for serialization, but it is pluggable with any form of serialization you wish to use, with some caveats.
 
