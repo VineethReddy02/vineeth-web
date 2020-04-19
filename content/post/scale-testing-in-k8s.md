@@ -1,13 +1,11 @@
 +++
 date = "2020-04-19T09:32:45-04:00"
 draft = false
-title = "Benchmarking your Controller & Operators at Scale"
+title = "Benchmarking your Controllers & Operators at Scale"
 tags = ["kubernetes"]
 +++
 
 <br/>
-
-## Benchmarking your Controllers & Operators at Scale
 
 The most common problem the controllers and operators developers face today is to benchmark their tools in large environments with 1000's workloads running it. As controllers & operators come with custom logic to perform an action when a specific event has been occured in the cluster to achieve the intended state.
 
@@ -39,7 +37,7 @@ Creating multiple deployments will create multiple mocklets in your cluster to r
 
 Now you can deploy 1000's pods by providing the node selector value as mocklet and mocklet toleration. This will make sure all the test data you are creating is scheduled on the desired mocklet.
 
-The mocklet project is completely inspired from Virtual Kubelet mock provider. Thanks to the the [Virtual Kubelet community](https://github.com/virtual-kubelet/virtual-kubelet). 
+The mocklet project is completely inspired from Virtual Kubelet mock provider. Thanks to the the **[Virtual Kubelet community](https://github.com/virtual-kubelet/virtual-kubelet).**
 
 The bigger challenge is how do I create 1000's of pods, Deployments, Replicasets, ReplicationControllers, StatefulSets, Jobs and Cronjobs?
 
@@ -55,18 +53,18 @@ Creating 5000 deployments with replica count as 5 per instance and number of con
 
 **Note:** Using k8s-scaler you can also create/delete namespaces, daemonsets, statefulsets, replicationcontrollers, replicasets, jobs and cronjobs
 
-This tool also helps you in listing number of kubernetes resources per namespace as shown below.
+k8s-scaler also helps you in listing number of kubernetes resources per namespace as shown below.
 
 ```yaml
 vineeth@vineeth-Latitude-7490 /bin (master) $ ./k8s-scaler list
-NAMESPACE         DEPLOYMENTS     REPLICASETS     DAEMONSETS      STATEFULSETS    PODS        JOBS        CRONJOBS    REPLICATION-CONTROLLERS
-test              3000            3000            1000            500             7486        30          10          30               
-default           1300            1300            456             250             5642        10          5           5                            
-kube-system       8               11              4               0               15          0           0           0               
-mock-kubelet      3500            4000            1200            400             9348        50          30          35     
+NAMESPACE    DEPLOYMENTS     REPLICASETS     DAEMONSETS      STATEFULSETS    PODS        JOBS        CRONJOBS    REPLICATION-CONTROLLERS
+test         3000            3000            1000            500             7486        30          10          30               
+default      1300            1300            456             250             5642        10          5           5                  
+kube-system  8               11              4               0               15          0           0           0               
+mocklet      3500            4000            1200            400             9348        50          30          35     
 ```
 
-Using the **mocklet** and **k8s-scaler** you can create the large environments with ease. Running **mocklet** will provide the mock kubelet to run the desired number of resorces and using **k8s-scaler** you can create desired number of kubernetes resources by running a single command in any kubernetes cluster.
+Using the **mocklet** and **k8s-scaler** you can create the large environments with ease. Running mocklet will provide the mock kubelet to run the desired number of resorces and using k8s-scaler you can create desired number of kubernetes resources by running a single command in any kubernetes cluster.
 
 I hope these tools will help you in scale testing the tools built around kubernetes.
 
