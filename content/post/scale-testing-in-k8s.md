@@ -7,9 +7,9 @@ tags = ["kubernetes"]
 
 <br/>
 
-The most common problem the controllers and operators developers face today is to benchmark their tools in large environments with 1000's workloads running it. As controllers & operators come with custom logic to perform an action when a specific event has been occured in the cluster to achieve the intended state.
+The most common problem kubernetes controllers and operators authors face today is to benchmark their tools in large environments with 1000's of workloads running in it. As controllers & operators come with custom logic to perform an action when a specific event occurs in the cluster to achieve the intended state.
 
-Creating 100 node cluster for benchmarking the Kubernetes tools is definitely expensive, creation, maintainance & deletion is also a tiring job. What if we can create a mock kubelet for scale tests by just running a deployment in your cluster? Yes, This is possible and you can leverage out of this tool in benchmarking your kubernetes tools.
+Creating 100 node cluster for benchmarking the Kubernetes tools is definitely expensive. Creation, maintainance & deletion is also a tiring job. What if we can create a mock kubelet for scale tests by just running a deployment in your cluster? Yes, This is possible and you can leverage out of this tool in benchmarking the kubernetes tools.
 
 All we need is to simulate loaded environments to perform scale test on our tools. Creating loaded environemnts comes with cost. And we don't want to spend that huge figures in benchmarking our tools.
 
@@ -17,7 +17,7 @@ When I refer to Kubernetes tools, I mean the Kubernetes Controllers, Operators, 
 
 ### [mocklet](https://github.com/VineethReddy02/mocklet)
 
-So I will be explaining about how to simulate a mocklet that can hold 1000's pods in it's inmemory and this mock kubelet can be connected to your existing cluster by just running a deployment in your cluster.
+So I will be explaining how to simulate a mocklet that can hold 1000's pods in it's memory and this mock kubelet can be connected to your existing cluster by just running a deployment in your cluster.
 
 Running the below command will create a new mocklet node in your cluster
 
@@ -35,16 +35,16 @@ mocklet                                  Ready    agent    2m32s   v1.15.2-vk-N/
 
 Creating multiple deployments will create multiple mocklets in your cluster to run desired number of kubernetes resources and scheduling resources specific to a mocklet.
 
-Now you can deploy 1000's pods by providing the node selector value as mocklet and mocklet toleration. This will make sure all the test data you are creating is scheduled on the desired mocklet.
+Now you can deploy 1000's of pods by providing the node selector value as mocklet and mocklet toleration. This will make sure all the test data you are creating is scheduled on the desired mocklet.
 
-The mocklet project is completely inspired from Virtual Kubelet mock provider. Thanks to the the 
+The mocklet project is completely inspired from Virtual Kubelet mock provider. Thanks to the 
 **[Virtual Kubelet community](https://github.com/virtual-kubelet/virtual-kubelet).**
 
 The bigger challenge is how do I create 1000's of pods, Deployments, Replicasets, ReplicationControllers, StatefulSets, Jobs and Cronjobs?
 
 ### [k8s-scaler](https://github.com/VineethReddy02/k8s-scaler)
 
-To create the Kubernetes resources at scale in a single shot. I have implemented tool called **k8s-scaler**. This tool is highly configurable and helps you to create Kubernetes resources. which runs pods in the down stream with higly configurable properties such as number of containers, inclusion & exlusion of namespaces during resource creation, number of instances per Kubernetes resource, number of replicas per Kubernetes controller.  
+To create the Kubernetes resources at scale in a single shot. I have implemented tool called **k8s-scaler**. This tool is highly configurable and helps you to create Kubernetes resources which runs pods eventually with higly configurable properties such as number of containers, inclusion & exlusion of namespaces during resource creation, number of Kubernetes resources like deployments, daemonsets, etc... , number of replicas per Kubernetes controller.  
 
 Creating 5000 deployments with replica count as 5 per instance and number of containers per pod as 3 in scale namespace with node-selector & toleration is as simple as 
 
@@ -65,7 +65,7 @@ kube-system  8            11           4           0             15    0     0  
 mocklet      3500         4000         1200        400           9348  50    30        35     
 ```
 
-Using the **mocklet** and **k8s-scaler** you can create the large environments with ease. Running mocklet will provide the mock kubelet to run the desired number of resorces and using k8s-scaler you can create desired number of kubernetes resources by running a single command in any kubernetes cluster.
+Using the **mocklet** and **k8s-scaler** you can create the large environments with ease. Running mocklet will provide the mock kubelet to run the desired number of resources and using k8s-scaler you can create desired number of kubernetes resources by running a single command in any kubernetes cluster.
 
 I hope these tools will help you in scale testing the tools built around kubernetes.
 
