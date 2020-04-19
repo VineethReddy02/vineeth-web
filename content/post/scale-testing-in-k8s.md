@@ -37,7 +37,8 @@ Creating multiple deployments will create multiple mocklets in your cluster to r
 
 Now you can deploy 1000's pods by providing the node selector value as mocklet and mocklet toleration. This will make sure all the test data you are creating is scheduled on the desired mocklet.
 
-The mocklet project is completely inspired from Virtual Kubelet mock provider. Thanks to the the **[Virtual Kubelet community](https://github.com/virtual-kubelet/virtual-kubelet).**
+The mocklet project is completely inspired from Virtual Kubelet mock provider. Thanks to the the 
+**[Virtual Kubelet community](https://github.com/virtual-kubelet/virtual-kubelet).**
 
 The bigger challenge is how do I create 1000's of pods, Deployments, Replicasets, ReplicationControllers, StatefulSets, Jobs and Cronjobs?
 
@@ -47,7 +48,7 @@ To create the Kubernetes resources at scale in a single shot. I have implemented
 
 Creating 5000 deployments with replica count as 5 per instance and number of containers per pod as 3 in scale namespace with node-selector & toleration is as simple as 
 
-```
+```yaml
 ./k8s-scaler create deployments --scale 5000 --replicas 5 --containers 3 --namespace scale --node-selector type=mocklet --toleration mocklet.io/provider=mock
 ```
 
@@ -57,11 +58,11 @@ k8s-scaler also helps you in listing number of kubernetes resources per namespac
 
 ```yaml
 vineeth@vineeth-Latitude-7490 /bin (master) $ ./k8s-scaler list
-NAMESPACE    DEPLOYMENTS     REPLICASETS     DAEMONSETS      STATEFULSETS    PODS        JOBS        CRONJOBS    REPLICATION-CONTROLLERS
-test         3000            3000            1000            500             7486        30          10          30               
-default      1300            1300            456             250             5642        10          5           5                  
-kube-system  8               11              4               0               15          0           0           0               
-mocklet      3500            4000            1200            400             9348        50          30          35     
+NAMESPACE    DEPLOYMENTS  REPLICASETS  DAEMONSETS  STATEFULSETS  PODS  JOBS  CRONJOBS  REPLICATION-CONTROLLERS
+test         3000         3000         1000        500           7486  30    10        30               
+default      1300         1300         456         250           5642  10    5         5                  
+kube-system  8            11           4           0             15    0     0         0               
+mocklet      3500         4000         1200        400           9348  50    30        35     
 ```
 
 Using the **mocklet** and **k8s-scaler** you can create the large environments with ease. Running mocklet will provide the mock kubelet to run the desired number of resorces and using k8s-scaler you can create desired number of kubernetes resources by running a single command in any kubernetes cluster.
