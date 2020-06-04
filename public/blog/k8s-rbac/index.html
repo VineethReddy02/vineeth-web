@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Vineeth Pothulapati | Limiting Privileges In Kubernetes</title>
+  <meta property="og:title" content="Vineeth Pothulapati | Limiting Privileges In Kubernetes" />
+  <meta property="og:image" content="https://vineethweb.com/img/dp01.jpeg" />
+  <meta name="description" content="">
+  <meta property="og:description" content="" />
+  <meta name="author" content="Vineeth Pothulapati">
+  
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"></noscript>
+  
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap"></noscript>
+  <link rel="preload" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"></noscript>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/css/devicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/css/devicons.min.css"></noscript>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"></noscript>
+  
+  <link rel="preload" href="https://vineethweb.com/css/resume.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://vineethweb.com/css/resume.css"></noscript>
+  <link rel="preload" href="https://vineethweb.com/css/tweaks.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://vineethweb.com/css/tweaks.css"></noscript>
+  <link rel="preload" href="https://vineethweb.com/css/resume-override.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://vineethweb.com/css/resume-override.css"></noscript>
+  <meta name="generator" content="Hugo 0.56.3" />
+  
+   
+  
+</head>
+<body id="page-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+  <a class="navbar-brand js-scroll-trigger" href="#page-top">
+    <span class="d-block d-lg-none">Vineeth Pothulapati</span>
+    <span class="d-none d-lg-block">
+      <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="/img/dp01.jpeg" alt="">
+    </span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="/#about">About</a>
+      </li>
+      
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/#skills">Skills</a>
+          </li>
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="/#blogs">Blogs</a>
+      </li>
+      
+      
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="/#talks">Talks</a>
+        </li>
+      
+      
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="/#projects">Projects</a>
+        </li>
+      
+      
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="/#open">Open Source</a>
+        </li>
+      
+      
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="/#experience">Experience</a>
+        </li>
+      
+      
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="/#education">Education</a>
+        </li>
+      
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="/#certifications">Certifications</a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
+
+  <div class="container-fluid p-0">
+    
+<nav aria-label="breadcrumb">
+  <ol  class="breadcrumb">
+    
+
+
+
+
+
+<li class="breadcrumb-item">
+  <a href="https://vineethweb.com/">Home</a>
+</li>
+
+
+<li class="breadcrumb-item">
+  <a href="https://vineethweb.com/blog/">Blogs</a>
+</li>
+
+
+<li class="breadcrumb-item active">
+  <a href="https://vineethweb.com/blog/k8s-rbac/">Limiting Privileges In Kubernetes</a>
+</li>
+
+  </ol>
+</nav>
+
+
+
+
+<section class="resume-section p-3 p-lg-5 d-flex d-column">
+  <div class="my-auto">
+    <h2 class="mb-0"><span class="text-primary">Limiting Privileges In Kubernetes</span></h2>
+    <span class="text-primary">September 21, 2019</span>
+    
+
+<p><br/></p>
+
+<h2 id="role-based-access-control-in-kubernetes">Role Based Access Control in Kubernetes</h2>
+
+<p>As we all know role based access control plays a vital role. when we have multiple people using the same resources for different purposes. We need to handle this scenarios by providing the users unique identification mechanism and privileges required for that particular user.</p>
+
+<p><strong>RBAC in kubernetes adheres to least privilege principle.</strong></p>
+
+<h3 id="need-for-rbac">Need for RBAC</h3>
+
+<ul>
+<li><p>As Kubernetes has tens of resources with many functionalities. Different users use them for different use cases. Unnecessary privileges leads to increasing the attack surface.</p></li>
+
+<li><p>Like every other role based access control system kubernetes also deals with authentication and authorization.</p></li>
+</ul>
+
+<p><strong>Authentication</strong> deals with does a specific user, group or a service from a machine can authenticate or access this system.</p>
+
+<p><strong>Authorization</strong> deals with does a specific user have an required privileges to perform a particular action on a specific resource or subresource or group of resources.</p>
+
+<p>RBAC mainly deals with three entities</p>
+
+<ol>
+<li><strong>subject</strong>: Users(i.e humans &amp; services)</li>
+<li><strong>verb</strong>:    Action a subject can perform</li>
+<li><strong>object</strong>:  Victim for an action from a subject</li>
+</ol>
+
+<p><strong>Can mike(subject) get(verb) pods(object)?</strong></p>
+
+<p>Kubernetes provides following resources to manage RBAC:</p>
+
+<ol>
+<li>Role</li>
+<li>ClusterRole</li>
+<li>RoleBinding</li>
+<li>ClusterRoleBinding</li>
+<li>ServiceAccount</li>
+</ol>
+
+<p><strong>Role</strong>: Roles defines the set of privileges allowed on specific resource by it&rsquo;s name or on group of resources or set of subresourcesand this is confined to a specific namespace.</p>
+
+<p><strong>ClusterRole</strong>: ClusterRole defines the set of privileges allowed on specific resource by it&rsquo;s name or on group of resources or set of subresources and this is applicable on cluster as a whole.</p>
+
+<p><strong>RoleBinding</strong>: Rolebinding binds the user or group or serviceaccount to a role. This makes sure the subject provided in rolebinding has all the privileges provided within a role.</p>
+
+<p><strong>ClusterRoleBinding</strong>: ClusterRolebinding binds the user or group or serviceaccount to a role. This makes sure the subject provided in clusterrolebinding has all the privileges provided within a clusterrole.</p>
+
+<p><strong>ServiceAccount</strong>: Serviceaccount authorizes account to perform specific action based on the rolebinding or clusterrolebinding it is associated with.</p>
+
+<p>In this blog we will be looking at two ways of creating KUBECONFIG file they are</p>
+
+<ol>
+<li>Certificate based</li>
+<li>Token based</li>
+</ol>
+
+<h3 id="certificate-based-authentication">Certificate based authentication</h3>
+
+<p>Generate the private key file.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">openssl genrsa -out new-user.key 2048</pre></div>
+<p>Create a certificate sign request new-user.csr using the private key you just created (new-user.key in this
+example). Make sure you specify your username and group in the -subj section (CN is for the username and O for
+the group). As previously mentioned, we will use new-user as the name and bitnami as the group:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">openssl req -new -key employee.key -out new-user.csr -subj &#34;/CN=new-user/O=aqua&#34;</pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">openssl x509 -req -in new-user.csr -CA CA_LOCATION/ca.crt -CAkey CA_LOCATION/ca.key -CAcreateserial -out new-user.crt -days 500</pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl config set-credentials new-user --client-certificate=/home/new-user/.certs/new-user.crt --client-key=/home/new-user/.certs/new-user.key</pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl config set-context new-context --cluster=minikube --namespace=test --user=new-user</pre></div>
+<p>After running the above steps we have successfully created a user with name as new-user belonging to aqua group. But this user doesn&rsquo;t have any previleges by defaults nil privileges will be assigned to the user. We need to explicitly grant the access privilges required by the user.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: test-user-full-access
+  namespace: test
+rules:
+- apiGroups: [&#34;&#34;, &#34;apps&#34;,&#34;extensions&#34;]
+  resources: [&#34;pods&#34;,&#34;pods/log&#34;,&#34;deployments&#34;]
+  #resourceNames: [&#34;nginx-deployment&#34;] #Confines privileges to specified resource name
+  verbs: [&#34;get&#34;,&#34;list&#34;]
+- apiGroups: [&#34;batch&#34;]
+  resources:
+  - jobs
+  - cronjobs
+  verbs: [&#34;*&#34;]</pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: test-rolebinding
+  namespace: test
+subjects:
+- kind: ServiceAccount
+  name: new-user
+  namespace: test
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: test-user-full-access</pre></div>
+<h3 id="token-based-authentication">Token based authentication</h3>
+
+<p>Token based authentication deals with service account. Firstly we create a service account which has internal RoleBinding or ClusterRoleBinding based on the requirement. And this has a secret token encoded in base64 and also a certificate. We need secret token and certificate to authenticate with cluster. We rovide this values in KUBEONFIG file.</p>
+
+<ul>
+<li><p>Creating a serviceaccount in test namespace.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">apiVersion: v1
+kind: ServiceAccount
+metadata:
+name: test-user
+namespace: test</pre></div></li>
+
+<li><p>Creating a clusterrole with privileges</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+name: test-user-full-access
+rules:
+- apiGroups: [&#34;&#34;, &#34;apps&#34;,&#34;extensions&#34;]
+resources: [&#34;pods&#34;,&#34;pods/log&#34;,&#34;deployments&#34;]
+verbs: [&#34;get&#34;,&#34;list&#34;]
+- apiGroups: [&#34;batch&#34;]
+resources:
+- jobs
+- cronjobs
+verbs: [&#34;*&#34;]</pre></div></li>
+
+<li><p>Creating a clusterrolebinding by binding a serviceaccount to it.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+name: test-rolebinding
+subjects:
+- kind: ServiceAccount
+name: test-user
+namespace: test
+roleRef:
+apiGroup: rbac.authorization.k8s.io
+kind: Role
+name: test-user-full-access</pre></div></li>
+
+<li><p>Get the service account secret for the provided namespace</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl describe sa test-user -n test</pre></div></li>
+
+<li><p>Get the service account token</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl get secret test-user-token-xxxxx -n test -o &#34;jsonpath={.data.token}&#34; | base64 -d</pre></div></li>
+
+<li><p>Get the certificate authority</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl get secret test-user-token-xxxxx -n test -o &#34;jsonpath={.data[&#39;ca\.crt&#39;]}&#34;</pre></div></li>
+</ul>
+
+<p><strong>Template for KUBECONFIG file.</strong></p>
+
+<p>Add the kubernetes api endpoint, certificate and token in the below KUBECONFIG file.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: PLACE CERTIFICATE HERE
+    server: https://YOUR_KUBERNETES_API_ENDPOINT
+  name: kind
+contexts:
+- context:
+    cluster: kind
+    namespace: test
+    user: test-user
+  name: test
+current-context: test
+kind: Config
+preferences: {}
+users:
+- name: test-user
+  user:
+    client-key-data: PLACE CERTIFICATE HERE
+    token: PLACE USER TOKEN HERE</pre></div>
+<p>We have successfully created a KUBECONFIG file for a new user.</p>
+
+<h3 id="other-way-of-understanding-rbac-is-to-install-helm-in-your-kubernetes-cluster">Other way of understanding RBAC is to install helm in your kubernetes cluster</h3>
+
+<p>First install helm by following helm official docs <a href="https://helm.sh/docs/using_helm/#installing-helm">https://helm.sh/docs/using_helm/#installing-helm</a></p>
+
+<p>We are creating ServiceAccount with name tiller</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tiller
+  namespace: kube-system</pre></div>
+<p>We are binding the cluster admin privileges tiller service account</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: tiller
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: tiller
+    namespace: kube-system</pre></div>
+<p>After creating the above ServiceAccount and ClusterRoleBinding</p>
+
+<p>Run the tiller</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">helm init --service-account tiller</pre></div>
+<p>Check the helm installation and validate ServiceAccount by running following command</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">helm install stable/mysql</pre></div>
+<p>By this you have successfully configured helm in your cluster which needs special privileges to communicate with API-SERVER.</p>
+
+<p><strong>Note:</strong></p>
+
+<ol>
+<li><p>By default when a new namespace is created a default ServiceAccount specific to that namespace is created but this serviceaccount has no authorization privileges all the resources running in this namespace will use the default ServiceAccount, Unless we need any privileges specific to a resource we need to specify it in resource.yaml as mentioned in below example.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">apiVersion: v1
+kind: Pod
+metadata:
+name: nginx-creator
+namespace: test
+spec:
+serviceAccountName: nginx-creator     #This resource has special privileges binded in this ServiceAccount
+containers:
+- name: nginx-creator
+image: vineeth97/nginx-pod-creator</pre></div></li>
+
+<li><p>We can also bind a ClusterRole to a RoleBinding which provides privileges to subject provided in RoleBinding but the scope is specific to namespace mentioned in the RoleBinding.</p></li>
+</ol>
+
+<p>Slides prepared for my talk on RBAC can be found <a href="https://drive.google.com/file/d/1FGjjYQDRdoB1geNh4D_gRuZutCha8LdW/view">here</a></p>
+
+<p><em>Cheers!</em></p>
+
+    
+    <ul class="tags">
+    
+      <li><a class="tag" href="/tags/kubernetes">kubernetes</a></li>
+    
+</ul>
+
+  </div>
+</section>
+
+
+    <span style="color: #999999; font-size: 60%;">Nifty <a href="https://codepen.io/wbeeftink/pen/dIaDH">tech tag lists</a> from <a class="pen-owner-link" href="https://codepen.io/wbeeftink">Wouter Beeftink</a> </span>
+    
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+
+  
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  
+  <script async src="/js/resume.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=XX-123446-01"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'XX-123446-01');
+  </script>
+  
+
+  
+</body>
+</html>

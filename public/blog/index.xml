@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Vineeth Pothulapati</title>
+    <link>https://vineethweb.com/blog/</link>
+    <description>Recent content in Blogs on Vineeth Pothulapati</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Jan 2020 15:00:28 +0000</lastBuildDate>
+    
+	<atom:link href="https://vineethweb.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Helming</title>
+      <link>https://vineethweb.com/blog/helm/</link>
+      <pubDate>Fri, 08 May 2020 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/blog/helm/</guid>
+      <description>Helm is a package manager for Kubernetes. A Chart is a Helm package. It contains all of the resource definitions necessary to run an application, tool, or service inside of a Kubernetes cluster. Think of it like the Kubernetes equivalent of a Homebrew formula, an Apt dpkg, or a Yum RPM file.
+A Release is an instance of a chart running in a Kubernetes cluster. One chart can often be installed multiple times into the same cluster.</description>
+    </item>
+    
+    <item>
+      <title>Benchmarking your Controllers &amp; Operators at Scale</title>
+      <link>https://vineethweb.com/blog/scale-testing-in-k8s/</link>
+      <pubDate>Sun, 19 Apr 2020 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/blog/scale-testing-in-k8s/</guid>
+      <description>The most common problem kubernetes controllers and operators authors face today is to benchmark their tools in large environments with 1000&amp;rsquo;s of workloads running in it. As controllers &amp;amp; operators come with custom logic to perform an action when a specific event occurs in the cluster to achieve the intended state.
+Creating 100 node cluster for benchmarking the Kubernetes tools is definitely expensive. Creation, maintainance &amp;amp; deletion is also a tiring job.</description>
+    </item>
+    
+    <item>
+      <title>Understanding gRPC</title>
+      <link>https://vineethweb.com/blog/grpc/</link>
+      <pubDate>Wed, 20 Nov 2019 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/blog/grpc/</guid>
+      <description>gRPC gRPC is a RPC platform initially developed by Google and now a project under CNCF. The letters gRPC are a recursive acronym which means, gRPC Remote Procedure Call.
+gRPC has two parts, the gRPC protocol, and the data serialization. By default gRPC utilizes Protobuf for serialization, but it is pluggable with any form of serialization you wish to use, with some caveats.
+HTTP/2 gRPC supports several built in features inherited from http2, such as compressing headers, persistent single TCP connections, cancellation and timeout contracts between client and server.</description>
+    </item>
+    
+    <item>
+      <title>Limiting Privileges In Kubernetes</title>
+      <link>https://vineethweb.com/blog/k8s-rbac/</link>
+      <pubDate>Sat, 21 Sep 2019 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/blog/k8s-rbac/</guid>
+      <description>Role Based Access Control in Kubernetes As we all know role based access control plays a vital role. when we have multiple people using the same resources for different purposes. We need to handle this scenarios by providing the users unique identification mechanism and privileges required for that particular user.
+RBAC in kubernetes adheres to least privilege principle.
+Need for RBAC  As Kubernetes has tens of resources with many functionalities.</description>
+    </item>
+    
+    <item>
+      <title>Inspecting Kubernetes Theoritically</title>
+      <link>https://vineethweb.com/blog/intro-to-k8s/</link>
+      <pubDate>Thu, 15 Aug 2019 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/blog/intro-to-k8s/</guid>
+      <description>Kubernetes Kubernetes only understands pods not containers.
+Pod Creation Requests  Bare pod RelplicaSet Deployment  Multi Container Pods  Share access to memory space Connect to each other using localhost Share access to the same volumes (storage abstraction) Tightly coupled. One crashes, all crashes. Same parameters such as config maps.  Pod Atomic Unit in Kubernetes is Pod
+In a pod either all conatiners or none of them run.</description>
+    </item>
+    
+    <item>
+      <title>All About Docker Instructions</title>
+      <link>https://vineethweb.com/blog/docker-instructions/</link>
+      <pubDate>Tue, 02 Jul 2019 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/blog/docker-instructions/</guid>
+      <description>The main intention behind writing this blog is to understand docker instructions and it&amp;rsquo;s capabilities while writing a Dockerfile.
+In the recent past it&amp;rsquo;s hard to find an application without a Dockerfile. 😃
+ INSTRUCTIONS used in Dockerfile  FROM MAINTAINER RUN CMD LABEL EXPOSE ENV ADD COPY ENTRYPOINT VOLUME USER WORKDIR ARG ONBUILD STOPSIGNAL HEALTHCHECK SHELL   FROM FROM &amp;lt;image&amp;gt; # picks latest by default FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt; # specific version can be pulled FROM &amp;lt;image&amp;gt;@&amp;lt;digest&amp;gt; # This makes sure we pull the specific image with provided digest, # If image content is changed digest also changes.</description>
+    </item>
+    
+  </channel>
+</rss>

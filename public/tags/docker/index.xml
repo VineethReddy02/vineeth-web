@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on Vineeth Pothulapati</title>
+    <link>https://vineethweb.com/tags/docker/</link>
+    <description>Recent content in Docker on Vineeth Pothulapati</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 22 Feb 2020 09:32:45 -0400</lastBuildDate>
+    
+	<atom:link href="https://vineethweb.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Securing Container Workloads at K8s Forum Delhi 2020</title>
+      <link>https://vineethweb.com/talks/k8s-forum-delhi/</link>
+      <pubDate>Sat, 22 Feb 2020 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/talks/k8s-forum-delhi/</guid>
+      <description>Security in the world of containers has become complex as we use different base images. We cannot be aware of what our containers are made up of and cope up with dependencies and transitive dependencies and their updates. On average at least 30 vulnerabilities exist in the top 10 docker images. Do you know if you’re using any of these? If your application containers are based on vulnerable images, your deployment could be open to attack.</description>
+    </item>
+    
+    <item>
+      <title>All About Docker Instructions</title>
+      <link>https://vineethweb.com/blog/docker-instructions/</link>
+      <pubDate>Tue, 02 Jul 2019 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/blog/docker-instructions/</guid>
+      <description>The main intention behind writing this blog is to understand docker instructions and it&amp;rsquo;s capabilities while writing a Dockerfile.
+In the recent past it&amp;rsquo;s hard to find an application without a Dockerfile. 😃
+ INSTRUCTIONS used in Dockerfile  FROM MAINTAINER RUN CMD LABEL EXPOSE ENV ADD COPY ENTRYPOINT VOLUME USER WORKDIR ARG ONBUILD STOPSIGNAL HEALTHCHECK SHELL   FROM FROM &amp;lt;image&amp;gt; # picks latest by default FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt; # specific version can be pulled FROM &amp;lt;image&amp;gt;@&amp;lt;digest&amp;gt; # This makes sure we pull the specific image with provided digest, # If image content is changed digest also changes.</description>
+    </item>
+    
+  </channel>
+</rss>

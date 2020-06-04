@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Vineeth Pothulapati | Understanding gRPC</title>
+  <meta property="og:title" content="Vineeth Pothulapati | Understanding gRPC" />
+  <meta property="og:image" content="https://vineethweb.com/img/dp01.jpeg" />
+  <meta name="description" content="">
+  <meta property="og:description" content="" />
+  <meta name="author" content="Vineeth Pothulapati">
+  
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"></noscript>
+  
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap"></noscript>
+  <link rel="preload" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"></noscript>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/css/devicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/css/devicons.min.css"></noscript>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"></noscript>
+  
+  <link rel="preload" href="https://vineethweb.com/css/resume.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://vineethweb.com/css/resume.css"></noscript>
+  <link rel="preload" href="https://vineethweb.com/css/tweaks.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://vineethweb.com/css/tweaks.css"></noscript>
+  <link rel="preload" href="https://vineethweb.com/css/resume-override.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://vineethweb.com/css/resume-override.css"></noscript>
+  <meta name="generator" content="Hugo 0.56.3" />
+  
+   
+  
+</head>
+<body id="page-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+  <a class="navbar-brand js-scroll-trigger" href="#page-top">
+    <span class="d-block d-lg-none">Vineeth Pothulapati</span>
+    <span class="d-none d-lg-block">
+      <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="/img/dp01.jpeg" alt="">
+    </span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="/#about">About</a>
+      </li>
+      
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/#skills">Skills</a>
+          </li>
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="/#blogs">Blogs</a>
+      </li>
+      
+      
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="/#talks">Talks</a>
+        </li>
+      
+      
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="/#projects">Projects</a>
+        </li>
+      
+      
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="/#open">Open Source</a>
+        </li>
+      
+      
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="/#experience">Experience</a>
+        </li>
+      
+      
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="/#education">Education</a>
+        </li>
+      
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="/#certifications">Certifications</a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
+
+  <div class="container-fluid p-0">
+    
+<nav aria-label="breadcrumb">
+  <ol  class="breadcrumb">
+    
+
+
+
+
+
+<li class="breadcrumb-item">
+  <a href="https://vineethweb.com/">Home</a>
+</li>
+
+
+<li class="breadcrumb-item">
+  <a href="https://vineethweb.com/blog/">Blogs</a>
+</li>
+
+
+<li class="breadcrumb-item active">
+  <a href="https://vineethweb.com/blog/grpc/">Understanding gRPC</a>
+</li>
+
+  </ol>
+</nav>
+
+
+
+
+<section class="resume-section p-3 p-lg-5 d-flex d-column">
+  <div class="my-auto">
+    <h2 class="mb-0"><span class="text-primary">Understanding gRPC</span></h2>
+    <span class="text-primary">November 20, 2019</span>
+    
+
+<h2 id="grpc">gRPC</h2>
+
+<p>gRPC is a RPC platform initially developed by Google and now a project under CNCF. The letters gRPC are a recursive acronym which means, gRPC Remote Procedure Call.</p>
+
+<p>gRPC has two parts, the gRPC protocol, and the data serialization. By default gRPC utilizes Protobuf for serialization, but it is pluggable with any form of serialization you wish to use, with some caveats.</p>
+
+<h3 id="http-2">HTTP/2</h3>
+
+<p>gRPC supports several built in features inherited from http2, such as compressing headers, persistent single TCP connections, cancellation and timeout contracts between client and server.</p>
+
+<h3 id="streams-messages-and-frames">Streams, Messages, and Frames</h3>
+
+<p>The introduction of the new binary framing mechanism changes how the data is exchanged between the client and server. To describe this process, let’s familiarize ourselves with the HTTP/2 terminology:</p>
+
+<p><strong><em>Stream</em></strong>: A bidirectional flow of bytes within an established connection, which may carry one or more messages.</p>
+
+<p><strong><em>Message</em></strong>: A complete sequence of frames that map to a logical request or response message.</p>
+
+<p><strong><em>Frame</em></strong>: The smallest unit of communication in HTTP/2, each containing a frame header, which at a minimum identifies the stream to which the frame belongs.</p>
+
+<ul>
+<li><p>All communication is performed over a single TCP connection that can carry any number of bidirectional streams.</p></li>
+
+<li><p>Each stream has a unique identifier and optional priority information that is used to carry bidirectional messages.</p></li>
+
+<li><p>Each message is a logical HTTP message, such as a request, or response, which consists of one or more frames.</p></li>
+
+<li><p>The frame is the smallest unit of communication that carries a specific type of data—e.g., HTTP headers, message payload, and so on. Frames from different streams may be interleaved and then reassembled via the embedded stream identifier in the header of each frame.</p></li>
+</ul>
+
+<h3 id="grpc-offers">gRPC offers:</h3>
+
+<ul>
+<li>Request &amp; Response Multiplexing</li>
+<li>Stream Prioritization</li>
+<li>One connection Per Origin</li>
+<li>Flow Control</li>
+<li>Server Push</li>
+<li>Header Compression</li>
+</ul>
+
+<h3 id="http-2-vs-http-1-1">HTTP/2 vs HTTP 1.1</h3>
+
+<p>Comparing REST and gRPC. REST, as mentioned earlier, depends heavily on HTTP (usually HTTP 1.1) and the request-response model. On the other hand, gRPC uses the newer HTTP/2 protocol.</p>
+
+<p>The probelms with HTTP 1.1 that HTTP/2 fixes.</p>
+
+<ul>
+<li>HTTP 1.1 is too big and complicated</li>
+<li>The Growth of Page Size and Number of Objects</li>
+<li>Latency issues</li>
+<li>Head of Line Blocking (reduces the ability to process parallel requests)</li>
+</ul>
+
+<p><strong><em>Default choice - REST</em></strong></p>
+
+<p>For simple services, HTTP REST is probably enough</p>
+
+<ul>
+<li>HTTP verbs (GET, POST, PUT, DELETE etc.) are rich enough</li>
+<li>REST semantics are well understood.</li>
+</ul>
+
+<p>When not to pick REST?</p>
+
+<p>For more complex services where efficiency is important, RPC can help.</p>
+
+<p><strong><em>PRO&rsquo;s:</em></strong></p>
+
+<ul>
+<li>SIMPLE &amp; IDIOMATIC</li>
+<li>PERFORMANT &amp; SCALABLE</li>
+<li>INTEROPERABLE &amp; EXTENSIBLE</li>
+</ul>
+
+<p>Google uses this framework to make 10 the power 10 calls per second.</p>
+
+<h3 id="hol">HOL</h3>
+
+<p>The probelem raises in HTTP/1 with HOL (Head of line blocking) when we sent a request to the server now on the connection is useless until it returns the response. Originally the server has allowed two connections per server had reuse the connection once the reponse has received. So this bottleneck was addressed by raising the limit to 6 connections.</p>
+
+<h3 id="metadata">Metadata</h3>
+
+<p>Headers repeat alot across the request. The headers that repeat are user-agents &amp; cookies ther are long and static and they are keep being added for each and every request. This is because HTTP was designed to be completely stateless and independent from the next. And then people started using sessions and these are identified with a long UUID and they are appended to every request being sent over &amp; over which is waste of bandwidth. Though the headers are highly compressable they cannot be gzipped as data which is a actually a miss opportunity.</p>
+
+<p>HTTP/2 follows the semantics of HTTP/1 this requets contain the headers i.e key/value pairs and body conetent which doesn&rsquo;t need any code related changes. The changes involve in how they are encoded in wire in transit(i.e into binary level)</p>
+
+<p>The scariest part is upgrade to HTTP/2 will I loose my clients ? Answer is no.</p>
+
+<p>So every connections starts out as H1 and then it upgrades to H2 and if this client doesn&rsquo;t support H2 it will stay on H1 and everything will work as before.</p>
+
+<p>What is HTTP/2 exactly? It&rsquo;s a single TLS encrypted connection.
+So HOL blocking is addressed at protocol level by single connection.</p>
+
+<h2 id="limitations-with-http-1-1">Limitations with HTTP/1.1</h2>
+
+<ol>
+<li>HTTP 1.1 opens a new TCP connection to a server at each request.</li>
+<li>It does not compress headers (which are plaintext).</li>
+<li>It only works with Request/Response mechanism (no server push).</li>
+<li>These inefficiences add more latency and increase network packet size.</li>
+</ol>
+
+<h2 id="advantages-with-http-2">Advantages with HTTP/2</h2>
+
+<ol>
+<li>The client &amp; server can push messages in parallel over the same TCP connection</li>
+<li>This greatly reduces latency.</li>
+<li>Server can push streams (multiple messages) for one request from the client which will reduce the round trips between
+client and server.</li>
+<li>HTTP/2 supports header compressions, This have much less impact on packet size(less bandwidth.</li>
+<li>Average http request may have over 20 headers, due to cookies,content cache and application headers.</li>
+<li>HTTP/2 is binary while HTTP/1 is text which is not efficient over the network.</li>
+<li>Protocol buffers is a binary protocol and makes it a great match for HTTP/2</li>
+<li>HTTP/2 is secure (SSL is not required but recommended by default)</li>
+</ol>
+
+<h2 id="types-of-api-in-grpc">Types of API in gRPC</h2>
+
+<ol>
+<li><strong>Unary</strong> default client to server request/response based communication.</li>
+<li><strong>Server Streaming</strong> client request server and server responds back with stream of responses.</li>
+<li><strong>Client Streaming</strong> client creates a streaming request connection with server and server sends back a single response.</li>
+<li><strong>Bi Directional Streaming</strong> client sends a stream of requests to server and server sends back stream of responses
+back to client.
+<br /></li>
+</ol>
+
+<h2 id="scalability-in-grpc">Scalability in gRPC</h2>
+
+<ol>
+<li>gRPC servers are asynchronous by default.</li>
+<li>This means they do not block threads on request.</li>
+<li>Therefore each gRPC server can serve millions of requets in parallel.</li>
+<li>gRPC Clients can be asynchronous or synchronous (blocking).</li>
+<li>The client decides which model works best for the performance needs.</li>
+<li>gRPC Clients can perform client side load balancing.</li>
+</ol>
+
+<h3 id="grpc-vs-rest">gRPC vs REST</h3>
+
+<p><strong><em>gRPC</em></strong></p>
+
+<ol>
+<li>Protocol Buffers - smaller,faster.</li>
+<li>HTTP/2(lower latency).</li>
+<li>Bidirectional &amp; Async.</li>
+<li>Stream Support.</li>
+<li>API oriented (no constraints-free design).</li>
+<li>Code Generation through Protocol Buffers in any language-1st  class citizen.</li>
+<li>RPC based gRPC does the plumbing for us.</li>
+</ol>
+
+<p><strong><em>REST</em></strong></p>
+
+<ol>
+<li>JSON- text based,slower, bigger</li>
+<li>HTTP1.1 (higher latency)</li>
+<li>Client -&gt; Server requets only</li>
+<li>Request/Response support only</li>
+<li>CRUD oriented(Create-Retrieve-Update-Delete/POST GET PUT DELETE)</li>
+<li>Code generation through OpenAPI/Swagger(add-on)-2nd class citizen</li>
+<li>HTTP verns based- we have to write the plumbing or use a 3rd party library</li>
+</ol>
+
+<h3 id="protobuf-vs-json">Protobuf vs JSON</h3>
+
+<p>One of the biggest differences between REST &amp; gRPC is the format of the payload. REST messages typically contain JSON. The whole REST ecosystem including tooling, best practices, and tutorials is focused on JSON. It is safe to say that, with very few exceptions, REST APIs accept and return JSON.</p>
+
+<p>gRPC, on the other hand, accepts and returns Protobuf messages. I will discuss the strong typing later, but just from a performance point of view, Protobuf is a very efficient and packed format. JSON, on the other hand, is a textual format. You can compress JSON, but then you lose the benefit of a textual format that you can easily expect.</p>
+
+<h3 id="strong-typing-vs-serialization">Strong Typing vs. Serialization</h3>
+
+<p>The REST paradigm doesn&rsquo;t mandate any structure for the exchanged payload. It is typically JSON. Consumers don&rsquo;t have a formal mechanism to coordinate the format of requests and responses. The JSON must be serialized and converted into the target programming language both on the server side and client side. The serialization is another step in the chain that introduces the possibility of errors as well as performance overhead.</p>
+
+<p>The gRPC service contract has strongly typed messages that are converted automatically from their Protobuf representation to your programming language of choice both on the server and on the client.</p>
+
+<p>JSON, on the other hand, is theoretically more flexible because you can send dynamic data and don&rsquo;t have to adhere to a rigid structure.</p>
+
+<h3 id="server-streaming">Server Streaming</h3>
+
+<ul>
+<li>Server Streaming RPC API are a new kind API enabled thanks to HTTP/2</li>
+<li>The client will send one message to the server and will receive many responses from the server, possibly an infinite number.</li>
+</ul>
+
+<p>Usecases:</p>
+
+<ol>
+<li>When the server needs to send a lot of data (big data).</li>
+<li>When the server needs to PUSH data to the client without having the client request for more.</li>
+</ol>
+
+<h3 id="client-streaming">Client Streaming</h3>
+
+<ul>
+<li>Client streaming RPC API are a NEW kind API enabled thanks to HTTP/2</li>
+
+<li><p>The client will send many message to the server and will receive one response from the server (at any time)</p></li>
+
+<li><p>Streaming client are well suited for</p>
+
+<ol>
+<li>When the client needs to send a lot of data(big data)</li>
+<li>When the server processing is expensive and should happen as the client sends data</li>
+<li>When the client needs to PUSH data to the server without really expecting a response.</li>
+</ol></li>
+
+<li><p>In gRPC client streaming calls are defined using the keyword &ldquo;stream&rdquo;</p></li>
+
+<li><p>As for each RPC call we have to define a &ldquo;Request&rdquo; message and a &ldquo;Response&rdquo; message.</p></li>
+</ul>
+
+<h3 id="bi-directional-streaming-api">Bi Directional Streaming API</h3>
+
+<ul>
+<li>Bi Directional Streaming RPC API are a new kind API enabked thanks to HTTP/2</li>
+<li>The client will send many message to the server and will receive many responses from the server.</li>
+
+<li><p>The number of requests and responses does not have to match</p></li>
+
+<li><p>Bi Directional Streaming RPC are well suited for</p>
+
+<ul>
+<li>When the client and the server needs to send a lot of data asynronously</li>
+<li>Chat protocol</li>
+<li>Long running connections</li>
+</ul></li>
+
+<li><p>In gRPC Bi Directional Streaming API are defined using the keyword &ldquo;stream&rdquo;, twice</p></li>
+
+<li><p>As for each RPC call we have to define a &ldquo;Request&rdquo; message and a &ldquo;Response&rdquo;
+message.w</p></li>
+</ul>
+
+<h4 id="below-is-the-proto-file-which-contains-the-message-definitions-stream-declarations">Below is the .proto file which contains the message definitions &amp; stream declarations.</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="color:#a6e22e">syntax</span> = <span style="color:#e6db74">&#34;proto3&#34;</span>;
+
+<span style="color:#f92672">package</span> <span style="color:#a6e22e">registration</span>;
+<span style="color:#a6e22e">option</span> <span style="color:#a6e22e">go_package</span>=<span style="color:#e6db74">&#34;registration&#34;</span>;
+
+<span style="color:#a6e22e">message</span> <span style="color:#a6e22e">register_request</span> {
+    <span style="color:#66d9ef">string</span> <span style="color:#a6e22e">name</span> = <span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">string</span> <span style="color:#a6e22e">email</span> = <span style="color:#ae81ff">2</span>;
+}
+
+<span style="color:#a6e22e">message</span> <span style="color:#a6e22e">register_response</span> {
+    <span style="color:#66d9ef">string</span> <span style="color:#a6e22e">registration_id</span> = <span style="color:#ae81ff">1</span>;
+}
+
+
+<span style="color:#a6e22e">message</span> <span style="color:#a6e22e">bulk_register_response</span> {
+    <span style="color:#a6e22e">repeated</span> <span style="color:#a6e22e">register_response</span> <span style="color:#a6e22e">bulk_response</span> = <span style="color:#ae81ff">1</span>;
+}
+
+<span style="color:#a6e22e">message</span> <span style="color:#a6e22e">nothing</span> {}
+
+<span style="color:#a6e22e">service</span> <span style="color:#a6e22e">Registration_service</span> {
+    <span style="color:#75715e">// Unary
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">rpc</span> <span style="color:#a6e22e">register</span>(<span style="color:#a6e22e">register_request</span>) <span style="color:#a6e22e">returns</span> (<span style="color:#a6e22e">register_response</span>) {};
+    <span style="color:#75715e">// Client streaming
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">rpc</span> <span style="color:#a6e22e">register_bulk</span>(<span style="color:#a6e22e">stream</span> <span style="color:#a6e22e">register_request</span>) <span style="color:#a6e22e">returns</span> (<span style="color:#a6e22e">bulk_register_response</span>) {};
+    <span style="color:#75715e">// Server streaming
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">rpc</span> <span style="color:#a6e22e">get_registered_data</span>(<span style="color:#a6e22e">nothing</span>) <span style="color:#a6e22e">returns</span> (<span style="color:#a6e22e">stream</span> <span style="color:#a6e22e">register_response</span>) {};
+    <span style="color:#75715e">// client/server streaming
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">rpc</span> <span style="color:#a6e22e">register_multiple_requests</span>(<span style="color:#a6e22e">stream</span> <span style="color:#a6e22e">register_request</span>) <span style="color:#a6e22e">returns</span> (<span style="color:#a6e22e">stream</span> <span style="color:#a6e22e">register_response</span>) {};
+}</pre></div>
+<p>In Protocol buffers to consume the ablove defined messages &amp; services. We generate the code using the below command</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">protoc registration.proto --go_out=plugins=grpc:.</pre></div>
+<h3 id="status-codes-in-grpc">Status Codes in gRPC</h3>
+
+<p>Codes in gRPC are imported from a package</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">google.golang.org/grpc/codes</pre></div>
+<p>Example:</p>
+
+<p>Below are some of the status codes defined in <strong><em>grpc/codes</em></strong>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">const (
+	OK Code = 0
+	Canceled Code = 1
+	Unknown Code = 2
+)</pre></div>
+<h3 id="streaming-with-timeout">Streaming with timeout</h3>
+
+<ul>
+<li>We can set the timeout per request and cancel the request if the server is taking longer the set up timeout.</li>
+<li>The timeout context is applicable for chain of microservice requests.</li>
+</ul>
+
+<h3 id="ssl-encryption-in-grpc">SSL Encryption in gRPC</h3>
+
+<ul>
+<li>In producrion gRPC calls should be running with encryption enabled</li>
+<li>This is done by generating SSL certificates.</li>
+<li>SSL allows communication to be secure end to end and ensuring no man in the middle attck can be performed.</li>
+</ul>
+
+<h3 id="ssl-security">SSL Security</h3>
+
+<p>What is SSL?</p>
+
+<ul>
+<li><p>TLS (Transport layer security), successor of SSL, encrypts the connection between 2 endpoints for secure data exchange.</p></li>
+
+<li><p>Two ways of using SSL (gRPC can use booth):</p>
+
+<ul>
+<li>One way verification e.g browser -&gt; webserver</li>
+<li>Two way verification e.g: SSL authentication</li>
+</ul></li>
+</ul>
+
+<h3 id="language-interoperatability">Language Interoperatability</h3>
+
+<p>In gRPC interoperatability is possible go server can serve the requets to java client and vice versa.</p>
+
+<h3 id="grpc-reflection-evans-cli">gRPC Reflection &amp; evans cli</h3>
+
+<p>We may ask server what API&rsquo;s do you have? That&rsquo;s reflection.</p>
+
+<p>We want reflection for two reasons
+ - Having servers expose which endpoints are available.
+ - Allowing command line interfaces (CLI) to talk to our server without preliminary .proto file.</p>
+
+<p>The below code snippet allows to expose endpoints of the respective server.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&#34;google.golang.org/grpc/reflection&#34;
+
+reflection.Register(s)</pre></div>
+<p>Evans cli for grpc helps us to see all the endpoints exposed using command line tool.</p>
+
+<p>Download evans cli tool from here:</p>
+
+<p><a href="https://github.com/ktr0731/evans/releases">https://github.com/ktr0731/evans/releases</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">To</span> <span style="color:#a6e22e">connect</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">gRPC</span> <span style="color:#a6e22e">server</span> <span style="color:#a6e22e">using</span> <span style="color:#a6e22e">evans</span> <span style="color:#a6e22e">cli</span>
+.<span style="color:#f92672">/</span><span style="color:#a6e22e">evans</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">p</span> <span style="color:#ae81ff">6666</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">r</span> 
+
+<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Shows</span> <span style="color:#a6e22e">the</span> <span style="color:#f92672">package</span> <span style="color:#a6e22e">in</span> <span style="color:#a6e22e">protocol</span> <span style="color:#a6e22e">buffers</span>
+<span style="color:#a6e22e">show</span> <span style="color:#f92672">package</span>
+
+<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Shows</span> <span style="color:#a6e22e">all</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">available</span> <span style="color:#a6e22e">services</span> <span style="color:#a6e22e">in</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">gRPC</span> <span style="color:#a6e22e">server</span>.
+<span style="color:#a6e22e">show</span> <span style="color:#a6e22e">service</span> 
+
+<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Shows</span> <span style="color:#a6e22e">all</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">messages</span> <span style="color:#a6e22e">defined</span> <span style="color:#a6e22e">in</span> <span style="color:#a6e22e">protocol</span> <span style="color:#a6e22e">buffers</span>.
+<span style="color:#a6e22e">show</span> <span style="color:#a6e22e">message</span> 
+
+<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">Test</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">respective</span> <span style="color:#a6e22e">service</span> <span style="color:#a6e22e">in</span> <span style="color:#a6e22e">interactive</span> <span style="color:#a6e22e">mode</span>.
+<span style="color:#a6e22e">call</span> <span style="color:#a6e22e">register</span> </pre></div>
+<h3 id="demo-app">Demo App</h3>
+
+<p>Let&rsquo;s create a server that registers the client requests and displays a message saying registration successsful.
+When client sends register request to server it returns a unique id is returned, on successful registration.</p>
+
+<p>Checkout the demo app on gRPC <a href="https://github.com/VineethReddy02/gRPC-demo/tree/master">here</a></p>
+
+    
+    <ul class="tags">
+    
+      <li><a class="tag" href="/tags/micro-services">Micro-services</a></li>
+    
+      <li><a class="tag" href="/tags/networking">Networking</a></li>
+    
+</ul>
+
+  </div>
+</section>
+
+
+    <span style="color: #999999; font-size: 60%;">Nifty <a href="https://codepen.io/wbeeftink/pen/dIaDH">tech tag lists</a> from <a class="pen-owner-link" href="https://codepen.io/wbeeftink">Wouter Beeftink</a> </span>
+    
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+
+  
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  
+  <script async src="/js/resume.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=XX-123446-01"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'XX-123446-01');
+  </script>
+  
+
+  
+</body>
+</html>

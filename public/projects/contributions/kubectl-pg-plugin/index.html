@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Vineeth Pothulapati | kubectl pg plugin for Zalando&#39;s Postgres Operator</title>
+  <meta property="og:title" content="Vineeth Pothulapati | kubectl pg plugin for Zalando&#39;s Postgres Operator" />
+  <meta property="og:image" content="https://vineethweb.com/img/dp01.jpeg" />
+  <meta name="description" content="kubectl pg plugin helps in managing postgres clusters efficiently and by decreasing the efforts in working with postgresql resources.">
+  <meta property="og:description" content="kubectl pg plugin helps in managing postgres clusters efficiently and by decreasing the efforts in working with postgresql resources." />
+  <meta name="author" content="Vineeth Pothulapati">
+  
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"></noscript>
+  
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap"></noscript>
+  <link rel="preload" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"></noscript>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/css/devicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/css/devicons.min.css"></noscript>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"></noscript>
+  
+  <link rel="preload" href="https://vineethweb.com/css/resume.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://vineethweb.com/css/resume.css"></noscript>
+  <link rel="preload" href="https://vineethweb.com/css/tweaks.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://vineethweb.com/css/tweaks.css"></noscript>
+  <link rel="preload" href="https://vineethweb.com/css/resume-override.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://vineethweb.com/css/resume-override.css"></noscript>
+  <meta name="generator" content="Hugo 0.56.3" />
+  
+   
+  
+</head>
+<body id="page-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+  <a class="navbar-brand js-scroll-trigger" href="#page-top">
+    <span class="d-block d-lg-none">Vineeth Pothulapati</span>
+    <span class="d-none d-lg-block">
+      <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="/img/dp01.jpeg" alt="">
+    </span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="/#about">About</a>
+      </li>
+      
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/#skills">Skills</a>
+          </li>
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="/#blogs">Blogs</a>
+      </li>
+      
+      
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="/#talks">Talks</a>
+        </li>
+      
+      
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="/#projects">Projects</a>
+        </li>
+      
+      
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="/#open">Open Source</a>
+        </li>
+      
+      
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="/#experience">Experience</a>
+        </li>
+      
+      
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="/#education">Education</a>
+        </li>
+      
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="/#certifications">Certifications</a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
+
+  <div class="container-fluid p-0">
+    
+<nav aria-label="breadcrumb">
+  <ol  class="breadcrumb">
+    
+
+
+
+
+
+
+
+<li class="breadcrumb-item">
+  <a href="https://vineethweb.com/">Home</a>
+</li>
+
+
+<li class="breadcrumb-item">
+  <a href="https://vineethweb.com/projects/">Projects</a>
+</li>
+
+
+<li class="breadcrumb-item">
+  <a href="https://vineethweb.com/projects/contributions/">Open Source Contributions</a>
+</li>
+
+
+<li class="breadcrumb-item active">
+  <a href="https://vineethweb.com/projects/contributions/kubectl-pg-plugin/">kubectl pg plugin for Zalando&#39;s Postgres Operator</a>
+</li>
+
+  </ol>
+</nav>
+
+
+
+
+<section class="resume-section p-3 p-lg-5 d-flex d-column">
+  <div class="my-auto">
+    <h2 class="mb-0"><span class="text-primary">kubectl pg plugin for Zalando&#39;s Postgres Operator</span></h2>
+    
+
+<p><br/><br/></p>
+
+<h2 id="project-abstract">Project Abstract</h2>
+
+<p>The Postgres Operator is a project to create an open-sourced managed Postgres service for Kubernetes.
+The Postgres operator manages Postgres clusters on Kubernetes. kubectl plugins enable extending the Kubernetes command-line client kubectl with commands to manage custom resources. The task is to design and implement a plugin for the kubectl
+postgres command. My project aims to simplify and ease the usage of postgres clusters using the kubectl plugin.
+As the postgres operator is capable of many features having a kubectl plugin will ease in running the clusters and u
+nderstanding the resources way better.</p>
+
+<h3 id="description">Description</h3>
+
+<p>The developed kubectl pg plugin helps in managing the postgres clusters efficiently and by decreasing the efforts in working with postgresql resources. Usually dealing with custom resource definations is a bit complicated as everythng needs to verfied and updated manually by changing the manifest file. kubectl pg plugin helps in managing the postgres clusters with ease. We can check whether the postgresql CRD is registered in the cluster or not. By this we can go ahead in creating CRD resources without any manual verfication such as state of postgres operator and CRD created by it. Dealing the postgres-operator is challenging when we have multiple operators in different namespaces. I developed a command which shows the current version of postgres-operator in current namespace and also in specified namespace. Though the usual way of creating postgres resources is using kubectl apply command for ease in managing postgres cluster individually we created kubectl pg create cmd specific to postgres resources. The same has been implemented for update as kubectl pg update and for delete as kubectl pg delete.</p>
+
+<h3 id="demo">Demo</h3>
+
+<p><a href="https://asciinema.org/a/YD0zVQnesSy6Tw2LIRIrghwW6"><img src="https://asciinema.org/a/YD0zVQnesSy6Tw2LIRIrghwW6.svg" alt="asciicast" /></a></p>
+
+<h3 id="developed-features">Developed Features:</h3>
+
+<p><br></p>
+
+<h4 id="check-whether-the-postgres-crd-is-registered">Check whether the postgres CRD is registered.</h4>
+
+<p>This makes sure CRD is installed in the kubernetes cluster. which helps us in creating <code>postgresql</code> resources</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg check</pre></div>
+<h4 id="create-postgres-cluster-using-manifest-file">Create postgres cluster using manifest file</h4>
+
+<p>This is an alternative to <code>kubectl apply</code> but built specifically to handle creation of kind postgresql resources.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg create -f manifest.yaml</pre></div>
+<h4 id="update-postgres-cluster-using-manifest-file">Update postgres cluster using manifest file</h4>
+
+<p>This is an alternative to <code>kubectl apply</code> but built specifically to handle updation of kind postgresql resources.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg update -f manifest.yaml</pre></div>
+<h4 id="delete-postgres-cluster-using-manifest-file">Delete postgres cluster using manifest file</h4>
+
+<p>This is an alternative to <code>kubectl delete</code> but built specifically to handle deletion of kind postgresql resources and verifies the deletion with confirmation.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg delete -f manifest.yaml</pre></div>
+<h4 id="delete-postgres-cluster-using-cluster-name">Delete postgres cluster using cluster name</h4>
+
+<p>This is built specifically to delete postgresql cluster using it&rsquo;s name in the current namespace.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg delete cluster</pre></div>
+<h4 id="delete-postgres-cluster-using-cluster-name-in-specified-namespace">Delete postgres cluster using cluster name in specified namespace</h4>
+
+<p>This is built specifically to delete postgresql cluster using it&rsquo;s name in the provided namespace.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg delete cluster -n namespace</pre></div>
+<h4 id="list-postgres-cluster-from-current-namespace">List postgres cluster from current namespace</h4>
+
+<p>This feature helps in listing the postgres clusters in the current namespace.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg list</pre></div>
+<h4 id="list-postgres-clusters-from-all-namespaces">List postgres clusters from all namespaces</h4>
+
+<p>This feature helps in listing the postgres clusters from all the namespaces.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg list -A</pre></div>
+<h4 id="extend-volume-of-an-existing-cluster">Extend volume of an existing cluster</h4>
+
+<p>This feature let&rsquo;s you extend the size of the volume.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg ext-volume 2Gi -c cluster</pre></div>
+<h4 id="scale-the-number-of-instances-of-postgres-cluster">Scale the number of instances of postgres cluster</h4>
+
+<p>This feature let&rsquo;s to scale up and down by providing the desired instances.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg scale 10 -c cluster</pre></div>
+<h4 id="add-a-database-and-it-s-owner-to-a-postgres-cluster">Add a database and it&rsquo;s owner to a postgres cluster</h4>
+
+<p>This feature let&rsquo;s you add new database and associated owner.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg add-db DB01 -o OWNER -c cluster</pre></div>
+<h4 id="add-a-user-and-set-of-privileges-to-a-postgres-cluster">Add a user and set of privileges to a postgres-cluster</h4>
+
+<p>This feature let&rsquo;s you add new user and privileges such as superuser, inherit ,login, nologin, createrole, createdb, replication, bypassrls.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg add-user USER01 -p login,createdb -c cluster</pre></div>
+<h4 id="fetch-the-logs-of-the-postgres-operator">Fetch the logs of the postgres operator</h4>
+
+<p>Get the logs of postgres-operator pod.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg logs -o</pre></div>
+<h4 id="fetch-the-logs-of-the-postgres-cluster">Fetch the logs of the postgres cluster</h4>
+
+<ul>
+<li><p>Get the logs of random replica from the provided cluster.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg logs -c cluster</pre></div></li>
+
+<li><p>Get the logs of master pod from the provided cluster.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg logs -c cluster -m</pre></div></li>
+
+<li><p>Get the logs of specified replica from the provided cluster.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg logs -c cluster -r 3</pre></div></li>
+</ul>
+
+<h4 id="connect-to-shell-prompt">Connect to shell prompt</h4>
+
+<ul>
+<li><p>Connect to the shell prompt of random replica.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg connect -c cluster</pre></div></li>
+
+<li><p>Connect to the shell prompt of master pod in the provided cluster.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg connect -c cluster -m</pre></div></li>
+
+<li><p>Connect to shell prompt of specified replica for the provided postgres cluster.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg connect -c cluster -r 2</pre></div></li>
+</ul>
+
+<h4 id="connect-to-psql-prompt-of-random-replica">Connect to psql prompt of random replica</h4>
+
+<ul>
+<li><p>Connect to the psql prompt of random replica with db-name as current user and db-user as current user.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg connect -c cluster -p</pre></div></li>
+
+<li><p>Connect to the psql prompt of random replica with db-user as specified user and db-name as specified user.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg connect -c cluster -p -u user01</pre></div></li>
+
+<li><p>Connect to psql prompt of random replica with provided postgres cluster, db-user as specified user and db-name as specified db-name.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg connect -c cluster -p -u user01 -d db01</pre></div></li>
+
+<li><p>Connect to psql prompt of specified replica for the provided postgres cluster, db-user as current user and db-name as current username.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg connect -c cluster -p -r 4</pre></div></li>
+
+<li><p>Connect to psql prompt of specified replica with provided postgres cluster, db-user as specified user and db-name as specified user.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg connect -c cluster -p -r 3 -u user01</pre></div></li>
+
+<li><p>Connect to psql prompt of specified replica with provided postgres cluster, db-user as specified user and db-name as specified db-name.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg connect -c cluster -p -r 3 -u user01 -d db01</pre></div></li>
+
+<li><p>Connect to psql prompt of master for the provided postgres cluster, db-user as current user and db-name as current username.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg connect -c cluster -p -m</pre></div></li>
+
+<li><p>Connect to psql prompt of master with provided postgres cluster, db-user as specified user and db-name as specified user.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg connect -c cluster -p -m -u user01</pre></div></li>
+
+<li><p>Connect to psql prompt of master with provided postgres cluster, db-user as specified user and db-name as specified db-name.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg connect -c cluster -p -m -u user01 -d db01</pre></div></li>
+</ul>
+
+<h4 id="version-details-of-kubectl-pg-plugin-and-postgres-operator">Version details of kubectl pg plugin and postgres-operator</h4>
+
+<ul>
+<li><p>Get the version of kubectl pg plugin and postgres-operator in default namespace.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg version</pre></div></li>
+
+<li><p>Get the version of kubectl pg plugin and postgres-operator in specified namespace.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">kubectl pg version -n namespace</pre></div></li>
+</ul>
+
+    <p>Project link: <a href="https://github.com/VineethReddy02/GSoC-Kubectl-Plugin-for-Postgres-Operator-tracker">https://github.com/VineethReddy02/GSoC-Kubectl-Plugin-for-Postgres-Operator-tracker</a></p>
+    <ul class="tags">
+    
+      <li><a class="tag" href="/tags/kubernetes">kubernetes</a></li>
+    
+</ul>
+
+  </div>
+</section>
+
+
+    <span style="color: #999999; font-size: 60%;">Nifty <a href="https://codepen.io/wbeeftink/pen/dIaDH">tech tag lists</a> from <a class="pen-owner-link" href="https://codepen.io/wbeeftink">Wouter Beeftink</a> </span>
+    
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+
+  
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  
+  <script async src="/js/resume.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=XX-123446-01"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'XX-123446-01');
+  </script>
+  
+
+  
+</body>
+</html>

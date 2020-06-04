@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Vineeth Pothulapati</title>
+    <link>https://vineethweb.com/</link>
+    <description>Recent content in Home on Vineeth Pothulapati</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 10 Feb 2018 18:56:13 -0500</lastBuildDate>
+    
+	<atom:link href="https://vineethweb.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://vineethweb.com/publications/alldaydevops/</link>
+      <pubDate>Tue, 08 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://vineethweb.com/publications/alldaydevops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubectl mc to manage multiple clusters</title>
+      <link>https://vineethweb.com/projects/creations/kubectl-mc/</link>
+      <pubDate>Mon, 11 May 2020 12:41:05 -0500</pubDate>
+      
+      <guid>https://vineethweb.com/projects/creations/kubectl-mc/</guid>
+      <description>The motive behind this plugin is to manage set of kubernetes clusters with a kubectl plugin. All the kubectl actions can be performed using this plugin. The plugin cascades the performed operation to all the k8s clusters.</description>
+    </item>
+    
+    <item>
+      <title>Helming</title>
+      <link>https://vineethweb.com/blog/helm/</link>
+      <pubDate>Fri, 08 May 2020 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/blog/helm/</guid>
+      <description>Helm is a package manager for Kubernetes. A Chart is a Helm package. It contains all of the resource definitions necessary to run an application, tool, or service inside of a Kubernetes cluster. Think of it like the Kubernetes equivalent of a Homebrew formula, an Apt dpkg, or a Yum RPM file.
+A Release is an instance of a chart running in a Kubernetes cluster. One chart can often be installed multiple times into the same cluster.</description>
+    </item>
+    
+    <item>
+      <title>gRPC store for Cortex</title>
+      <link>https://vineethweb.com/projects/contributions/grpc-store-cortex/</link>
+      <pubDate>Sat, 02 May 2020 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/projects/contributions/grpc-store-cortex/</guid>
+      <description>Cortex, being a Distributed, Multi-Tenant Prometheus off-loads the storage to battle-tested databases like Cassandra, BigTable, etc. All the time-series data is converted into chunks. The chunk store essentially contains two parts i.e Index Store, where index to the chunks are stored &amp;amp; KV Store for the chunks itself for direct access. For Index store, There are multiple types of schemas supported by passing the relevant config through chunk.SchemaConfig. Right now, there are only some storage backends supported but as we are seeing more and more users adopting Cortex in their companies,iIt’s important that there is a way for them to extend Cortex to make it use their existing back-ends for storage.</description>
+    </item>
+    
+    <item>
+      <title>Benchmarking your Controllers &amp; Operators at Scale</title>
+      <link>https://vineethweb.com/blog/scale-testing-in-k8s/</link>
+      <pubDate>Sun, 19 Apr 2020 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/blog/scale-testing-in-k8s/</guid>
+      <description>The most common problem kubernetes controllers and operators authors face today is to benchmark their tools in large environments with 1000&amp;rsquo;s of workloads running in it. As controllers &amp;amp; operators come with custom logic to perform an action when a specific event occurs in the cluster to achieve the intended state.
+Creating 100 node cluster for benchmarking the Kubernetes tools is definitely expensive. Creation, maintainance &amp;amp; deletion is also a tiring job.</description>
+    </item>
+    
+    <item>
+      <title>Certified Kubernetes Application Developer (CKAD)</title>
+      <link>https://vineethweb.com/certifications/ckad/</link>
+      <pubDate>Wed, 15 Apr 2020 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/certifications/ckad/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docs team lead for Kubernetes 1.18 release</title>
+      <link>https://vineethweb.com/projects/contributions/k8s-release/</link>
+      <pubDate>Thu, 02 Apr 2020 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/projects/contributions/k8s-release/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Securing Container Workloads at K8s Forum Delhi 2020</title>
+      <link>https://vineethweb.com/talks/k8s-forum-delhi/</link>
+      <pubDate>Sat, 22 Feb 2020 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/talks/k8s-forum-delhi/</guid>
+      <description>Security in the world of containers has become complex as we use different base images. We cannot be aware of what our containers are made up of and cope up with dependencies and transitive dependencies and their updates. On average at least 30 vulnerabilities exist in the top 10 docker images. Do you know if you’re using any of these? If your application containers are based on vulnerable images, your deployment could be open to attack.</description>
+    </item>
+    
+    <item>
+      <title>Certified Kubernetes Administrator (CKA)</title>
+      <link>https://vineethweb.com/certifications/cka/</link>
+      <pubDate>Sat, 25 Jan 2020 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/certifications/cka/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Understanding gRPC</title>
+      <link>https://vineethweb.com/blog/grpc/</link>
+      <pubDate>Wed, 20 Nov 2019 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/blog/grpc/</guid>
+      <description>gRPC gRPC is a RPC platform initially developed by Google and now a project under CNCF. The letters gRPC are a recursive acronym which means, gRPC Remote Procedure Call.
+gRPC has two parts, the gRPC protocol, and the data serialization. By default gRPC utilizes Protobuf for serialization, but it is pluggable with any form of serialization you wish to use, with some caveats.
+HTTP/2 gRPC supports several built in features inherited from http2, such as compressing headers, persistent single TCP connections, cancellation and timeout contracts between client and server.</description>
+    </item>
+    
+    <item>
+      <title>Limiting Privileges In Kubernetes</title>
+      <link>https://vineethweb.com/blog/k8s-rbac/</link>
+      <pubDate>Sat, 21 Sep 2019 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/blog/k8s-rbac/</guid>
+      <description>Role Based Access Control in Kubernetes As we all know role based access control plays a vital role. when we have multiple people using the same resources for different purposes. We need to handle this scenarios by providing the users unique identification mechanism and privileges required for that particular user.
+RBAC in kubernetes adheres to least privilege principle.
+Need for RBAC  As Kubernetes has tens of resources with many functionalities.</description>
+    </item>
+    
+    <item>
+      <title>kubectl pg plugin for Zalando&#39;s Postgres Operator</title>
+      <link>https://vineethweb.com/projects/contributions/kubectl-pg-plugin/</link>
+      <pubDate>Mon, 02 Sep 2019 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/projects/contributions/kubectl-pg-plugin/</guid>
+      <description>Project Abstract The Postgres Operator is a project to create an open-sourced managed Postgres service for Kubernetes. The Postgres operator manages Postgres clusters on Kubernetes. kubectl plugins enable extending the Kubernetes command-line client kubectl with commands to manage custom resources. The task is to design and implement a plugin for the kubectl postgres command. My project aims to simplify and ease the usage of postgres clusters using the kubectl plugin.</description>
+    </item>
+    
+    <item>
+      <title>Inspecting Kubernetes Theoritically</title>
+      <link>https://vineethweb.com/blog/intro-to-k8s/</link>
+      <pubDate>Thu, 15 Aug 2019 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/blog/intro-to-k8s/</guid>
+      <description>Kubernetes Kubernetes only understands pods not containers.
+Pod Creation Requests  Bare pod RelplicaSet Deployment  Multi Container Pods  Share access to memory space Connect to each other using localhost Share access to the same volumes (storage abstraction) Tightly coupled. One crashes, all crashes. Same parameters such as config maps.  Pod Atomic Unit in Kubernetes is Pod
+In a pod either all conatiners or none of them run.</description>
+    </item>
+    
+    <item>
+      <title>All About Docker Instructions</title>
+      <link>https://vineethweb.com/blog/docker-instructions/</link>
+      <pubDate>Tue, 02 Jul 2019 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/blog/docker-instructions/</guid>
+      <description>The main intention behind writing this blog is to understand docker instructions and it&amp;rsquo;s capabilities while writing a Dockerfile.
+In the recent past it&amp;rsquo;s hard to find an application without a Dockerfile. 😃
+ INSTRUCTIONS used in Dockerfile  FROM MAINTAINER RUN CMD LABEL EXPOSE ENV ADD COPY ENTRYPOINT VOLUME USER WORKDIR ARG ONBUILD STOPSIGNAL HEALTHCHECK SHELL   FROM FROM &amp;lt;image&amp;gt; # picks latest by default FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt; # specific version can be pulled FROM &amp;lt;image&amp;gt;@&amp;lt;digest&amp;gt; # This makes sure we pull the specific image with provided digest, # If image content is changed digest also changes.</description>
+    </item>
+    
+    <item>
+      <title>Search Results</title>
+      <link>https://vineethweb.com/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vineethweb.com/search/</guid>
+      <description>This file exists solely to respond to /search URL with the related search layout template.
+No content shown here is rendered, all content is based in the template layouts/page/search.html
+Setting a very low sitemap priority will tell search engines this is not important content.
+This implementation uses Fusejs, jquery and mark.js
+Initial setup Search depends on additional output content type of JSON in config.toml
+[outputs] home = [&amp;#34;HTML&amp;#34;, &amp;#34;JSON&amp;#34;] Searching additional fileds To search additional fields defined in front matter, you must add it in 2 places.</description>
+    </item>
+    
+    <item>
+      <title>k8s-scaler to create k8s resources at scale</title>
+      <link>https://vineethweb.com/projects/creations/k8s-scaler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vineethweb.com/projects/creations/k8s-scaler/</guid>
+      <description>This project is a kubernetes resource scaler. The main objective of this project is to create 10&amp;rsquo;s/100&amp;rsquo;s/100&amp;rsquo;s of kubernetes resources with ease. Infact by just using a single command.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source Contributions on Vineeth Pothulapati</title>
+    <link>https://vineethweb.com/projects/contributions/</link>
+    <description>Recent content in Open Source Contributions on Vineeth Pothulapati</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Jan 2020 16:49:15 +0000</lastBuildDate>
+    
+	<atom:link href="https://vineethweb.com/projects/contributions/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>gRPC store for Cortex</title>
+      <link>https://vineethweb.com/projects/contributions/grpc-store-cortex/</link>
+      <pubDate>Sat, 02 May 2020 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/projects/contributions/grpc-store-cortex/</guid>
+      <description>Cortex, being a Distributed, Multi-Tenant Prometheus off-loads the storage to battle-tested databases like Cassandra, BigTable, etc. All the time-series data is converted into chunks. The chunk store essentially contains two parts i.e Index Store, where index to the chunks are stored &amp;amp; KV Store for the chunks itself for direct access. For Index store, There are multiple types of schemas supported by passing the relevant config through chunk.SchemaConfig. Right now, there are only some storage backends supported but as we are seeing more and more users adopting Cortex in their companies,iIt’s important that there is a way for them to extend Cortex to make it use their existing back-ends for storage.</description>
+    </item>
+    
+    <item>
+      <title>Docs team lead for Kubernetes 1.18 release</title>
+      <link>https://vineethweb.com/projects/contributions/k8s-release/</link>
+      <pubDate>Thu, 02 Apr 2020 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/projects/contributions/k8s-release/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubectl pg plugin for Zalando&#39;s Postgres Operator</title>
+      <link>https://vineethweb.com/projects/contributions/kubectl-pg-plugin/</link>
+      <pubDate>Mon, 02 Sep 2019 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/projects/contributions/kubectl-pg-plugin/</guid>
+      <description>Project Abstract The Postgres Operator is a project to create an open-sourced managed Postgres service for Kubernetes. The Postgres operator manages Postgres clusters on Kubernetes. kubectl plugins enable extending the Kubernetes command-line client kubectl with commands to manage custom resources. The task is to design and implement a plugin for the kubectl postgres command. My project aims to simplify and ease the usage of postgres clusters using the kubectl plugin.</description>
+    </item>
+    
+  </channel>
+</rss>
