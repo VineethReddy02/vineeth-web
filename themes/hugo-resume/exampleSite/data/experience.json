@@ -1,0 +1,14 @@
+[
+    {
+        "role":"Software Developer",
+        "company":"[Aqua Security](https://www.aquasec.com/)",
+        "summary":"Currently working on a new kubernetes native security solution also referred as kube-native which enables discovery, security auditing and enforcement on top of kubernetes primitives, while integrating with the existing Aqua Security platform.",
+        "range":"June 2019 - Present"
+    },
+    {
+        "role":"Google Summer of Code Intern",
+        "company":"[The Postgres Operator](https://summerofcode.withgoogle.com/archive/2019/projects/6091237608652800/)",
+        "summary":"Developed a kubectl plugin for zalando’s postgres operator, which is a CLI Interface making it easy to manage Postgres Custom Resource Definitions(CRD’s). It is very similar to the kubectl CLI, and has most subcommands like get, scale, etc but will work on postgres resources i.e databases, etc.",
+        "range":"May 2019 - Aug 2019"
+    }
+]

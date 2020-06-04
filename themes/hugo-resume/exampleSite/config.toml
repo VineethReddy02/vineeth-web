@@ -1,0 +1,51 @@
+title = "Vineeth Pothulapati"
+baseURL = "https://example.com/"
+theme = "hugo-resume"
+languageCode = "en-us"
+PygmentsCodeFences = true
+PygmentsCodeFencesGuessSyntax = true
+PygmentsStyle = "monokai"
+enableGitInfo = false
+
+[params]
+address = "Hyderabad, India"
+email = "vineethpothulapati@outlook.com"
+favicon = "/favicon.ico"
+firstName = "Vineeth"
+lastName = "Pothulapati"
+phone = "1-555-555-1234"
+profileImage = "img/dp01.jpeg"
+showBlogs = true
+showEducation = true
+showExperience = true
+showOpenSource = true
+showProjects = true
+showPublications = false
+showQr = true
+showSkills = true
+showTalks = true
+showCertifications = true
+
+[params.google]
+
+[params.google.analytics]
+trackerID = "XX-123446-01"
+
+[[params.handles]]
+link = "https://www.linkedin.com/in/vineeth-pothulapati/"
+name = "LinkedIn"
+
+[[params.handles]]
+link = "https://github.com/VineethReddy02/"
+name = "GitHub"
+
+[[params.handles]]
+link = "https://github.com/VineethReddy02/"
+name = "Twitter"
+
+
+[outputs]
+home = ["HTML", "JSON"]
+
+[taxonomies]
+tag = "tags"

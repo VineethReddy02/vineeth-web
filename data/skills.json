@@ -1,0 +1,10 @@
+[
+  {
+      "grouping":"Languages, Operating Systems & Tools",
+      "skills":[ "C", "C++", "Java", "Python", "Go", "git", "linux", "bash"]
+  },
+  {
+    "grouping":"Technologies",
+      "skills":["Kubernetes", "Containers", "Service Mesh", "Monitoring", "Tracing", "Cloud Computing", "Distributed Systems", "Linux", "Git", "SQL", "NoSQL", "Azure", "GCP"]
+  }
+]

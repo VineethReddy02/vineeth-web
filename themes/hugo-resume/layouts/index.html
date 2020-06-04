@@ -1,0 +1,48 @@
+{{ define "main" }}
+   {{ partial "about.html" .}}
+   {{ if .Site.Params.showSkills }}
+       {{ partial "portfolio/skills.html" . }}
+   {{ end }}
+   {{ if .Site.Params.showBlogs }}
+      {{ with .Site.GetPage "section" "blog" }}
+         {{ .Scratch.Set "sectionId" "blogs" }}
+         {{ partial "sectionSummary" . }}
+      {{ end }}
+   {{ end }}
+   {{ if .Site.Params.showTalks }}
+      {{ with .Site.GetPage "section" "talks" }}
+         {{ .Scratch.Set "sectionId" "talks" }}
+         {{ partial "sectionSummary" . }}
+      {{ end }}
+   {{ end }}
+   {{ if .Site.Params.showProjects }}
+      {{ with .Site.GetPage "section" "projects/creations" }}
+         {{ .Scratch.Set "sectionId" "projects" }}
+         {{ partial "sectionSummary" . }}
+      {{ end }}
+   {{ end }}
+   {{ if .Site.Params.showOpenSource }}
+      {{ with .Site.GetPage "section" "projects/contributions" }}
+         {{ .Scratch.Set "sectionId" "open" }}
+         {{ partial "sectionSummary" . }}
+      {{ end }}
+   {{ end }}
+   {{ if .Site.Params.showPublications }}
+      {{ with .Site.GetPage "section" "publications" }}
+         {{ .Scratch.Set "sectionId" (default "Publications" .Site.Params.publicationsAlternateName) }}
+         {{ partial "sectionSummary" . }}
+      {{ end }}
+   {{ end }}
+   {{ if .Site.Params.showExperience }}
+       {{ partial "portfolio/experience.html" . }}
+   {{ end }}
+   {{ if .Site.Params.showEducation }}
+       {{ partial "portfolio/education.html" . }}
+   {{ end }}
+   {{ if .Site.Params.showCertifications }}
+      {{ with .Site.GetPage "section" "certifications" }}
+         {{ .Scratch.Set "sectionId" "certifications" }}
+         {{ partial "sectionSummary" . }}
+      {{ end }}
+   {{ end }}
+{{ end }}
