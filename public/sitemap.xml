@@ -51,12 +51,6 @@
   </url>
   
   <url>
-    <loc>https://vineethweb.com/tags/kubernetes/</loc>
-    <lastmod>2020-05-11T12:41:05-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://vineethweb.com/tags/</loc>
     <lastmod>2020-05-11T12:41:05-05:00</lastmod>
     <priority>0</priority>
@@ -65,6 +59,12 @@
   <url>
     <loc>https://vineethweb.com/projects/creations/kubectl-mc/</loc>
     <lastmod>2020-05-11T12:41:05-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/tags/kubernetes/</loc>
+    <lastmod>2020-05-11T12:41:05-05:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
