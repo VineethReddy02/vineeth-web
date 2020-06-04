@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Vineeth Pothulapati</title>
+    <title>Vineeth Pothulapati</title>
     <link>https://vineethweb.com/tags/</link>
-    <description>Recent content in Tags on Vineeth Pothulapati</description>
+    <description>Recent content on Vineeth Pothulapati</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 11 May 2020 12:41:05 -0500</lastBuildDate>
@@ -12,29 +12,25 @@
     
     
     <item>
+      <title>Open Source Contributions</title>
+      <link>https://vineethweb.com/projects/contributions/</link>
+      <pubDate>Tue, 07 Jan 2020 16:49:15 +0000</pubDate>
+      
+      <guid>https://vineethweb.com/projects/contributions/</guid>
+      <description>Open Source Contributions. I enjoy contributing to community driven projects and to see the impact they create.</description>
+    </item>
+    
+    <item>
       <title></title>
-      <link>https://vineethweb.com/tags/</link>
-      <pubDate>Mon, 11 May 2020 12:41:05 -0500</pubDate>
+      <link>https://vineethweb.com/publications/alldaydevops/</link>
+      <pubDate>Tue, 08 Nov 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://vineethweb.com/tags/</guid>
+      <guid>https://vineethweb.com/publications/alldaydevops/</guid>
       <description></description>
     </item>
     
-    <item>
-      <title>kubernetes</title>
-      <link>https://vineethweb.com/tags/kubernetes/</link>
-      <pubDate>Mon, 11 May 2020 12:41:05 -0500</pubDate>
-      
-      <guid>https://vineethweb.com/tags/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Distributed Systems</title>
-      <link>https://vineethweb.com/tags/distributed-systems/</link>
-      <pubDate>Sat, 02 May 2020 09:32:45 -0400</pubDate>
-      
-      <guid>https://vineethweb.com/tags/distributed-systems/</guid>
+  </channel>
+</rss>     <guid>https://vineethweb.com/tags/distributed-systems/</guid>
       <description></description>
     </item>
     

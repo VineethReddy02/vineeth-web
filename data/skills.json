@@ -5,6 +5,6 @@
   },
   {
     "grouping":"Technologies",
-      "skills":["Kubernetes", "Containers", "Service Mesh", "Monitoring", "Tracing", "Cloud Computing", "Distributed Systems", "Linux", "Git", "SQL", "NoSQL", "Azure", "GCP"]
+      "skills":["Kubernetes", "Containers", "Service Mesh", "Monitoring", "Tracing", "Cloud Computing", "Distributed Systems", "SQL", "NoSQL", "Azure", "GCP"]
   }
 ]
