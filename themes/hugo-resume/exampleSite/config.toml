@@ -10,7 +10,7 @@ enableGitInfo = false
 [params]
 address = "Hyderabad, India"
 email = "vineethpothulapati@outlook.com"
-favicon = "/favicon.ico"
+favicon = ""
 firstName = "Vineeth"
 lastName = "Pothulapati"
 phone = "1-555-555-1234"
