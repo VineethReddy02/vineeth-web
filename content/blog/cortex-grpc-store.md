@@ -8,9 +8,9 @@
   "featured":true
 }
 
-Cortex provides horizontally scalable, highly available, multi-tenant, long term storage for Prometheus.
+**Cortex provides horizontally scalable, highly available, multi-tenant, long term storage for Prometheus.**
 
-Loki is a horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by Prometheus.
+**Loki is a horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by Prometheus.**
 
 Cortex & Loki are designed in same lines but they differ in the data that flows through this systems i.e metrics vs logs
 
