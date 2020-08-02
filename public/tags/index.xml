@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Vineeth Pothulapati</title>
+    <title>Tags on Hugo Website</title>
     <link>http://vineethweb.com/tags/</link>
-    <description>Recent content in Tags on Vineeth Pothulapati</description>
+    <description>Recent content in Tags on Hugo Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 28 Jun 2020 09:32:45 -0400</lastBuildDate>
@@ -39,33 +39,6 @@
     </item>
     
     <item>
-      <title>Containers</title>
-      <link>http://vineethweb.com/tags/containers/</link>
-      <pubDate>Sat, 22 Feb 2020 09:32:45 -0400</pubDate>
-      
-      <guid>http://vineethweb.com/tags/containers/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Docker</title>
-      <link>http://vineethweb.com/tags/docker/</link>
-      <pubDate>Sat, 22 Feb 2020 09:32:45 -0400</pubDate>
-      
-      <guid>http://vineethweb.com/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Security</title>
-      <link>http://vineethweb.com/tags/security/</link>
-      <pubDate>Sat, 22 Feb 2020 09:32:45 -0400</pubDate>
-      
-      <guid>http://vineethweb.com/tags/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Micro-services</title>
       <link>http://vineethweb.com/tags/micro-services/</link>
       <pubDate>Wed, 20 Nov 2019 09:32:45 -0400</pubDate>
@@ -84,11 +57,29 @@
     </item>
     
     <item>
+      <title>Containers</title>
+      <link>http://vineethweb.com/tags/containers/</link>
+      <pubDate>Tue, 02 Jul 2019 09:32:45 -0400</pubDate>
+      
+      <guid>http://vineethweb.com/tags/containers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>DevOps</title>
       <link>http://vineethweb.com/tags/devops/</link>
       <pubDate>Tue, 02 Jul 2019 09:32:45 -0400</pubDate>
       
       <guid>http://vineethweb.com/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>http://vineethweb.com/tags/docker/</link>
+      <pubDate>Tue, 02 Jul 2019 09:32:45 -0400</pubDate>
+      
+      <guid>http://vineethweb.com/tags/docker/</guid>
       <description></description>
     </item>
     

@@ -1,13 +1,14 @@
-{
-  "title": "Talks",
-  "date": "2020-02-22T09:32:45-04:00",
-  "image": "",
-  "description": "K8s Forum Delhi 2020",
-  "tags": ["Docker", "Containers", "Security"],
-  "fact": "",
-  "link": "",
-  "featured": true
-}
++++
+title = "Talks"
+description = ""
+date = "2020-02-22T09:32:45-04:00"
+categories = [
+    "Docker",
+    "Containers",
+    "Security"
+]
+menu = "main"
++++
 
 ## [Securing Container Workloads at K8s Forum Delhi 2020](https://www.youtube.com/watch?v=71iH65gl3Fw)
 

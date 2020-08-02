@@ -73,17 +73,22 @@
   </url>
   
   <url>
-    <loc>http://vineethweb.com/tags/containers/</loc>
+    <loc>http://vineethweb.com/categories/</loc>
     <lastmod>2020-02-22T09:32:45-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vineethweb.com/tags/docker/</loc>
+    <loc>http://vineethweb.com/categories/containers/</loc>
     <lastmod>2020-02-22T09:32:45-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vineethweb.com/tags/security/</loc>
+    <loc>http://vineethweb.com/categories/docker/</loc>
+    <lastmod>2020-02-22T09:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://vineethweb.com/categories/security/</loc>
     <lastmod>2020-02-22T09:32:45-04:00</lastmod>
   </url>
   
@@ -128,12 +133,18 @@
   </url>
   
   <url>
+    <loc>http://vineethweb.com/tags/containers/</loc>
+    <lastmod>2019-07-02T09:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://vineethweb.com/tags/devops/</loc>
     <lastmod>2019-07-02T09:32:45-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vineethweb.com/categories/</loc>
+    <loc>http://vineethweb.com/tags/docker/</loc>
+    <lastmod>2019-07-02T09:32:45-04:00</lastmod>
   </url>
   
 </urlset>
