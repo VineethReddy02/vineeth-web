@@ -17,8 +17,8 @@
       <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://vineethweb.com/about/</guid>
-      <description>I&amp;rsquo;m a Software Engineer, who loves to work on cloud-native technologies. Certified Kubernetes Administrator &amp;amp; Certified Kubernetes Application Developer.
-Experience:   Software Engineer, Aqua Security: [June, 2019 - Present]  Currently working on a new kubernetes native security solution also referred as kube-native which enables discovery, security auditing and enforcement on top of kubernetes primitives, while integrating with the existing Aqua Security platform. Developed various features in enterpirse image scanner.</description>
+      <description>I&amp;rsquo;m a Software Engineer, who loves to work on cloud-native technologies.
+Experience:   Software Engineer, Aqua Security: [June, 2019 - Present]  Currently working on a new kubernetes native security solution also referred as kube-native which enables discovery, security auditing and enforcement on top of kubernetes primitives, while integrating with the existing Aqua Security platform. Developed various features in enterpirse image scanner.    Google Summer of Code Intern, The Postgres Operator: [May, 2019 - Aug, 2019]  Developed a kubectl plugin for zalando’s postgres operator, which is a CLI Interface making it easy to manage Postgres Custom Resource Definitions(CRD’s).</description>
     </item>
     
     <item>
