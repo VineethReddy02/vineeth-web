@@ -1,5 +1,5 @@
 baseurl = "https://vineethweb.com/"
-title = "Hugo Website"
+title = "Vineeth Pothulapati"
 theme = "hugo-theme-nix"
 languageCode = "en-us"
 disqusShortname = "vineeth"

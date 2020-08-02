@@ -36,4 +36,5 @@ menu = "main"
 * #### [B. V. Raju Institute of Technology](http://bvrit.ac.in/), Bachelor of Information Technology [2015 - 2019]
 
 
-
+&nbsp;
+&nbsp;
