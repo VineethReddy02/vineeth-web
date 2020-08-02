@@ -1,0 +1,36 @@
+baseurl = "http://vineethweb.com/"
+title = "Vineeth Pothulapati"
+theme = "hugo-theme-nix"
+languageCode = "en-us"
+disqusShortname = "vineeth"
+
+[menu]
+  [[menu.header]]
+    name = "posts"
+    weight = 0
+    url = "post"
+  [[menu.header]]
+    name = "about"
+    weight = 1
+    url = "about"
+  [[menu.header]]
+    name = "talks"
+    weight = 2
+    url = "talks"
+  [[menu.header]]
+    name = "projects"
+    weight = 3
+    url = "projects"
+
+[params]
+  GithubID = "VineethReddy02"
+  TwitterID = "VineethReddy02"
+  LinkedInID = "vineeth-pothulapati"
+  Name = "Vineeth Pothulapati"
+  HeaderUsername = "vineeth"
+  HeaderHostname = "AquaSecurity"
+  Email = "vineethpothulapati@outlook.com"
+  About = " Hey! Vineeth here, I'm a Software Engineer. I love to explore new tech and spend time in learning new things which come on my way and take opportunities which cross my path. Am also a member of Kubernetes community, CKA & CKAD."
+  ProfilePicture = "/dp.jpeg"
+  Favicon = "/favicon.ico"
+
