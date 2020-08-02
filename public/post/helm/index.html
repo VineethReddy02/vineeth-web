@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> Helming &middot; Vineeth Pothulapati </title>
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.68.3" />
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="http://vineethweb.com/css/nix.css">
+
+
+
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata%7COpen+Sans%7CConcert+One" rel="stylesheet">
+
+
+
+
+
+
+    </head>
+
+    <body>
+        <header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+      <a class="navbar-brand" id="green-terminal" href='http://vineethweb.com/'>
+        vineeth@AquaSecurity ~ $
+      </a>
+		</div>
+
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href='http://vineethweb.com/'>/home/vineeth</a>
+        </li>
+        
+				
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/about">~/about</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/talks">~/talks</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/projects">~/projects</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/post">~/posts</a>
+            		
+        		</li>
+        		
+
+			</ul>
+		</div>
+	</div>
+</nav>
+</header>
+
+        <div class="flex-wrapper">
+            <div class="container wrapper">
+                <h1><a href="http://vineethweb.com/post/helm/">Helming</a></h1>
+                <span class="post-date">2020-05-08 </span>
+                <div class="post-content">
+                    <!-- raw HTML omitted -->
+<p>Helm is a package manager for Kubernetes. A Chart is a Helm package. It contains all of the resource definitions necessary to run an application, tool, or service inside of a Kubernetes cluster. Think of it like the Kubernetes equivalent of a Homebrew formula, an Apt dpkg, or a Yum RPM file.</p>
+<p>A Release is an instance of a chart running in a Kubernetes cluster. One chart can often be installed multiple times into the same cluster. And each time it is installed, a new release is created.</p>
+<h2 id="why-we-need-helm">Why we need helm?</h2>
+<ol>
+<li>Ship prepackaged software.</li>
+<li>Easily install packages into any Kubernetes cluster.</li>
+<li>Easily create &amp; host your own software as helm charts.</li>
+<li>Visibility in cluster to see what packages are installed &amp; running.</li>
+<li>Update, delete, rollback, or view the history of installed packages.</li>
+</ol>
+<h2 id="helm-2-vs-helm-3">Helm 2 vs Helm 3</h2>
+<ol>
+<li><strong>No more tiller</strong>: Initially when helm was developed there was no strong access control model in Kubernetes. From Kubernetes 1.6 release Role Based Access Control (RBAC) has become default acess control. In helm 3 the access control is handed over to RBAC and we don&rsquo;t need tiller anymore.</li>
+<li><strong>Two-way to Three-way strategic merge patch</strong>: In helm 2 if we come across the scenario like we deployed an application using helm chart and we made changes on configuration in live cluster using <code>kubectl edit</code> and for some reason we decide to rollback. we don&rsquo;t consider the live state of cluster we compare the previous charts and new charts. In helm 3 you are covered the three way merge strategy works my taking previous helm chart, live state of the application and latest chart into consideration and performs a three way merge strategy.</li>
+<li><strong>Release info will be stored as secrets</strong>: In helm 2 all the helm installed related release information was stored in configmaps which needs additional encryption &amp; decryption to avoid complexity around storing this information in helm 3 release information will be stored as secrets.</li>
+<li><strong>Release name is required or use &ndash;generate-name flag</strong>: Helm 2 has by default random release name generation if user doesn&rsquo;t provide one. But in helm 3 release name is required if not provided helm throws an error. If you want helm to generate one use <code>--generate-name</code> flag.</li>
+<li><strong>Local chart repository is removed i.e helm serve</strong>: For local development purposes in helm 2 there was <code>helm serve</code> which was used to run a local Chart Repository on your machine in helm 3 this has been removed but available as a plugin.</li>
+<li><strong>Namespaces are not created automatically</strong>: In helm 2 if values.yaml contains a namespace which doesn&rsquo;t exist in the cluster it used to create namespace automatically before creating the resources. But in helm 3 this will cause an error before installing the helm chart we need to create namespace if it doesn&rsquo;t exist or use <code>--create-namespace</code> flag.</li>
+<li><strong>JSON Schema Chart Validation</strong>: In helm 3 you can validate the values provided by the user with the schema created by the chart maintainer. This provides better error reporting when we mess up with values.</li>
+</ol>
+<h2 id="helm-hub">Helm Hub</h2>
+<p>Helm hub is a centralized location where all the communtiy developed helm charts are maintained. We do have other helm chart respositories like bitnami <a href="https://github.com/bitnami/charts">https://github.com/bitnami/charts</a> etc&hellip;</p>
+<p>You can also host your own helm chart repository for your helm charts example helm chart repository chartmuseum <a href="https://chartmuseum.com/">https://chartmuseum.com/</a></p>
+<h2 id="directory-structure-of-a-helm-chart">Directory structure of a helm chart</h2>
+<pre><code>└── helm-demo
+    ├── charts
+    ├── Chart.yaml
+    ├── templates
+    │   ├── deployment.yaml
+    │   ├── _helpers.tpl
+    │   ├── hpa.yaml
+    │   ├── ingress.yaml
+    │   ├── NOTES.txt
+    │   ├── serviceaccount.yaml
+    │   ├── service.yaml
+    │   └── tests
+    │       └── test-connection.yaml
+    ├── values.yaml
+    └── values.schema.json
+</code></pre><p><strong>Charts</strong>: Charts directory contains all the charts upon which this chart depends.</p>
+<p><strong>Chart.yaml</strong>: A yaml file containing information about the chart.</p>
+<p><strong>templates</strong>: When the temaplte files are combined with values the generated manifest files are stored in templates directory.</p>
+<p><strong>values.schema.json</strong>: A json schema for imposing the structure and validations on the values.yaml file. (optional)</p>
+<p>In helm all the magic works using templating the two main files we should care about are values.yaml and all manifests files under templates directory. Define all the values in values.yaml file and use yaml templating for referencing the values and for re-using the values across template files. You can also override the flags while installing the helm chart by using flags such as <code>--set</code>, <code>--set-string</code> and <code>-f</code> for passing your own values.yaml file.</p>
+<h2 id="available-cli-commands">Available CLI commands</h2>
+<pre><code>  completion  generate autocompletions script for the specified shell (bash or zsh)
+  create      create a new chart with the given name
+  dependency  manage a chart's dependencies
+  env         helm client environment information
+  get         download extended information of a named release
+  help        Help about any command
+  history     fetch release history
+  install     install a chart
+  lint        examines a chart for possible issues
+  list        list releases
+  package     package a chart directory into a chart archive
+  plugin      install, list, or uninstall Helm plugins
+  pull        download a chart from a repository and (optionally) unpack it in local directory
+  repo        add, list, remove, update, and index chart repositories
+  rollback    roll back a release to a previous revision
+  search      search for a keyword in charts
+  show        show information of a chart
+  status      displays the status of the named release
+  template    locally render templates
+  test        run tests for a release
+  uninstall   uninstall a release
+  upgrade     upgrade a release
+  verify      verify that a chart at the given path has been signed and is valid
+  version     print the client version information
+</code></pre><h2 id="creating-your-first-helm-chart">Creating your first helm chart</h2>
+<p>The below command creates the helm chart with all the basic templating.</p>
+<pre><code>helm create &lt;chart_name&gt;
+</code></pre><h2 id="installing-the-helm-chart">Installing the helm chart</h2>
+<p>The below command installs the helm chart.
+Release name is specific to a namespace and it should be unique.</p>
+<pre><code>helm install &lt;release_name&gt; &lt;chart_name&gt;
+</code></pre><h2 id="installing-an-helm-chart-from-helm-hub">Installing an helm chart from helm hub</h2>
+<p>Example:</p>
+<p>Initialising a helm chart repo</p>
+<pre><code>helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+</code></pre><p>Search for the desired chart</p>
+<pre><code>helm search repo stable/cassandra
+</code></pre><p>Installing the helm chart</p>
+<pre><code>helm install cassandra01 stable/cassandra
+</code></pre><h2 id="uninstalling-a-helm-chart">Uninstalling a helm chart</h2>
+<p>The helm uninstall command helps you to delete all the kubernetes resources deployed by installing a specific chart</p>
+<pre><code>helm uninstall &lt;chart_release_name&gt;
+</code></pre><h2 id="upgrade--rollback-a-release-using-a-helm-chart">Upgrade &amp; Rollback a release using a helm chart</h2>
+<p>After making necessary changes to helm chart please update app version if image tag has been updated or if there any chnages around helm chart configuration update the chart version.</p>
+<p>Upgrading a release will add an revision to the release which is useful while rolling back the upgrade.</p>
+<pre><code>helm upgrade &lt;release_name&gt; &lt;chart_name&gt;
+</code></pre><p>Rolling back an upgrade</p>
+<pre><code>helm rollback &lt;release_name&gt; &lt;revision_number&gt;
+</code></pre><h2 id="to-view-manifest-files">To view manifest files</h2>
+<pre><code>helm template &lt;chart_name&gt;
+</code></pre><p>Here is an basic helm chart which has templating for a deployment to one of my project called mocklet <a href="https://github.com/VineethReddy02/mocklet-helm">https://github.com/VineethReddy02/mocklet-helm</a></p>
+<p>Cheers &amp; Happy Helming!</p>
+
+                </div>
+                
+                <div class="post-comments">
+                    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vineeth" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                </div>
+                
+            </div>
+            <footer class="footer text-center">
+<p>Copyright &copy; 2020 Vineeth Pothulapati -
+<span class="credit">
+	Powered by
+	<a target="_blank" href="https://gohugo.io">Hugo</a>
+	and
+	<a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+</span>
+</p>
+</footer>
+
+        </div>
+    </body>

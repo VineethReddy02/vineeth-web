@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> All About Docker Instructions &middot; Vineeth Pothulapati </title>
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.68.3" />
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="http://vineethweb.com/css/nix.css">
+
+
+
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata%7COpen+Sans%7CConcert+One" rel="stylesheet">
+
+
+
+
+
+
+    </head>
+
+    <body>
+        <header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+      <a class="navbar-brand" id="green-terminal" href='http://vineethweb.com/'>
+        vineeth@AquaSecurity ~ $
+      </a>
+		</div>
+
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href='http://vineethweb.com/'>/home/vineeth</a>
+        </li>
+        
+				
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/about">~/about</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/talks">~/talks</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/projects">~/projects</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/post">~/posts</a>
+            		
+        		</li>
+        		
+
+			</ul>
+		</div>
+	</div>
+</nav>
+</header>
+
+        <div class="flex-wrapper">
+            <div class="container wrapper">
+                <h1><a href="http://vineethweb.com/post/docker-instructions/">All About Docker Instructions</a></h1>
+                <span class="post-date">2019-07-02 </span>
+                <div class="post-content">
+                    <!-- raw HTML omitted -->
+<p><img src="/docker.jpg" alt="Docker"></p>
+<p>The main intention behind writing this blog is to understand docker instructions and it&rsquo;s capabilities while writing a Dockerfile.</p>
+<p>In the recent past it&rsquo;s hard to find an application without a Dockerfile. 😃</p>
+<ul>
+<li>INSTRUCTIONS used in Dockerfile
+<ul>
+<li>FROM</li>
+<li>MAINTAINER</li>
+<li>RUN</li>
+<li>CMD</li>
+<li>LABEL</li>
+<li>EXPOSE</li>
+<li>ENV</li>
+<li>ADD</li>
+<li>COPY</li>
+<li>ENTRYPOINT</li>
+<li>VOLUME</li>
+<li>USER</li>
+<li>WORKDIR</li>
+<li>ARG</li>
+<li>ONBUILD</li>
+<li>STOPSIGNAL</li>
+<li>HEALTHCHECK</li>
+<li>SHELL</li>
+</ul>
+</li>
+</ul>
+<h3 id="from">FROM</h3>
+<pre><code>FROM &lt;image&gt;                # picks latest by default
+FROM &lt;image&gt;:&lt;tag&gt;          # specific version can be pulled
+FROM &lt;image&gt;@&lt;digest&gt;       # This makes sure we pull the specific image with provided digest, 
+                            # If image content is changed digest also changes.
+</code></pre><ul>
+<li>FROM cmd can be used multiple times in the same Dockerfile to build multiple images. This generates unique Id for each image.</li>
+</ul>
+<pre><code> FROM alpine:3.5
+ FROM python
+ FROM vineeth97/saanvidashboard@sha256:ff6893d0750268ecfcdbe1e4a4d6f70b1a2ef43c5054ff11da0d5bc3595a79ec
+</code></pre><h3 id="maintainer">MAINTAINER</h3>
+<p>MAINTAINER <!-- raw HTML omitted --></p>
+<ul>
+<li>This is deprecated as docker LABEL instruction does exactly the same.</li>
+</ul>
+<pre><code>FROM alpine
+MAINTAINER vineeth
+</code></pre><h3 id="label">LABEL</h3>
+<p>LABEL ABC=&quot;XYZ&rdquo; DEF=&quot;MNO&rdquo;
+LABEL ABC=&quot;XYZ&rdquo; <br>
+DEF=&quot;MNO&rdquo; <br>
+GHI=&quot;PQR&rdquo;</p>
+<ul>
+<li>The LABEL cmd adds metadata to an image. A LABEL is a key-value pair.</li>
+<li>If same key has different values the last occurring will take the precedence.</li>
+</ul>
+<pre><code>FROM alpine:3.3
+LABEL fruit=&quot;APPLE&quot; \
+      vegetable=&quot;TOMATO&quot; \
+      fruit=&quot;BANANA&quot;
+LABEL abc=&quot;DEF&quot; hjk=&quot;PQR&quot;
+</code></pre><h3 id="run">RUN</h3>
+<pre><code>RUN [&quot;npm&quot;,&quot;start&quot;]   # exec form
+RUN npm start         # shell form
+</code></pre><p>Difference between shell form and exec form. By default shell form executes the commands in /bin/bash -c  context
+But exec form needs explicit context to be set. As it doesn&rsquo;t pick /bin/bash -c by default.</p>
+<pre><code>FROM ubuntu
+RUN apt-get update -y
+ENV myName=&quot;John Doe&quot; myDOg=Rex\ The\ Dog \
+        myCat=fluffy
+ENTRYPOINT [&quot;/bin/bash&quot;,&quot;-c&quot;,&quot;echo $myName&quot;] or ENTRYPOINT echo $myName
+</code></pre><p>The above docker instrctions are combination of shell and exec form in the ENTRYPOINT instruction.</p>
+<h3 id="cmd">CMD</h3>
+<pre><code>CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;] (exec form this is preferred form)
+CMD [&quot;param1&quot;,&quot;param2&quot;] (used to provide default parameters to ENTRYPOINT])
+CMD &lt;command&gt; &lt;param1&gt; &lt;param2&gt;
+</code></pre><ul>
+<li>CMD is used to provide a instruction to Dockerfile which also can overwritted using docker run cmd, Also used to provide defaults to the
+ENTRYPOINT cmd this defaults are also overwritted using docker run cmd .</li>
+</ul>
+<h3 id="entrypoint">ENTRYPOINT</h3>
+<ul>
+<li>Difference between CMD and ENTRYPOINT, CMD is used only once if it&rsquo;s provided multiple times last provided one will take precedence. CMD is     overwritted when we pass any command with docker run IMAGENAME XYZ ENTRYPOINT is used as the command which cannot be overwritten. But we can    append parameters to the ENTRYPOINT either by CMD after ENTRYPOINT in Dockerfile or else by passing from docker run command.</li>
+</ul>
+<pre><code>FROM ubuntu
+ENTRYPOINT [&quot;echo&quot;]
+CMD [&quot;VINEETH&quot;]
+</code></pre><p>In the above docker instruction CMD instruction is taken by default if any string is provided with docker run IMAGENAME AQUA will override the default CMD.
+If no CMD is provided. Any command provided with docker run will be appended to ENTRYPOINT command.</p>
+<h3 id="shell">SHELL</h3>
+<ul>
+<li>The SHELL instruction is particularly used on windows. where there are two commonly used and quite different native shells: CMD and
+POWERSHELL. as well as alternate shells available including sh.</li>
+<li>The SHELL instruction can be used multiple times. But the previous SHELL instruction is ignored and current SHELL instruction affects all the
+subsequent instructions.</li>
+</ul>
+<pre><code>FROM microsoft/windowsservercore
+
+# Executed as cmd /S /C echo default
+RUN echo default
+
+# Executed as cmd /S /C powershell -command Write-Host default
+RUN powershell -command Write-Host default
+
+# Executed as powershell -command Write-Host hello
+SHELL [&quot;powershell&quot;, &quot;-command&quot;]
+RUN Write-Host hello
+
+# Executed as cmd /S /C echo hello
+SHELL [&quot;cmd&quot;, &quot;/S&quot;, &quot;/C&quot;]
+RUN echo hello
+
+</code></pre><h3 id="healthcheck">HEALTHCHECK</h3>
+<ul>
+<li>HEALTHCHECK instruction is used to check the health of the container based on some validations. This lets us know whether the container is
+not only just up and running but also serving the requests as intended.</li>
+</ul>
+<pre><code>FROM node:latest
+COPY ./ ./app
+EXPOSE 4200
+WORKDIR /app
+RUN npm install
+#STOPSIGNAL SIGKILL
+#HEALTHCHECK CMD sleep 50
+HEALTHCHECK --interval=1s --timeout=1s --retries=1 CMD curl --fail http://localhost:4200/ || exit 1
+CMD [&quot;npm&quot;,&quot;start&quot;]
+</code></pre><p>&ndash;interval is used to check for time interval in checking the health
+&ndash;timeout is used to limit the timeout for each check
+&ndash;retries set retries to confirm unhealthy upon specific consecutive failures</p>
+<h3 id="stopsignal">STOPSIGNAL</h3>
+<ul>
+<li>STOPSIGNAL instruction is used to pass a signal to the container when we try stopping the container with docker stop it executes SIGTERM (this gives the graceful time to terminate the process if not it will kill the process) and docker kill executes SIGQUIT or SIGKILL.</li>
+</ul>
+<pre><code>FROM ubuntu
+STOPSIGNAL SIGKILL
+CMD [&quot;sleep&quot;,&quot;5000&quot;]
+</code></pre><h3 id="add">ADD</h3>
+<ul>
+<li>ADD instruction is used same as COPY instruction but it has some additional functionalities such as ADD from remote URL, extracting the tar from the host machine to docker image during build without multiple instruction which in return creates the multiple layers besides from this functionalities it also does all functionalities COPY instruction does.</li>
+</ul>
+<pre><code>FROM ubuntu
+RUN mkdir node
+ADD node-v8.10.0-linux-x64.tar.xz /node
+ADD https://nodejs.org/dist/v8.10.0/node-v8.10.0-linux-x64.tar.xz .
+CMD [&quot;sleep&quot;,5000&quot;]
+</code></pre><h3 id="copy">COPY</h3>
+<ul>
+<li>COPY instruction is used to copy data from host machine to container. With COPY instruction we specify the src and destination.</li>
+</ul>
+<pre><code>FROM ubuntu
+COPY . .
+CMD [&quot;sleep&quot;,&quot;5000&quot;]
+</code></pre><h3 id="env">ENV</h3>
+<ul>
+<li>ENV instruction is used to pass the environment varibales to the container runtime. It works same as environment variables in host level.</li>
+</ul>
+<pre><code>FROM ubuntu
+ENV myName=&quot;John Doe&quot; myDOg=Rex\ The\ Dog \
+        myCat=fluffy
+ENTRYPOINT [&quot;/bin/bash&quot;,&quot;-c&quot;,&quot;echo $myName&quot;]
+</code></pre><h3 id="arg">ARG</h3>
+<ul>
+<li>ARG instruction is used to pass dynamic values during docker build with
+docker build &ndash;build-arg VALUE=1.0</li>
+<li>ARG instruct can optionally contain default value if no value is passed during docker build.</li>
+<li>When both ARG and ENV is used with same name ENV will override the ARG.</li>
+</ul>
+<pre><code>FROM ubuntu
+ARG app=nodejs
+RUN apt-get update &amp;&amp; apt-get install -y $app
+CMD [&quot;sleep&quot;,&quot;5000&quot;]
+</code></pre><p>Above ARG instruction can we overrided during the build time using docker build &ndash;build-arg app=python . In the above docker instructions app = nodejs, But this can be overrided using docker build.</p>
+<h3 id="onbuild">ONBUILD</h3>
+<ul>
+<li>ONBUILD instruction is used to perform an action on the image which uses it as base image. Triggers are inherited by the &ldquo;child&rdquo; build only. In other words, they are not inherited by &ldquo;grand-children&rdquo; builds.</li>
+<li>The ONBUILD instruction may not trigger FROM, MAINTAINER, or ONBUILD instructions.</li>
+</ul>
+<pre><code>FROM ubuntu
+ONBUILD RUN mkdir VINEETH
+</code></pre><p>The above docker image will create VINEETH directory to all the images which use the above image as base image. i.e Build the above image using</p>
+<pre><code>docker build -t vineeth  .
+</code></pre><p>This image on build will perform the action which is mentioned in the base image with ONBUILD instruction. i.e</p>
+<pre><code>RROM vineeth
+</code></pre><h3 id="workdir">WORKDIR</h3>
+<ul>
+<li>WORKDIR instruction is used to predefine the current directory in which build CMD, RUN instructions needs to be executed on. Even when we bash into the container we get into the WORKDIR by default.</li>
+</ul>
+<pre><code>FROM ubuntu
+RUN [&quot;mkdir&quot;,&quot;sample&quot;]
+WORKDIR sample/
+ADD https://nodejs.org/dist/v8.10.0/node-v8.10.0-linux-x64.tar.xz .
+CMD [&quot;sleep&quot;,&quot;5000&quot;]
+</code></pre><h3 id="user">USER</h3>
+<ul>
+<li>USER instruction is used to set the default user to the container and this gets validated and impacted when we run the container. Even if a user is invalid build succeeds. This instruction teakes action during docker run step.</li>
+</ul>
+<pre><code>FROM ubuntu
+RUN useradd -ms /bin/bash  vineeth
+USER vineeth
+CMD [&quot;sleep&quot;,&quot;500&quot;]
+
+</code></pre><h3 id="tips">Tips</h3>
+<ul>
+<li>During docker build the docker cli tries sending the entire content of Dockerfile directory to the docker daemon to increase the build’s performance, exclude files and directories by adding a .dockerignore file to the context directory.</li>
+<li>Starting with version 18.09, Docker supports a new backend for executing your builds that is provided by the moby/buildkit project. The BuildKit backend provides many benefits compared to the old implementation. To use the BuildKit backend, you need to set an environment variable DOCKER_BUILDKIT=1 on the CLI before invoking docker build.</li>
+</ul>
+
+                </div>
+                
+                <div class="post-comments">
+                    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vineeth" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                </div>
+                
+            </div>
+            <footer class="footer text-center">
+<p>Copyright &copy; 2020 Vineeth Pothulapati -
+<span class="credit">
+	Powered by
+	<a target="_blank" href="https://gohugo.io">Hugo</a>
+	and
+	<a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+</span>
+</p>
+</footer>
+
+        </div>
+    </body>

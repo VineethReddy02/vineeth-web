@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> Limiting Privileges In Kubernetes &middot; Vineeth Pothulapati </title>
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.68.3" />
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="http://vineethweb.com/css/nix.css">
+
+
+
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata%7COpen+Sans%7CConcert+One" rel="stylesheet">
+
+
+
+
+
+
+    </head>
+
+    <body>
+        <header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+      <a class="navbar-brand" id="green-terminal" href='http://vineethweb.com/'>
+        vineeth@AquaSecurity ~ $
+      </a>
+		</div>
+
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href='http://vineethweb.com/'>/home/vineeth</a>
+        </li>
+        
+				
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/about">~/about</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/talks">~/talks</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/projects">~/projects</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/post">~/posts</a>
+            		
+        		</li>
+        		
+
+			</ul>
+		</div>
+	</div>
+</nav>
+</header>
+
+        <div class="flex-wrapper">
+            <div class="container wrapper">
+                <h1><a href="http://vineethweb.com/post/k8s-rbac/">Limiting Privileges In Kubernetes</a></h1>
+                <span class="post-date">2019-09-21 </span>
+                <div class="post-content">
+                    <!-- raw HTML omitted -->
+<h2 id="role-based-access-control-in-kubernetes">Role Based Access Control in Kubernetes</h2>
+<p>As we all know role based access control plays a vital role. when we have multiple people using the same resources for different purposes. We need to handle this scenarios by providing the users unique identification mechanism and privileges required for that particular user.</p>
+<p><strong>RBAC in kubernetes adheres to least privilege principle.</strong></p>
+<h3 id="need-for-rbac">Need for RBAC</h3>
+<ul>
+<li>
+<p>As Kubernetes has tens of resources with many functionalities. Different users use them for different use cases. Unnecessary privileges leads to increasing the attack surface.</p>
+</li>
+<li>
+<p>Like every other role based access control system kubernetes also deals with authentication and authorization.</p>
+</li>
+</ul>
+<p><strong>Authentication</strong> deals with does a specific user, group or a service from a machine can authenticate or access this system.</p>
+<p><strong>Authorization</strong> deals with does a specific user have an required privileges to perform a particular action on a specific resource or subresource or group of resources.</p>
+<p>RBAC mainly deals with three entities</p>
+<ol>
+<li><strong>subject</strong>: Users(i.e humans &amp; services)</li>
+<li><strong>verb</strong>:    Action a subject can perform</li>
+<li><strong>object</strong>:  Victim for an action from a subject</li>
+</ol>
+<p><strong>Can mike(subject) get(verb) pods(object)?</strong></p>
+<p>Kubernetes provides following resources to manage RBAC:</p>
+<ol>
+<li>Role</li>
+<li>ClusterRole</li>
+<li>RoleBinding</li>
+<li>ClusterRoleBinding</li>
+<li>ServiceAccount</li>
+</ol>
+<p><strong>Role</strong>: Roles defines the set of privileges allowed on specific resource by it&rsquo;s name or on group of resources or set of subresourcesand this is confined to a specific namespace.</p>
+<p><strong>ClusterRole</strong>: ClusterRole defines the set of privileges allowed on specific resource by it&rsquo;s name or on group of resources or set of subresources and this is applicable on cluster as a whole.</p>
+<p><strong>RoleBinding</strong>: Rolebinding binds the user or group or serviceaccount to a role. This makes sure the subject provided in rolebinding has all the privileges provided within a role.</p>
+<p><strong>ClusterRoleBinding</strong>: ClusterRolebinding binds the user or group or serviceaccount to a role. This makes sure the subject provided in clusterrolebinding has all the privileges provided within a clusterrole.</p>
+<p><strong>ServiceAccount</strong>: Serviceaccount authorizes account to perform specific action based on the rolebinding or clusterrolebinding it is associated with.</p>
+<p>In this blog we will be looking at two ways of creating KUBECONFIG file they are</p>
+<ol>
+<li>Certificate based</li>
+<li>Token based</li>
+</ol>
+<h3 id="certificate-based-authentication">Certificate based authentication</h3>
+<p>Generate the private key file.</p>
+<pre><code>openssl genrsa -out new-user.key 2048
+</code></pre><p>Create a certificate sign request new-user.csr using the private key you just created (new-user.key in this
+example). Make sure you specify your username and group in the -subj section (CN is for the username and O for
+the group). As previously mentioned, we will use new-user as the name and bitnami as the group:</p>
+<pre><code>openssl req -new -key employee.key -out new-user.csr -subj &quot;/CN=new-user/O=aqua&quot;
+</code></pre><pre><code>openssl x509 -req -in new-user.csr -CA CA_LOCATION/ca.crt -CAkey CA_LOCATION/ca.key -CAcreateserial -out new-user.crt -days 500
+</code></pre><pre><code>kubectl config set-credentials new-user --client-certificate=/home/new-user/.certs/new-user.crt --client-key=/home/new-user/.certs/new-user.key
+</code></pre><pre><code>kubectl config set-context new-context --cluster=minikube --namespace=test --user=new-user
+</code></pre><p>After running the above steps we have successfully created a user with name as new-user belonging to aqua group. But this user doesn&rsquo;t have any previleges by defaults nil privileges will be assigned to the user. We need to explicitly grant the access privilges required by the user.</p>
+<pre><code>kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: test-user-full-access
+  namespace: test
+rules:
+- apiGroups: [&quot;&quot;, &quot;apps&quot;,&quot;extensions&quot;]
+  resources: [&quot;pods&quot;,&quot;pods/log&quot;,&quot;deployments&quot;]
+  #resourceNames: [&quot;nginx-deployment&quot;] #Confines privileges to specified resource name
+  verbs: [&quot;get&quot;,&quot;list&quot;]
+- apiGroups: [&quot;batch&quot;]
+  resources:
+  - jobs
+  - cronjobs
+  verbs: [&quot;*&quot;]
+</code></pre><pre><code>kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: test-rolebinding
+  namespace: test
+subjects:
+- kind: ServiceAccount
+  name: new-user
+  namespace: test
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: test-user-full-access
+</code></pre><h3 id="token-based-authentication">Token based authentication</h3>
+<p>Token based authentication deals with service account. Firstly we create a service account which has internal RoleBinding or ClusterRoleBinding based on the requirement. And this has a secret token encoded in base64 and also a certificate. We need secret token and certificate to authenticate with cluster. We rovide this values in KUBEONFIG file.</p>
+<ul>
+<li>Creating a serviceaccount in test namespace.</li>
+</ul>
+<pre><code>apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: test-user
+  namespace: test
+</code></pre><ul>
+<li>Creating a clusterrole with privileges</li>
+</ul>
+<pre><code>kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: test-user-full-access
+rules:
+- apiGroups: [&quot;&quot;, &quot;apps&quot;,&quot;extensions&quot;]
+  resources: [&quot;pods&quot;,&quot;pods/log&quot;,&quot;deployments&quot;]
+  verbs: [&quot;get&quot;,&quot;list&quot;]
+- apiGroups: [&quot;batch&quot;]
+  resources:
+  - jobs
+  - cronjobs
+  verbs: [&quot;*&quot;]
+</code></pre><ul>
+<li>Creating a clusterrolebinding by binding a serviceaccount to it.</li>
+</ul>
+<pre><code>kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: test-rolebinding
+subjects:
+- kind: ServiceAccount
+  name: test-user
+  namespace: test
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: test-user-full-access
+</code></pre><ul>
+<li>Get the service account secret for the provided namespace</li>
+</ul>
+<pre><code>kubectl describe sa test-user -n test
+</code></pre><ul>
+<li>Get the service account token</li>
+</ul>
+<pre><code>kubectl get secret test-user-token-xxxxx -n test -o &quot;jsonpath={.data.token}&quot; | base64 -d
+</code></pre><ul>
+<li>Get the certificate authority</li>
+</ul>
+<pre><code>kubectl get secret test-user-token-xxxxx -n test -o &quot;jsonpath={.data['ca\.crt']}&quot;
+</code></pre><p><strong>Template for KUBECONFIG file.</strong></p>
+<p>Add the kubernetes api endpoint, certificate and token in the below KUBECONFIG file.</p>
+<pre><code>apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: PLACE CERTIFICATE HERE
+    server: https://YOUR_KUBERNETES_API_ENDPOINT
+  name: kind
+contexts:
+- context:
+    cluster: kind
+    namespace: test
+    user: test-user
+  name: test
+current-context: test
+kind: Config
+preferences: {}
+users:
+- name: test-user
+  user:
+    client-key-data: PLACE CERTIFICATE HERE
+    token: PLACE USER TOKEN HERE
+</code></pre><p>We have successfully created a KUBECONFIG file for a new user.</p>
+<h3 id="other-way-of-understanding-rbac-is-to-install-helm-in-your-kubernetes-cluster">Other way of understanding RBAC is to install helm in your kubernetes cluster</h3>
+<p>First install helm by following helm official docs <a href="https://helm.sh/docs/using_helm/#installing-helm">https://helm.sh/docs/using_helm/#installing-helm</a></p>
+<p>We are creating ServiceAccount with name tiller</p>
+<pre><code>apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tiller
+  namespace: kube-system
+</code></pre><p>We are binding the cluster admin privileges tiller service account</p>
+<pre><code>apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: tiller
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: tiller
+    namespace: kube-system
+</code></pre><p>After creating the above ServiceAccount and ClusterRoleBinding</p>
+<p>Run the tiller</p>
+<pre><code>helm init --service-account tiller
+</code></pre><p>Check the helm installation and validate ServiceAccount by running following command</p>
+<pre><code>helm install stable/mysql
+</code></pre><p>By this you have successfully configured helm in your cluster which needs special privileges to communicate with API-SERVER.</p>
+<p><strong>Note:</strong></p>
+<ol>
+<li>By default when a new namespace is created a default ServiceAccount specific to that namespace is created but this serviceaccount has no authorization privileges all the resources running in this namespace will use the default ServiceAccount, Unless we need any privileges specific to a resource we need to specify it in resource.yaml as mentioned in below example.</li>
+</ol>
+<pre><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-creator
+  namespace: test
+spec:
+  serviceAccountName: nginx-creator     #This resource has special privileges binded in this ServiceAccount
+  containers:
+  - name: nginx-creator
+    image: vineeth97/nginx-pod-creator
+</code></pre><ol start="2">
+<li>We can also bind a ClusterRole to a RoleBinding which provides privileges to subject provided in RoleBinding but the scope is specific to namespace mentioned in the RoleBinding.</li>
+</ol>
+<p>Slides prepared for my talk on RBAC can be found <a href="https://drive.google.com/file/d/1FGjjYQDRdoB1geNh4D_gRuZutCha8LdW/view">here</a></p>
+<p><em>Cheers!</em></p>
+
+                </div>
+                
+                <div class="post-comments">
+                    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vineeth" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                </div>
+                
+            </div>
+            <footer class="footer text-center">
+<p>Copyright &copy; 2020 Vineeth Pothulapati -
+<span class="credit">
+	Powered by
+	<a target="_blank" href="https://gohugo.io">Hugo</a>
+	and
+	<a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+</span>
+</p>
+</footer>
+
+        </div>
+    </body>

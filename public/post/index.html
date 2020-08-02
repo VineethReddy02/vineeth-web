@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title> Posts &middot; Vineeth Pothulapati </title>
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.68.3" />
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="http://vineethweb.com/css/nix.css">
+
+
+
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata%7COpen+Sans%7CConcert+One" rel="stylesheet">
+
+
+
+
+
+
+	</head>
+
+	<body>
+		<header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+      <a class="navbar-brand" id="green-terminal" href='http://vineethweb.com/'>
+        vineeth@AquaSecurity ~ $
+      </a>
+		</div>
+
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href='http://vineethweb.com/'>/home/vineeth</a>
+        </li>
+        
+				
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/about">~/about</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/talks">~/talks</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/projects">~/projects</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/post">~/posts</a>
+            		
+        		</li>
+        		
+
+			</ul>
+		</div>
+	</div>
+</nav>
+</header>
+
+		<div class="flex-wrapper">
+			<div class="container wrapper">
+				<div class="row">
+					<div class="col-xs-12 text-center">
+						<h1 id=>Posts</h1>
+					</div>
+				</div>
+				<ul id="post-list">
+						
+					<li>
+						<div class="post-list-item">
+							<div class="post-header">
+								<h4 class="post-link"><a href="http://vineethweb.com/post/cortex-grpc-store/">Scaling Cortex &amp; Loki with ease</a></h4>
+								<h4 class="post-date">2020-06-28</h4>
+							</div>
+							<div class="post-summary"><p>Cortex provides horizontally scalable, highly available, multi-tenant, long term storage for Prometheus. Loki is a horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by Prometheus. Cortex &amp; Loki are designed in same lines but they differ in the data that flows through this systems i.e metrics vs logs
+Recently, I have been working on implementing a gRPC based storage system for cortex. which offers plugin your own database add-on feature for storing the metrics.</p></div>
+							<div class="post-list-footer text-center">
+								<a href="http://vineethweb.com/post/cortex-grpc-store/">Read More</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="post-list-item">
+							<div class="post-header">
+								<h4 class="post-link"><a href="http://vineethweb.com/post/helm/">Helming</a></h4>
+								<h4 class="post-date">2020-05-08</h4>
+							</div>
+							<div class="post-summary"><p>Helm is a package manager for Kubernetes. A Chart is a Helm package. It contains all of the resource definitions necessary to run an application, tool, or service inside of a Kubernetes cluster. Think of it like the Kubernetes equivalent of a Homebrew formula, an Apt dpkg, or a Yum RPM file.
+A Release is an instance of a chart running in a Kubernetes cluster. One chart can often be installed multiple times into the same cluster.</p></div>
+							<div class="post-list-footer text-center">
+								<a href="http://vineethweb.com/post/helm/">Read More</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="post-list-item">
+							<div class="post-header">
+								<h4 class="post-link"><a href="http://vineethweb.com/post/scale-testing-in-k8s/">Benchmarking your Controllers &amp; Operators at Scale</a></h4>
+								<h4 class="post-date">2020-04-19</h4>
+							</div>
+							<div class="post-summary"><p>The most common problem kubernetes controllers and operators authors face today is to benchmark their tools in large environments with 1000&rsquo;s of workloads running in it. As controllers &amp; operators come with custom logic to perform an action when a specific event occurs in the cluster to achieve the intended state.
+Creating 100 node cluster for benchmarking the Kubernetes tools is definitely expensive. Creation, maintainance &amp; deletion is also a tiring job.</p></div>
+							<div class="post-list-footer text-center">
+								<a href="http://vineethweb.com/post/scale-testing-in-k8s/">Read More</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="post-list-item">
+							<div class="post-header">
+								<h4 class="post-link"><a href="http://vineethweb.com/post/grpc/">Understanding gRPC</a></h4>
+								<h4 class="post-date">2019-11-20</h4>
+							</div>
+							<div class="post-summary"><p>gRPC gRPC is a RPC platform initially developed by Google and now a project under CNCF. The letters gRPC are a recursive acronym which means, gRPC Remote Procedure Call.
+gRPC has two parts, the gRPC protocol, and the data serialization. By default gRPC utilizes Protobuf for serialization, but it is pluggable with any form of serialization you wish to use, with some caveats.
+HTTP/2 gRPC supports several built in features inherited from http2, such as compressing headers, persistent single TCP connections, cancellation and timeout contracts between client and server.</p></div>
+							<div class="post-list-footer text-center">
+								<a href="http://vineethweb.com/post/grpc/">Read More</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="post-list-item">
+							<div class="post-header">
+								<h4 class="post-link"><a href="http://vineethweb.com/post/k8s-rbac/">Limiting Privileges In Kubernetes</a></h4>
+								<h4 class="post-date">2019-09-21</h4>
+							</div>
+							<div class="post-summary"><p>Role Based Access Control in Kubernetes As we all know role based access control plays a vital role. when we have multiple people using the same resources for different purposes. We need to handle this scenarios by providing the users unique identification mechanism and privileges required for that particular user.
+RBAC in kubernetes adheres to least privilege principle.
+Need for RBAC   As Kubernetes has tens of resources with many functionalities.</p></div>
+							<div class="post-list-footer text-center">
+								<a href="http://vineethweb.com/post/k8s-rbac/">Read More</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="post-list-item">
+							<div class="post-header">
+								<h4 class="post-link"><a href="http://vineethweb.com/post/intro-to-k8s/">Inspecting Kubernetes Theoritically</a></h4>
+								<h4 class="post-date">2019-08-15</h4>
+							</div>
+							<div class="post-summary"><p>Kubernetes Kubernetes only understands pods not containers.
+Pod Creation Requests  Bare pod RelplicaSet Deployment  Multi Container Pods  Share access to memory space Connect to each other using localhost Share access to the same volumes (storage abstraction) Tightly coupled. One crashes, all crashes. Same parameters such as config maps.  Pod Atomic Unit in Kubernetes is Pod
+In a pod either all conatiners or none of them run. It&rsquo;s always a pod runs on single node.</p></div>
+							<div class="post-list-footer text-center">
+								<a href="http://vineethweb.com/post/intro-to-k8s/">Read More</a>
+							</div>
+						</div>
+					</li>
+				
+					<li>
+						<div class="post-list-item">
+							<div class="post-header">
+								<h4 class="post-link"><a href="http://vineethweb.com/post/docker-instructions/">All About Docker Instructions</a></h4>
+								<h4 class="post-date">2019-07-02</h4>
+							</div>
+							<div class="post-summary"><p>The main intention behind writing this blog is to understand docker instructions and it&rsquo;s capabilities while writing a Dockerfile.
+In the recent past it&rsquo;s hard to find an application without a Dockerfile. 😃
+ INSTRUCTIONS used in Dockerfile  FROM MAINTAINER RUN CMD LABEL EXPOSE ENV ADD COPY ENTRYPOINT VOLUME USER WORKDIR ARG ONBUILD STOPSIGNAL HEALTHCHECK SHELL    FROM FROM &lt;image&gt; # picks latest by default FROM &lt;image&gt;:&lt;tag&gt; # specific version can be pulled FROM &lt;image&gt;@&lt;digest&gt; # This makes sure we pull the specific image with provided digest, # If image content is changed digest also changes.</p></div>
+							<div class="post-list-footer text-center">
+								<a href="http://vineethweb.com/post/docker-instructions/">Read More</a>
+							</div>
+						</div>
+					</li>
+				
+				</ul>
+				
+
+
+
+			</div>
+			<footer class="footer text-center">
+<p>Copyright &copy; 2020 Vineeth Pothulapati -
+<span class="credit">
+	Powered by
+	<a target="_blank" href="https://gohugo.io">Hugo</a>
+	and
+	<a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+</span>
+</p>
+</footer>
+
+		</div>
+	</body>
+</html>

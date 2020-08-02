@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vineeth Pothulapati</title>
+    <link>http://vineethweb.com/</link>
+    <description>Recent content on Vineeth Pothulapati</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Aug 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://vineethweb.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vineeth Pothulapati</title>
+      <link>http://vineethweb.com/about/</link>
+      <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://vineethweb.com/about/</guid>
+      <description>I&amp;rsquo;m a Software Engineer, who loves to work on cloud-native technologies. Certified Kubernetes Administrator &amp;amp; Certified Kubernetes Application Developer.
+Experience:   Software Engineer, Aqua Security: [June, 2019 - Present]  Currently working on a new kubernetes native security solution also referred as kube-native which enables discovery, security auditing and enforcement on top of kubernetes primitives, while integrating with the existing Aqua Security platform. Developed various features in enterpirse image scanner.</description>
+    </item>
+    
+    <item>
+      <title>Scaling Cortex &amp; Loki with ease</title>
+      <link>http://vineethweb.com/post/cortex-grpc-store/</link>
+      <pubDate>Sun, 28 Jun 2020 09:32:45 -0400</pubDate>
+      
+      <guid>http://vineethweb.com/post/cortex-grpc-store/</guid>
+      <description>Cortex provides horizontally scalable, highly available, multi-tenant, long term storage for Prometheus. Loki is a horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by Prometheus. Cortex &amp;amp; Loki are designed in same lines but they differ in the data that flows through this systems i.e metrics vs logs
+Recently, I have been working on implementing a gRPC based storage system for cortex. which offers plugin your own database add-on feature for storing the metrics.</description>
+    </item>
+    
+    <item>
+      <title>kubectl mc to manage multiple clusters</title>
+      <link>http://vineethweb.com/projects/kubectl-mc/</link>
+      <pubDate>Mon, 11 May 2020 12:41:05 -0500</pubDate>
+      
+      <guid>http://vineethweb.com/projects/kubectl-mc/</guid>
+      <description>kubectl plugin to support multiple kubernetes clusters in single go. The motive behind this plugin is to manage set of kubernetes clusters with a kubectl plugin. All the kubectl actions can be performed using this plugin. The plugin cascades the performed operation to all the k8s clusters.
+Link to the project: https://github.com/VineethReddy02/kubectl-mc</description>
+    </item>
+    
+    <item>
+      <title>Helming</title>
+      <link>http://vineethweb.com/post/helm/</link>
+      <pubDate>Fri, 08 May 2020 09:32:45 -0400</pubDate>
+      
+      <guid>http://vineethweb.com/post/helm/</guid>
+      <description>Helm is a package manager for Kubernetes. A Chart is a Helm package. It contains all of the resource definitions necessary to run an application, tool, or service inside of a Kubernetes cluster. Think of it like the Kubernetes equivalent of a Homebrew formula, an Apt dpkg, or a Yum RPM file.
+A Release is an instance of a chart running in a Kubernetes cluster. One chart can often be installed multiple times into the same cluster.</description>
+    </item>
+    
+    <item>
+      <title>gRPC store for Cortex</title>
+      <link>http://vineethweb.com/projects/grpc-store-cortex/</link>
+      <pubDate>Sat, 02 May 2020 09:32:45 -0400</pubDate>
+      
+      <guid>http://vineethweb.com/projects/grpc-store-cortex/</guid>
+      <description>Cortex, being a Distributed, Multi-Tenant Prometheus off-loads the storage to battle-tested databases like Cassandra, BigTable, etc. All the time-series data is converted into chunks. The chunk store essentially contains two parts i.e Index Store, where index to the chunks are stored &amp;amp; KV Store for the chunks itself for direct access. For Index store, There are multiple types of schemas supported by passing the relevant config through chunk.SchemaConfig. Right now, there are only some storage backends supported but as we are seeing more and more users adopting Cortex in their companies,iIt’s important that there is a way for them to extend Cortex to make it use their existing back-ends for storage.</description>
+    </item>
+    
+    <item>
+      <title>Benchmarking your Controllers &amp; Operators at Scale</title>
+      <link>http://vineethweb.com/post/scale-testing-in-k8s/</link>
+      <pubDate>Sun, 19 Apr 2020 09:32:45 -0400</pubDate>
+      
+      <guid>http://vineethweb.com/post/scale-testing-in-k8s/</guid>
+      <description>The most common problem kubernetes controllers and operators authors face today is to benchmark their tools in large environments with 1000&amp;rsquo;s of workloads running in it. As controllers &amp;amp; operators come with custom logic to perform an action when a specific event occurs in the cluster to achieve the intended state.
+Creating 100 node cluster for benchmarking the Kubernetes tools is definitely expensive. Creation, maintainance &amp;amp; deletion is also a tiring job.</description>
+    </item>
+    
+    <item>
+      <title>k8s-scaler to create k8s resources at scale</title>
+      <link>http://vineethweb.com/projects/k8s-scaler/</link>
+      <pubDate>Tue, 31 Mar 2020 12:41:05 -0500</pubDate>
+      
+      <guid>http://vineethweb.com/projects/k8s-scaler/</guid>
+      <description>This project is a kubernetes resource scaler. The main objective of this project is to create 10&amp;rsquo;s/100&amp;rsquo;s/100&amp;rsquo;s of kubernetes resources with ease. Infact by just using a single command.  Using the below cmd will let you create 5000 deployments, with replica count as 25 and each pod with 5 containers in namespace scale.
+./k8s-scaler create deployments --scale 5000 --replicas 25 --containers 5 --namespace scale Using the below cmd will create &amp;amp; delete 100 deployments with replica count as 50 in scale namespace for every 10 seconds.</description>
+    </item>
+    
+    <item>
+      <title>Talks</title>
+      <link>http://vineethweb.com/talks/</link>
+      <pubDate>Sat, 22 Feb 2020 09:32:45 -0400</pubDate>
+      
+      <guid>http://vineethweb.com/talks/</guid>
+      <description>Securing Container Workloads at K8s Forum Delhi 2020 
+Security in the world of containers has become complex as we use different base images. We cannot be aware of what our containers are made up of and cope up with dependencies and transitive dependencies and their updates. On average at least 30 vulnerabilities exist in the top 10 docker images. Do you know if you’re using any of these? If your application containers are based on vulnerable images, your deployment could be open to attack.</description>
+    </item>
+    
+    <item>
+      <title>Understanding gRPC</title>
+      <link>http://vineethweb.com/post/grpc/</link>
+      <pubDate>Wed, 20 Nov 2019 09:32:45 -0400</pubDate>
+      
+      <guid>http://vineethweb.com/post/grpc/</guid>
+      <description>gRPC gRPC is a RPC platform initially developed by Google and now a project under CNCF. The letters gRPC are a recursive acronym which means, gRPC Remote Procedure Call.
+gRPC has two parts, the gRPC protocol, and the data serialization. By default gRPC utilizes Protobuf for serialization, but it is pluggable with any form of serialization you wish to use, with some caveats.
+HTTP/2 gRPC supports several built in features inherited from http2, such as compressing headers, persistent single TCP connections, cancellation and timeout contracts between client and server.</description>
+    </item>
+    
+    <item>
+      <title>Limiting Privileges In Kubernetes</title>
+      <link>http://vineethweb.com/post/k8s-rbac/</link>
+      <pubDate>Sat, 21 Sep 2019 09:32:45 -0400</pubDate>
+      
+      <guid>http://vineethweb.com/post/k8s-rbac/</guid>
+      <description>Role Based Access Control in Kubernetes As we all know role based access control plays a vital role. when we have multiple people using the same resources for different purposes. We need to handle this scenarios by providing the users unique identification mechanism and privileges required for that particular user.
+RBAC in kubernetes adheres to least privilege principle.
+Need for RBAC   As Kubernetes has tens of resources with many functionalities.</description>
+    </item>
+    
+    <item>
+      <title>kubectl pg plugin for Zalando&#39;s Postgres Operator</title>
+      <link>http://vineethweb.com/projects/kubectl-pg-plugin/</link>
+      <pubDate>Mon, 02 Sep 2019 09:32:45 -0400</pubDate>
+      
+      <guid>http://vineethweb.com/projects/kubectl-pg-plugin/</guid>
+      <description>kubectl pg plugin helps in managing postgres clusters efficiently and by decreasing the efforts in working with postgresql resources. Project Abstract The Postgres Operator is a project to create an open-sourced managed Postgres service for Kubernetes. The Postgres operator manages Postgres clusters on Kubernetes. kubectl plugins enable extending the Kubernetes command-line client kubectl with commands to manage custom resources. The task is to design and implement a plugin for the kubectl postgres command.</description>
+    </item>
+    
+    <item>
+      <title>Inspecting Kubernetes Theoritically</title>
+      <link>http://vineethweb.com/post/intro-to-k8s/</link>
+      <pubDate>Thu, 15 Aug 2019 09:32:45 -0400</pubDate>
+      
+      <guid>http://vineethweb.com/post/intro-to-k8s/</guid>
+      <description>Kubernetes Kubernetes only understands pods not containers.
+Pod Creation Requests  Bare pod RelplicaSet Deployment  Multi Container Pods  Share access to memory space Connect to each other using localhost Share access to the same volumes (storage abstraction) Tightly coupled. One crashes, all crashes. Same parameters such as config maps.  Pod Atomic Unit in Kubernetes is Pod
+In a pod either all conatiners or none of them run. It&amp;rsquo;s always a pod runs on single node.</description>
+    </item>
+    
+    <item>
+      <title>All About Docker Instructions</title>
+      <link>http://vineethweb.com/post/docker-instructions/</link>
+      <pubDate>Tue, 02 Jul 2019 09:32:45 -0400</pubDate>
+      
+      <guid>http://vineethweb.com/post/docker-instructions/</guid>
+      <description>The main intention behind writing this blog is to understand docker instructions and it&amp;rsquo;s capabilities while writing a Dockerfile.
+In the recent past it&amp;rsquo;s hard to find an application without a Dockerfile. 😃
+ INSTRUCTIONS used in Dockerfile  FROM MAINTAINER RUN CMD LABEL EXPOSE ENV ADD COPY ENTRYPOINT VOLUME USER WORKDIR ARG ONBUILD STOPSIGNAL HEALTHCHECK SHELL    FROM FROM &amp;lt;image&amp;gt; # picks latest by default FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt; # specific version can be pulled FROM &amp;lt;image&amp;gt;@&amp;lt;digest&amp;gt; # This makes sure we pull the specific image with provided digest, # If image content is changed digest also changes.</description>
+    </item>
+    
+  </channel>
+</rss>
