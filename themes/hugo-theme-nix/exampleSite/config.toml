@@ -1,4 +1,4 @@
-baseurl = "http://vineethweb.com/"
+baseurl = "https://vineethweb.com/"
 title = "Hugo Website"
 theme = "hugo-theme-nix"
 languageCode = "en-us"
