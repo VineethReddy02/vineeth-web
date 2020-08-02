@@ -24,14 +24,14 @@ menu = "main"
 
 ### Certifications:
 
-* #### [Certified Kubernetes Administrator(CKA)](https://www.youracclaim.com/badges/091fce0b-155a-4ac1-a146-d307da0b7675/public_url).
-* #### [Certified Kubernetes Application Developer(CKAD)](https://www.youracclaim.com/badges/921d00a4-e2c1-4802-b60b-f3adaca8dc99/public_url).
+* #### [Certified Kubernetes Administrator-CKA](https://www.youracclaim.com/badges/091fce0b-155a-4ac1-a146-d307da0b7675/public_url)
+* #### [Certified Kubernetes Application Developer-CKAD](https://www.youracclaim.com/badges/921d00a4-e2c1-4802-b60b-f3adaca8dc99/public_url)
 
 
 ### Education:
 
-* #### [Google](https://google.com), Learning Everything Instantly. [2013 - Present]
-* #### [B. V. Raju Institute of Technology](http://bvrit.ac.in/), Bachelor of Information Technology. [2015 - 2019]
+* #### [Google](https://google.com), Learning Everything Instantly [2013 - Present]
+* #### [B. V. Raju Institute of Technology](http://bvrit.ac.in/), Bachelor of Information Technology [2015 - 2019]
 
 
 
