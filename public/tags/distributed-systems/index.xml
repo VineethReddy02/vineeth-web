@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Distributed Systems on Vineeth Pothulapati</title>
+    <link>http://vineethweb.com/tags/distributed-systems/</link>
+    <description>Recent content in Distributed Systems on Vineeth Pothulapati</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 02 May 2020 09:32:45 -0400</lastBuildDate>
+    
+	<atom:link href="http://vineethweb.com/tags/distributed-systems/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>gRPC store for Cortex</title>
+      <link>http://vineethweb.com/projects/grpc-store-cortex/</link>
+      <pubDate>Sat, 02 May 2020 09:32:45 -0400</pubDate>
+      
+      <guid>http://vineethweb.com/projects/grpc-store-cortex/</guid>
+      <description>Cortex, being a Distributed, Multi-Tenant Prometheus off-loads the storage to battle-tested databases like Cassandra, BigTable, etc. All the time-series data is converted into chunks. The chunk store essentially contains two parts i.e Index Store, where index to the chunks are stored &amp;amp; KV Store for the chunks itself for direct access. For Index store, There are multiple types of schemas supported by passing the relevant config through chunk.SchemaConfig. Right now, there are only some storage backends supported but as we are seeing more and more users adopting Cortex in their companies,iIt’s important that there is a way for them to extend Cortex to make it use their existing back-ends for storage.</description>
+    </item>
+    
+  </channel>
+</rss>

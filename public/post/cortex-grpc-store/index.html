@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> Scaling Cortex &amp; Loki with ease &middot; Vineeth Pothulapati </title>
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.68.3" />
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="http://vineethweb.com/css/nix.css">
+
+
+
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata%7COpen+Sans%7CConcert+One" rel="stylesheet">
+
+
+
+
+
+
+    </head>
+
+    <body>
+        <header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+      <a class="navbar-brand" id="green-terminal" href='http://vineethweb.com/'>
+        vineeth@AquaSecurity ~ $
+      </a>
+		</div>
+
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href='http://vineethweb.com/'>/home/vineeth</a>
+        </li>
+        
+				
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/about">~/about</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/talks">~/talks</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/projects">~/projects</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="http://vineethweb.com/post">~/posts</a>
+            		
+        		</li>
+        		
+
+			</ul>
+		</div>
+	</div>
+</nav>
+</header>
+
+        <div class="flex-wrapper">
+            <div class="container wrapper">
+                <h1><a href="http://vineethweb.com/post/cortex-grpc-store/">Scaling Cortex &amp; Loki with ease</a></h1>
+                <span class="post-date">2020-06-28 </span>
+                <div class="post-content">
+                    <!-- raw HTML omitted -->
+<h3 id="cortex-provides-horizontally-scalable-highly-available-multi-tenant-long-term-storage-for-prometheus">Cortex provides horizontally scalable, highly available, multi-tenant, long term storage for Prometheus.</h3>
+<h3 id="loki-is-a-horizontally-scalable-highly-available-multi-tenant-log-aggregation-system-inspired-by-prometheus">Loki is a horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by Prometheus.</h3>
+<p>Cortex &amp; Loki are designed in same lines but they differ in the data that flows through this systems i.e metrics vs logs</p>
+<p>Recently, I have been working on implementing a gRPC based storage system for cortex. which offers plugin your own database add-on feature for storing the metrics. All you need is to implement a gRPC based server that can read/write metrics to your desired database. The specification to support this feature is already in cortex upstream. Either use an existing gRPC based cortex store I.e. MYSQL or MONGO store else implement your own gRPC based cortex store for deisred database and help cortex in supporting multiple backend stores out of the cortex tree.</p>
+<p>As a part of my work, I implemented the gRPC based MYSQL store &amp; MONGO store to store metrics in MYSQL &amp; MONGO database. This let&rsquo;s you store both indexes and chunks.</p>
+<p>For a usecase like you need to achieve Multitenancy, Global view, Long term storage &amp; not interested in spending money for managed databases like S3, DynamoDB, Bigtable. You can definitely consider MYSQL or MONGO database as backend store for metrics. This let&rsquo;s you ease in managing backend storage of cortex. If you already have an experience with MYSQL or MONGO.</p>
+<p>You can also use gRPC based storage system for Loki but for now you can only store indexes. This really adds value as indexes in loki are smaller compared to indexes in cortex. Using a backend store like Bigtable &amp; DynamoDB might be an overkill for indexes instead you can definitely consider using the MYSQL or MONGO to store indexes.</p>
+<p>Adding the below configuration to schema &amp; storage in cortex config file will enable you to configure gRPC based storage backend.</p>
+<pre><code># Use gRPC based storage backend -for both index store and chunks store.
+schema:
+  configs:
+  - from: 2019-07-29
+    store: grpc-store
+    object_store: grpc-store
+    schema: v10
+    index:
+      prefix: index_
+      period: 168h
+    chunks:
+      prefix: chunk_
+      period: 168h
+
+storage:
+  grpc-store: 
+    address: localhost:9966 # Address of the gRPC backend store
+</code></pre><p>The config file in gRPC based storage server will be like:</p>
+<pre><code>cfg:
+  http_listen_port: 9966 #This is port gRPC server exposes
+  addresses: localhost
+  database: cortex
+  username: root
+  password: root
+  port: 3306  # This is exposed port of database.
+</code></pre><p>This is can be altered based on your store implementation.</p>
+<p>Now you can use any database of your choice without any changes to cortex by just implementing the gRPC store for desired database. For now we have implemented gRPC based MYSQL &amp; MONGO stores as backend stores for both indexes &amp; chunks.</p>
+<p>Link to MYSQL store: <a href="https://github.com/VineethReddy02/cortex-mysql-store">https://github.com/VineethReddy02/cortex-mysql-store</a></p>
+<p>Link to MONGO store: <a href="https://github.com/VineethReddy02/cortex-mongo-store">https://github.com/VineethReddy02/cortex-mongo-store</a></p>
+<p>Cheers!</p>
+
+                </div>
+                
+                <div class="post-comments">
+                    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vineeth" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                </div>
+                
+            </div>
+            <footer class="footer text-center">
+<p>Copyright &copy; 2020 Vineeth Pothulapati -
+<span class="credit">
+	Powered by
+	<a target="_blank" href="https://gohugo.io">Hugo</a>
+	and
+	<a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+</span>
+</p>
+</footer>
+
+        </div>
+    </body>
