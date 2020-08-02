@@ -2,50 +2,50 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Hugo Website</title>
-    <link>http://vineethweb.com/projects/</link>
+    <link>https://vineethweb.com/projects/</link>
     <description>Recent content in Projects on Hugo Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 11 May 2020 12:41:05 -0500</lastBuildDate>
     
-	<atom:link href="http://vineethweb.com/projects/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vineethweb.com/projects/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>kubectl mc to manage multiple clusters</title>
-      <link>http://vineethweb.com/projects/kubectl-mc/</link>
+      <link>https://vineethweb.com/projects/kubectl-mc/</link>
       <pubDate>Mon, 11 May 2020 12:41:05 -0500</pubDate>
       
-      <guid>http://vineethweb.com/projects/kubectl-mc/</guid>
+      <guid>https://vineethweb.com/projects/kubectl-mc/</guid>
       <description>kubectl plugin to support multiple kubernetes clusters in single go. The motive behind this plugin is to manage set of kubernetes clusters with a kubectl plugin. All the kubectl actions can be performed using this plugin. The plugin cascades the performed operation to all the k8s clusters.
 Link to the project: https://github.com/VineethReddy02/kubectl-mc</description>
     </item>
     
     <item>
       <title>gRPC store for Cortex</title>
-      <link>http://vineethweb.com/projects/grpc-store-cortex/</link>
+      <link>https://vineethweb.com/projects/grpc-store-cortex/</link>
       <pubDate>Sat, 02 May 2020 09:32:45 -0400</pubDate>
       
-      <guid>http://vineethweb.com/projects/grpc-store-cortex/</guid>
+      <guid>https://vineethweb.com/projects/grpc-store-cortex/</guid>
       <description>Cortex, being a Distributed, Multi-Tenant Prometheus off-loads the storage to battle-tested databases like Cassandra, BigTable, etc. All the time-series data is converted into chunks. The chunk store essentially contains two parts i.e Index Store, where index to the chunks are stored &amp;amp; KV Store for the chunks itself for direct access. For Index store, There are multiple types of schemas supported by passing the relevant config through chunk.SchemaConfig. Right now, there are only some storage backends supported but as we are seeing more and more users adopting Cortex in their companies,iIt’s important that there is a way for them to extend Cortex to make it use their existing back-ends for storage.</description>
     </item>
     
     <item>
       <title>k8s-scaler to create k8s resources at scale</title>
-      <link>http://vineethweb.com/projects/k8s-scaler/</link>
+      <link>https://vineethweb.com/projects/k8s-scaler/</link>
       <pubDate>Tue, 31 Mar 2020 12:41:05 -0500</pubDate>
       
-      <guid>http://vineethweb.com/projects/k8s-scaler/</guid>
+      <guid>https://vineethweb.com/projects/k8s-scaler/</guid>
       <description>This project is a kubernetes resource scaler. The main objective of this project is to create 10&amp;rsquo;s/100&amp;rsquo;s/100&amp;rsquo;s of kubernetes resources with ease. Infact by just using a single command.  Using the below cmd will let you create 5000 deployments, with replica count as 25 and each pod with 5 containers in namespace scale.
 ./k8s-scaler create deployments --scale 5000 --replicas 25 --containers 5 --namespace scale Using the below cmd will create &amp;amp; delete 100 deployments with replica count as 50 in scale namespace for every 10 seconds.</description>
     </item>
     
     <item>
       <title>kubectl pg plugin for Zalando&#39;s Postgres Operator</title>
-      <link>http://vineethweb.com/projects/kubectl-pg-plugin/</link>
+      <link>https://vineethweb.com/projects/kubectl-pg-plugin/</link>
       <pubDate>Mon, 02 Sep 2019 09:32:45 -0400</pubDate>
       
-      <guid>http://vineethweb.com/projects/kubectl-pg-plugin/</guid>
+      <guid>https://vineethweb.com/projects/kubectl-pg-plugin/</guid>
       <description>kubectl pg plugin helps in managing postgres clusters efficiently and by decreasing the efforts in working with postgresql resources. Project Abstract The Postgres Operator is a project to create an open-sourced managed Postgres service for Kubernetes. The Postgres operator manages Postgres clusters on Kubernetes. kubectl plugins enable extending the Kubernetes command-line client kubectl with commands to manage custom resources. The task is to design and implement a plugin for the kubectl postgres command.</description>
     </item>
     

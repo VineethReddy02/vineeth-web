@@ -2,61 +2,61 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kubernetes on Hugo Website</title>
-    <link>http://vineethweb.com/tags/kubernetes/</link>
+    <link>https://vineethweb.com/tags/kubernetes/</link>
     <description>Recent content in Kubernetes on Hugo Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 11 May 2020 12:41:05 -0500</lastBuildDate>
     
-	<atom:link href="http://vineethweb.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vineethweb.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>kubectl mc to manage multiple clusters</title>
-      <link>http://vineethweb.com/projects/kubectl-mc/</link>
+      <link>https://vineethweb.com/projects/kubectl-mc/</link>
       <pubDate>Mon, 11 May 2020 12:41:05 -0500</pubDate>
       
-      <guid>http://vineethweb.com/projects/kubectl-mc/</guid>
+      <guid>https://vineethweb.com/projects/kubectl-mc/</guid>
       <description>kubectl plugin to support multiple kubernetes clusters in single go. The motive behind this plugin is to manage set of kubernetes clusters with a kubectl plugin. All the kubectl actions can be performed using this plugin. The plugin cascades the performed operation to all the k8s clusters.
 Link to the project: https://github.com/VineethReddy02/kubectl-mc</description>
     </item>
     
     <item>
       <title>Helming</title>
-      <link>http://vineethweb.com/post/helm/</link>
+      <link>https://vineethweb.com/post/helm/</link>
       <pubDate>Fri, 08 May 2020 09:32:45 -0400</pubDate>
       
-      <guid>http://vineethweb.com/post/helm/</guid>
+      <guid>https://vineethweb.com/post/helm/</guid>
       <description>Helm is a package manager for Kubernetes. A Chart is a Helm package. It contains all of the resource definitions necessary to run an application, tool, or service inside of a Kubernetes cluster. Think of it like the Kubernetes equivalent of a Homebrew formula, an Apt dpkg, or a Yum RPM file.
 A Release is an instance of a chart running in a Kubernetes cluster. One chart can often be installed multiple times into the same cluster.</description>
     </item>
     
     <item>
       <title>Benchmarking your Controllers &amp; Operators at Scale</title>
-      <link>http://vineethweb.com/post/scale-testing-in-k8s/</link>
+      <link>https://vineethweb.com/post/scale-testing-in-k8s/</link>
       <pubDate>Sun, 19 Apr 2020 09:32:45 -0400</pubDate>
       
-      <guid>http://vineethweb.com/post/scale-testing-in-k8s/</guid>
+      <guid>https://vineethweb.com/post/scale-testing-in-k8s/</guid>
       <description>The most common problem kubernetes controllers and operators authors face today is to benchmark their tools in large environments with 1000&amp;rsquo;s of workloads running in it. As controllers &amp;amp; operators come with custom logic to perform an action when a specific event occurs in the cluster to achieve the intended state.
 Creating 100 node cluster for benchmarking the Kubernetes tools is definitely expensive. Creation, maintainance &amp;amp; deletion is also a tiring job.</description>
     </item>
     
     <item>
       <title>k8s-scaler to create k8s resources at scale</title>
-      <link>http://vineethweb.com/projects/k8s-scaler/</link>
+      <link>https://vineethweb.com/projects/k8s-scaler/</link>
       <pubDate>Tue, 31 Mar 2020 12:41:05 -0500</pubDate>
       
-      <guid>http://vineethweb.com/projects/k8s-scaler/</guid>
+      <guid>https://vineethweb.com/projects/k8s-scaler/</guid>
       <description>This project is a kubernetes resource scaler. The main objective of this project is to create 10&amp;rsquo;s/100&amp;rsquo;s/100&amp;rsquo;s of kubernetes resources with ease. Infact by just using a single command.  Using the below cmd will let you create 5000 deployments, with replica count as 25 and each pod with 5 containers in namespace scale.
 ./k8s-scaler create deployments --scale 5000 --replicas 25 --containers 5 --namespace scale Using the below cmd will create &amp;amp; delete 100 deployments with replica count as 50 in scale namespace for every 10 seconds.</description>
     </item>
     
     <item>
       <title>Limiting Privileges In Kubernetes</title>
-      <link>http://vineethweb.com/post/k8s-rbac/</link>
+      <link>https://vineethweb.com/post/k8s-rbac/</link>
       <pubDate>Sat, 21 Sep 2019 09:32:45 -0400</pubDate>
       
-      <guid>http://vineethweb.com/post/k8s-rbac/</guid>
+      <guid>https://vineethweb.com/post/k8s-rbac/</guid>
       <description>Role Based Access Control in Kubernetes As we all know role based access control plays a vital role. when we have multiple people using the same resources for different purposes. We need to handle this scenarios by providing the users unique identification mechanism and privileges required for that particular user.
 RBAC in kubernetes adheres to least privilege principle.
 Need for RBAC   As Kubernetes has tens of resources with many functionalities.</description>
@@ -64,10 +64,10 @@ Need for RBAC   As Kubernetes has tens of resources with many functionalities.</
     
     <item>
       <title>Inspecting Kubernetes Theoritically</title>
-      <link>http://vineethweb.com/post/intro-to-k8s/</link>
+      <link>https://vineethweb.com/post/intro-to-k8s/</link>
       <pubDate>Thu, 15 Aug 2019 09:32:45 -0400</pubDate>
       
-      <guid>http://vineethweb.com/post/intro-to-k8s/</guid>
+      <guid>https://vineethweb.com/post/intro-to-k8s/</guid>
       <description>Kubernetes Kubernetes only understands pods not containers.
 Pod Creation Requests  Bare pod RelplicaSet Deployment  Multi Container Pods  Share access to memory space Connect to each other using localhost Share access to the same volumes (storage abstraction) Tightly coupled. One crashes, all crashes. Same parameters such as config maps.  Pod Atomic Unit in Kubernetes is Pod
 In a pod either all conatiners or none of them run. It&amp;rsquo;s always a pod runs on single node.</description>

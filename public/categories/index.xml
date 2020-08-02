@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Hugo Website</title>
-    <link>http://vineethweb.com/categories/</link>
+    <link>https://vineethweb.com/categories/</link>
     <description>Recent content in Categories on Hugo Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 22 Feb 2020 09:32:45 -0400</lastBuildDate>
     
-	<atom:link href="http://vineethweb.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vineethweb.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Containers</title>
-      <link>http://vineethweb.com/categories/containers/</link>
+      <link>https://vineethweb.com/categories/containers/</link>
       <pubDate>Sat, 22 Feb 2020 09:32:45 -0400</pubDate>
       
-      <guid>http://vineethweb.com/categories/containers/</guid>
+      <guid>https://vineethweb.com/categories/containers/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Docker</title>
-      <link>http://vineethweb.com/categories/docker/</link>
+      <link>https://vineethweb.com/categories/docker/</link>
       <pubDate>Sat, 22 Feb 2020 09:32:45 -0400</pubDate>
       
-      <guid>http://vineethweb.com/categories/docker/</guid>
+      <guid>https://vineethweb.com/categories/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Security</title>
-      <link>http://vineethweb.com/categories/security/</link>
+      <link>https://vineethweb.com/categories/security/</link>
       <pubDate>Sat, 22 Feb 2020 09:32:45 -0400</pubDate>
       
-      <guid>http://vineethweb.com/categories/security/</guid>
+      <guid>https://vineethweb.com/categories/security/</guid>
       <description></description>
     </item>
     
