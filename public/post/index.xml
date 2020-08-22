@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Vineeth Pothulapati</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Jun 2020 09:32:45 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2020 01:32:45 -0400</lastBuildDate>
     
 	<atom:link href="https://vineethweb.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Auditing in Kubernetes</title>
+      <link>https://vineethweb.com/post/auditing-in-k8s/</link>
+      <pubDate>Fri, 21 Aug 2020 01:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/post/auditing-in-k8s/</guid>
+      <description>As Kubernetes clusters runs different resources at desired scale. We need to have full control over the cluster with all lifecycle of events and audits which helps us to trace out the source. Also, it would be great to get notified when something abnormal happens in the cluster.
+Now let&amp;rsquo;s look at the details we need from api-server when an event occurs.
+ When to log? What to log?  Stages in lifecyle of request in api-server: RequestReceived: This is when api-server received the request but request is not processed yet by the api-server.</description>
+    </item>
     
     <item>
       <title>Scaling Cortex &amp; Loki with ease</title>

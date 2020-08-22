@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> Auditing in Kubernetes &middot; Vineeth Pothulapati </title>
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.68.3" />
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://vineethweb.com/css/nix.css">
+
+
+
+<link rel="shortcut icon" href="/dp.jpeg">
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata%7COpen+Sans%7CConcert+One" rel="stylesheet">
+
+
+
+
+
+
+    </head>
+
+    <body>
+        <header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+      <a class="navbar-brand" id="green-terminal" href='https://vineethweb.com/'>
+        vineeth@AquaSecurity ~ $
+      </a>
+		</div>
+
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href='https://vineethweb.com/'>/home/vineeth</a>
+        </li>
+        
+				
+				
+				<li class="dropdown">
+                    
+            		<a href="https://vineethweb.com/about">~/about</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="https://vineethweb.com/talks">~/talks</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="https://vineethweb.com/projects">~/projects</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="https://vineethweb.com/post">~/posts</a>
+            		
+        		</li>
+        		
+
+			</ul>
+		</div>
+	</div>
+</nav>
+</header>
+
+        <div class="flex-wrapper">
+            <div class="container wrapper">
+                <h1><a href="https://vineethweb.com/post/auditing-in-k8s/">Auditing in Kubernetes</a></h1>
+                <span class="post-date">2020-08-21 </span>
+                <div class="post-content">
+                    <!-- raw HTML omitted -->
+<p>As Kubernetes clusters runs different resources at desired scale. We need to have full control over the cluster with all lifecycle of events and audits which helps us to trace out the source. Also, it would be great to get notified when something abnormal happens in the cluster.</p>
+<p>Now let&rsquo;s look at the details we need from api-server when an event occurs.</p>
+<ol>
+<li><strong>When to log?</strong></li>
+<li><strong>What to log?</strong></li>
+</ol>
+<h3 id="stages-in-lifecyle-of-request-in-api-server">Stages in lifecyle of request in api-server:</h3>
+<p><strong>RequestReceived</strong>: This is when api-server received the request but request is not processed yet by the api-server.</p>
+<p><strong>ResponseStarted</strong>: The response headers are sent out but the response body isn&rsquo;t sent out. This stage only occurs for long running requests like watch.</p>
+<p><strong>ResponseComplete</strong>: The response is sent out and the request is completed.</p>
+<p><strong>Panic</strong>: When ever a panic occurs while processing the request.</p>
+<p>Request flow in the api-server:</p>
+<p><img src="https://i.imgur.com/Do0oI1D.png" alt=""></p>
+<h3 id="levels-in-logging-the-audits">Levels in logging the audits:</h3>
+<ol>
+<li><strong>None</strong>: don&rsquo;t log the requests.</li>
+<li><strong>Metadata</strong>: Only metadata. (i.e. requesting user, timestamp, resource, verb, etc.)</li>
+<li><strong>Request</strong>: metadata and request body.</li>
+<li><strong>RequestResponse</strong>: metadata, request body, response body.</li>
+</ol>
+<p>The general rule for auditing:</p>
+<ol>
+<li>Log at atleast Metadata level for all resources.</li>
+<li>Log at RequestResponse level for critical resources. As this helps us to know the processed event at the response level for critical resources.</li>
+</ol>
+<p><strong>The audits rules needs to be configured using <code>--audit-policy-file</code>
+on api-server startup.</strong></p>
+<p>Below is the audit policy file with configuration as log metdata when request is received on secrets resources.</p>
+<pre><code>apiVersion: audit.k8s.io/v1
+kind: Policy
+# Don't generate audit events for all requests in RequestReceived stage.
+omitStages:
+  - &quot;RequestReceived&quot;
+rules:
+  # Log pod changes at RequestResponse level
+  - level: RequestResponse
+    resources:
+    - group: &quot;&quot;
+      # Resource &quot;pods&quot; doesn't match requests to any subresource of pods,
+      # which is consistent with the RBAC policy.
+      resources: [&quot;pods&quot;]
+</code></pre><p>To audit all requests at metadata level the policy will be:</p>
+<pre><code>apiVersion: audit.k8s.io/v1
+kind: Policy
+rules:
+- level: metadata
+</code></pre><p>The rules are evaluated in top-down order</p>
+<pre><code>rules:
+  - level: RequestResponse
+    resources:
+    - group: &quot;&quot;
+    resources: [&quot;pods&quot;]
+  - level: Metadata
+    resources:
+    - group: &quot;&quot;
+    resources: [&quot;pods/log&quot;, &quot;pods/status&quot;]
+</code></pre><p>The audits can be captured in two ways:</p>
+<ol>
+<li><strong>Log</strong>: Writes the audits to disk. The log file path is provided using <code>--audit-log-path</code></li>
+<li><strong>Webhook</strong>: Send the audits to external API. The details for external endpoint needs to be configured using <code>--audit-webhook-config-file</code></li>
+</ol>
+<p>You can capture the audits in different ways for webhook use <code>audit-webhook-mode</code> and for local filesystem logging use <code>audit-log-mode</code>.</p>
+<p>By default, batching is enabled in webhook and disabled in log. Similarly, by default throttling is enabled in webhook and disabled in log.</p>
+<h4 id="batch">Batch</h4>
+<ol>
+<li>Buffers events &amp; processes in batches.</li>
+</ol>
+<h4 id="blocking">Blocking:</h4>
+<ol>
+<li>Blocks API server responses to process individual events.</li>
+</ol>
+<h4 id="blocking-strict">Blocking-strict:</h4>
+<ol>
+<li>Failures at RequestReceived stage leads to failure of whole call.</li>
+</ol>
+<h3 id="enabling-dynamic-audit-configuration">Enabling Dynamic Audit Configuration</h3>
+<p>As api-server does all this auditing the configuration needs to be set while starting up the api-server. Updating the audit policy needs restart of api-server. which isn&rsquo;t recommended or an easy thing to do. To avoid this we can use <strong>Dynamic Audit configuration</strong> this lets us to update the audit policy just as updating k8s resource using <strong>kubectl apply</strong>. As this feature is still alpha you need to enable the feature gates of api-server to leverage this feature by appending this flags to the on api-server startup. i.e.</p>
+<p><code>--audit-dynamic-configuration</code></p>
+<p><code>--feature-gates=DynamicAuditing=true</code></p>
+<p><code>--runtime-config=auditregistration.k8s.io/v1alpha1=true</code></p>
+<p><strong>Log backend</strong>:</p>
+<p>Configuring the api-server to write audits in a file.</p>
+<ul>
+<li><code>--audit-log-path</code> specifies the log file path that log backend uses to write audit events. Not specifying this flag disables log backend. - means standard out.</li>
+<li><code>--audit-log-maxage</code> define the maximum number of days to retain old audit logs.</li>
+<li><code>--audit-log-maxbackup</code> defines the maximum number of audit log files to retain.</li>
+<li><code>--audit-log-maxsize</code>  defines the maximum size in megabytes of the audit log file before it gets rotated</li>
+</ul>
+<p><strong>Dynamic audit configuration:</strong></p>
+<pre><code>apiVersion: auditregistration.k8s.io/v1alpha1
+kind: AuditSink
+metadata:
+  name: mysink
+spec:
+  policy:
+    level: Metadata
+    stages:
+    - ResponseComplete
+  webhook:
+    throttle:
+      qps: 10
+      burst: 15
+    clientConfig:
+      url: &quot;https://xyz.com&quot;
+</code></pre><p>To configure auditing we need cluster admin privileges.</p>
+<p>Also, using too many sinks will increase in cpu and memory usage of api-server.</p>
+<p><strong>Auditing in Kubernetes can be integrated with:</strong></p>
+<ol>
+<li>Audit log file + fluentd.</li>
+<li>Audit webhook file + logstash.</li>
+<li>Audit webhook file + falco.</li>
+</ol>
+<p>Cheers!</p>
+
+                </div>
+            </div>
+            <footer class="footer text-center">
+<p>Copyright &copy; 2020 Vineeth Pothulapati -
+<span class="credit">
+	Powered by
+	<a target="_blank" href="https://gohugo.io">Hugo</a>
+	and
+	<a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+</span>
+</p>
+</footer>
+
+        </div>
+    </body>
