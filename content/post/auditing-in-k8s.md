@@ -101,17 +101,11 @@ You can capture the audits in different ways for webhook use ```audit-webhook-mo
 By default, batching is enabled in webhook and disabled in log. Similarly, by default throttling is enabled in webhook and disabled in log.
 
 
-#### Batch
+**Batch**: Buffers events & processes in batches.
 
-1. Buffers events & processes in batches.
+**Blocking**: Blocks API server responses to process individual events.
 
-#### Blocking:
-
-1. Blocks API server responses to process individual events.
-
-#### Blocking-strict:
-
-1. Failures at RequestReceived stage leads to failure of whole call.
+**Blocking-strict**: Failures at RequestReceived stage leads to failure of whole call.
 
 ### Enabling Dynamic Audit Configuration
 
