@@ -112,11 +112,11 @@ By default, batching is enabled in webhook and disabled in log. Similarly, by de
 
 As api-server does all this auditing the configuration needs to be set while starting up the api-server. Updating the audit policy needs restart of api-server. which isn't recommended or an easy thing to do. To avoid this we can use **Dynamic Audit configuration** this lets us to update the audit policy just as updating k8s resource using **kubectl apply**. As this feature is still alpha you need to enable the feature gates of api-server to leverage this feature by appending this flags to the on api-server startup. i.e.
 
-```--audit-dynamic-configuration```
+* ```-audit-dynamic-configuration```
 
-```--feature-gates=DynamicAuditing=true```
+* ```--feature-gates=DynamicAuditing=true```
 
-```--runtime-config=auditregistration.k8s.io/v1alpha1=true```
+* ```--runtime-config=auditregistration.k8s.io/v1alpha1=true```
 
 
 **Log backend**:
