@@ -1,6 +1,6 @@
 {
   "title": "Auditing in Kubernetes",
-  "date": "2020-08-22T01:32:45-04:00",
+  "date": "2020-08-21T01:32:45-04:00",
   "image": "",
   "description": "",
   "tags": ["Kubernetes"],
