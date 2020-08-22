@@ -114,21 +114,21 @@ As api-server does all this auditing the configuration needs to be set while sta
 
 As this feature is still alpha you need to enable the feature gates of api-server to leverage this feature by appending this flags to the on api-server startup.
 
-* ***--audit-dynamic-configuration***
+1. ```--audit-dynamic-configuration```
 
-* ***--feature-gates=DynamicAuditing=true***
+2. ```--feature-gates=DynamicAuditing=true```
 
-* ***--runtime-config=auditregistration.k8s.io/v1alpha1=true***
+3. ```--runtime-config=auditregistration.k8s.io/v1alpha1=true```
 
 
 **Log backend**:
 
 Configuring the api-server to write audits in a file. 
 
-* ```--audit-log-path``` specifies the log file path that log backend uses to write audit events. Not specifying this flag disables log backend. - means standard out.
-* ```--audit-log-maxage``` define the maximum number of days to retain old audit logs.
-* ```--audit-log-maxbackup``` defines the maximum number of audit log files to retain.
-* ```--audit-log-maxsize```  defines the maximum size in megabytes of the audit log file before it gets rotated
+1. ```--audit-log-path``` specifies the log file path that log backend uses to write audit events. Not specifying this flag disables log backend. - means standard out.
+2. ```--audit-log-maxage``` define the maximum number of days to retain old audit logs.
+3. ```--audit-log-maxbackup``` defines the maximum number of audit log files to retain.
+4. ```--audit-log-maxsize```  defines the maximum size in megabytes of the audit log file before it gets rotated
 
 **Dynamic audit configuration:**
 
