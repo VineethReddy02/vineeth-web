@@ -33,7 +33,7 @@ Request flow in the api-server:
 ![](https://i.imgur.com/Do0oI1D.png)
  
  
- ### Levels in logging the audits:
+### Levels in logging the audits:
  
  1. **None**: don't log the requests.
  2. **Metadata**: Only metadata. (i.e. requesting user, timestamp, resource, verb, etc.)
