@@ -18,6 +18,10 @@ disqusShortname = "vineeth"
     weight = 2
     url = "talks"
   [[menu.header]]
+    name = "readings"
+    weight = 3
+    url = "readings"  
+  [[menu.header]]
     name = "projects"
     weight = 3
     url = "projects"
