@@ -12,12 +12,15 @@ menu = "main"
 
 ### Experience:
 
-* #### [Software Engineer, Aqua Security](https://www.aquasec.com/): [June, 2019 - Present]
+* #### [Software Engineer, Timescale](https://www.aquasec.com/) [Nov, 2020 - Present]
+    * Currently working on tobs & Promscale.
 
-    * Currently working on a new kubernetes native security solution also referred as kube-native which enables discovery, security auditing and enforcement on top of kubernetes primitives, while integrating with the existing Aqua Security platform.
+* #### [Software Engineer, Aqua Security](https://www.aquasec.com/) [June, 2019 - Nov, 2020]
+
+    * Developed a new kubernetes native security solution also referred as kube-native which enables discovery, security auditing and enforcement on top of kubernetes primitives, while integrating with the existing Aqua Security platform.
     * Developed various features in enterpirse image scanner.
 
-* #### [Google Summer of Code Intern, The Postgres Operator](https://summerofcode.withgoogle.com/archive/2019/projects/6091237608652800/): [May, 2019 - Aug, 2019]
+* #### [Google Summer of Code Intern, The Postgres Operator](https://summerofcode.withgoogle.com/archive/2019/projects/6091237608652800/) [May, 2019 - Aug, 2019]
 
 
     * Developed a kubectl plugin for zalando’s postgres operator, which is a CLI Interface making it easy to manage Postgres Custom Resource Definitions(CRD’s). It is very similar to the kubectl CLI, and has most subcommands like get, scale, etc but will work on postgres resources i.e databases, etc.

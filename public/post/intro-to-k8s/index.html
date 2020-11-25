@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.78.2" />
 
 
 
@@ -51,7 +51,7 @@
 				<span class="icon-bar"></span>
 			</button>
       <a class="navbar-brand" id="green-terminal" href='https://vineethweb.com/'>
-        vineeth@AquaSecurity ~ $
+        vineeth@Timescale ~ $
       </a>
 		</div>
 
@@ -87,6 +87,13 @@
 				
 				<li class="dropdown">
                     
+            		<a href="https://vineethweb.com/readings">~/readings</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
             		<a href="https://vineethweb.com/post">~/posts</a>
             		
         		</li>
@@ -112,7 +119,7 @@
 <li>RelplicaSet</li>
 <li>Deployment</li>
 </ol>
-<h3 id="multi-container-pods-">Multi Container Pods</h3>
+<h3 id="multi-container-pods">Multi Container Pods</h3>
 <ol>
 <li>Share access to memory space</li>
 <li>Connect to each other using localhost</li>
@@ -127,7 +134,7 @@
 It&rsquo;s always a pod runs on single node.
 Which pod runs on which node decided be scheduler.
 If a pod is failed kubelet notifies to k8s control plane.</p>
-<h3 id="higher-level-kubernetes-objects-">Higher level Kubernetes Objects</h3>
+<h3 id="higher-level-kubernetes-objects">Higher level Kubernetes Objects</h3>
 <p>Replicaset, ReplicationController: Scaling and healing
 Deployment: Versioning and rollback
 Service: Static (non-epemeral) IP and networking
@@ -140,11 +147,11 @@ Volume: Non-ephemeral storage</p>
 </ol>
 <p>Pod cannot be auto scaled or self healed for tis cases we need higher level objects such as
 ReplicaSet, ReplicationController, Deployment.</p>
-<h3 id="micro-services-">Micro-Services</h3>
+<h3 id="micro-services">Micro-Services</h3>
 <p>Bare Metal: Apps ere very tightly coupled.
 Virtual Machines: Less tighly coupled, but not yet micro-services.
 Containers for Micro-Services: Simple, Independent components.</p>
-<h3 id="resource-in-conatiners-">Resource in Conatiners</h3>
+<h3 id="resource-in-conatiners">Resource in Conatiners</h3>
 <ol>
 <li>Usually the conatianers are aloocated with deafult resources in kubernetes.</li>
 <li>By providng Resource Request we are seeking resources as requested to be default resources.</li>
@@ -152,7 +159,7 @@ Containers for Micro-Services: Simple, Independent components.</p>
 starting from default/Requested resources.</li>
 <li>You can even mention both request and limit or either of them or neither of them.</li>
 </ol>
-<h3 id="communicaion-between-master-and-cluster-">Communicaion between Master and Cluster</h3>
+<h3 id="communicaion-between-master-and-cluster">Communicaion between Master and Cluster</h3>
 <p>Kubernetes Master Conatins  following components</p>
 <ol>
 <li>Kube-scheduler</li>
@@ -247,7 +254,7 @@ kubernetes.</p>
 <li><strong>Load-balancing:</strong> Distribute client requets</li>
 <li><strong>Isolation:</strong> Sanboxes so that containers don&rsquo;t interfere.</li>
 </ol>
-<h4 id="how-to-interact-with-kubernetes-">How to interact with kubernetes</h4>
+<h4 id="how-to-interact-with-kubernetes">How to interact with kubernetes</h4>
 <ul>
 <li><strong>kubectl:</strong> Most common command line utility. Makes POST requests to apiserver of control plane.</li>
 <li><strong>kubeadm:</strong> Bootstrap cluster when not on cloud kubernetes service. To create cluster out of individual infra nodes.</li>
@@ -301,7 +308,7 @@ This is the most preferred way of handling objects.</p>
 </li>
 </ol>
 <p>Note: Don&rsquo;t mix and match different methods in handling k8s objects.</p>
-<h3 id="imperative-commands-">Imperative Commands</h3>
+<h3 id="imperative-commands">Imperative Commands</h3>
 <pre><code>kubectl run nginx --image nginx
 kubectl create deployment nginx --image nginx
 </code></pre><ul>
@@ -404,7 +411,7 @@ spec:
 	        path: log_level
 </code></pre><p>Volumes binded to pod are persistent across the lifecyclces of containers. But when pod restarts the vlumes are last.
 emptyDir comes with empty volume initially and also when pod restarts it loses all the data in it.</p>
-<h3 id="important-types-of-volumes-are-">Important types of volumes are</h3>
+<h3 id="important-types-of-volumes-are">Important types of volumes are</h3>
 <ol>
 <li>configMap</li>
 <li>emptyDir</li>
@@ -493,12 +500,12 @@ Inside pod yaml file</p>
          secretKeyRef:
 	    name: sensitive
 	    key: password.txt
-</code></pre><h3 id="using-persistentvolumes-">Using PersistentVolumes</h3>
+</code></pre><h3 id="using-persistentvolumes">Using PersistentVolumes</h3>
 <p>we mount the persistnt volumes with containers</p>
 <pre><code>volumeMounts:
 - mountPath: /test-pd
   name: test-volume
-</code></pre><h3 id="conatiners-in-pod-">Conatiners in Pod</h3>
+</code></pre><h3 id="conatiners-in-pod">Conatiners in Pod</h3>
 <ol>
 <li>Configure Nodes to Authenticate to Private Repos. All pods can pull any image.</li>
 <li>Pre-pull images. Pods can only use cached images.</li>
@@ -550,7 +557,7 @@ Back-end: Logical set of backend pods(label selector)</p>
 </code></pre><p>kubectl exec -it demo-pod &ndash; /bin/bash
 This will take into the bash shell within our conatiner.
 <code>printenv</code> \ will print all env variables.</p>
-<h3 id="downward-api-">Downward API</h3>
+<h3 id="downward-api">Downward API</h3>
 <p>Passing information from pod to conatiner such as metadata, annotations.</p>
 <p>pods/inject/dapi-volume.yaml</p>
 <pre><code>apiVersion: v1
@@ -628,7 +635,7 @@ spec:
       preStop:
         exec:
 	  command: [&quot;/usr/sbin/nginx&quot;,&quot;-s&quot;,&quot;quit&quot;]
-</code></pre><h3 id="pod-node-matching-">Pod Node Matching</h3>
+</code></pre><h3 id="pod-node-matching">Pod Node Matching</h3>
 <p>How can pods be assigned to specific nodes?</p>
 <p>Handled by kube-scheduler
 -Quite smart (it makes sure the nodes which has resources gets the pod assigned.)
@@ -723,7 +730,7 @@ template:
      value: &quot;env&quot;
      effect: &quot;NoSchedule&quot;
 </code></pre><p>The above deployment has toleration so the pods can even be schduled on tainted nodes.</p>
-<h3 id="init-containers-">Init Containers</h3>
+<h3 id="init-containers">Init Containers</h3>
 <ul>
 <li>Run before app containers.</li>
 <li>Always run-to-completion</li>

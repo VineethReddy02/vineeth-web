@@ -3,6 +3,51 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://vineethweb.com/tags/cncf/</loc>
+    <lastmod>2020-11-24T01:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/tags/mentorship/</loc>
+    <lastmod>2020-11-24T01:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/post/</loc>
+    <lastmod>2020-11-24T01:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/post/roadmap-to-cncf-mentee/</loc>
+    <lastmod>2020-11-24T01:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/tags/</loc>
+    <lastmod>2020-11-24T01:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/</loc>
+    <lastmod>2020-11-24T01:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/categories/</loc>
+    <lastmod>2020-11-02T09:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/categories/readings/</loc>
+    <lastmod>2020-11-02T09:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/readings/</loc>
+    <lastmod>2020-11-02T09:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://vineethweb.com/post/auditing-in-k8s/</loc>
     <lastmod>2020-08-21T01:32:45-04:00</lastmod>
   </url>
@@ -10,21 +55,6 @@
   <url>
     <loc>https://vineethweb.com/tags/kubernetes/</loc>
     <lastmod>2020-08-21T01:32:45-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vineethweb.com/post/</loc>
-    <lastmod>2020-08-21T01:32:45-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vineethweb.com/tags/</loc>
-    <lastmod>2020-08-21T01:32:45-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vineethweb.com/</loc>
-    <lastmod>2020-08-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -75,11 +105,6 @@
   <url>
     <loc>https://vineethweb.com/projects/k8s-scaler/</loc>
     <lastmod>2020-03-31T12:41:05-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vineethweb.com/categories/</loc>
-    <lastmod>2020-02-22T09:32:45-04:00</lastmod>
   </url>
   
   <url>

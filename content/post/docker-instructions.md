@@ -142,7 +142,7 @@ ENTRYPOINT ["echo"]
 CMD ["VINEETH"]
 ```
 
-In the above docker instruction CMD instruction is taken by default if any string is provided with docker run IMAGENAME AQUA will override the default CMD. 
+In the above docker instruction CMD instruction is taken by default if any string is provided with docker run IMAGENAME XYZ will override the default CMD. 
 If no CMD is provided. Any command provided with docker run will be appended to ENTRYPOINT command.
 
 

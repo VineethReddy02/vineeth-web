@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.78.2" />
 
 
 
@@ -51,7 +51,7 @@
 				<span class="icon-bar"></span>
 			</button>
       <a class="navbar-brand" id="green-terminal" href='https://vineethweb.com/'>
-        vineeth@AquaSecurity ~ $
+        vineeth@Timescale ~ $
       </a>
 		</div>
 
@@ -81,6 +81,13 @@
 				<li class="dropdown">
                     
             		<a href="https://vineethweb.com/projects">~/projects</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="https://vineethweb.com/readings">~/readings</a>
             		
         		</li>
         		
@@ -150,10 +157,10 @@ FROM &lt;image&gt;@&lt;digest&gt;       # This makes sure we pull the specific i
 <pre><code>FROM alpine
 MAINTAINER vineeth
 </code></pre><h3 id="label">LABEL</h3>
-<p>LABEL ABC=&quot;XYZ&rdquo; DEF=&quot;MNO&rdquo;
-LABEL ABC=&quot;XYZ&rdquo; <br>
-DEF=&quot;MNO&rdquo; <br>
-GHI=&quot;PQR&rdquo;</p>
+<p>LABEL ABC=&ldquo;XYZ&rdquo; DEF=&ldquo;MNO&rdquo;
+LABEL ABC=&ldquo;XYZ&rdquo; <br>
+DEF=&ldquo;MNO&rdquo; <br>
+GHI=&ldquo;PQR&rdquo;</p>
 <ul>
 <li>The LABEL cmd adds metadata to an image. A LABEL is a key-value pair.</li>
 <li>If same key has different values the last occurring will take the precedence.</li>
@@ -189,7 +196,7 @@ ENTRYPOINT cmd this defaults are also overwritted using docker run cmd .</li>
 <pre><code>FROM ubuntu
 ENTRYPOINT [&quot;echo&quot;]
 CMD [&quot;VINEETH&quot;]
-</code></pre><p>In the above docker instruction CMD instruction is taken by default if any string is provided with docker run IMAGENAME AQUA will override the default CMD.
+</code></pre><p>In the above docker instruction CMD instruction is taken by default if any string is provided with docker run IMAGENAME XYZ will override the default CMD.
 If no CMD is provided. Any command provided with docker run will be appended to ENTRYPOINT command.</p>
 <h3 id="shell">SHELL</h3>
 <ul>

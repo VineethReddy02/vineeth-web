@@ -6,7 +6,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.78.2" />
 
 
 
@@ -51,7 +51,7 @@
 				<span class="icon-bar"></span>
 			</button>
       <a class="navbar-brand" id="green-terminal" href='https://vineethweb.com/'>
-        vineeth@AquaSecurity ~ $
+        vineeth@Timescale ~ $
       </a>
 		</div>
 
@@ -81,6 +81,13 @@
 				<li class="dropdown">
                     
             		<a href="https://vineethweb.com/projects">~/projects</a>
+            		
+        		</li>
+        		
+				
+				<li class="dropdown">
+                    
+            		<a href="https://vineethweb.com/readings">~/readings</a>
             		
         		</li>
         		
@@ -125,15 +132,15 @@ mocklet                                  Ready    agent    2m32s   v1.15.2-vk-N/
 <h3 id="k8s-scalerhttpsgithubcomvineethreddy02k8s-scaler"><a href="https://github.com/VineethReddy02/k8s-scaler">k8s-scaler</a></h3>
 <p>To create the Kubernetes resources at scale in a single shot. I have implemented tool called <strong>k8s-scaler</strong>. This tool is highly configurable and helps you to create Kubernetes resources which runs pods eventually with higly configurable properties such as number of containers, inclusion &amp; exlusion of namespaces during resource creation, number of Kubernetes resources like deployments, daemonsets, etc&hellip; , number of replicas per Kubernetes controller.</p>
 <p>Creating 5000 deployments with replica count as 5 per instance and number of containers per pod as 3 in scale namespace with node-selector &amp; toleration is as simple as</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">./k8s-scaler create deployments --scale <span style="color:#ae81ff">5000</span> --replicas <span style="color:#ae81ff">5</span> --containers <span style="color:#ae81ff">3</span> --namespace scale --node-selector type=mocklet --toleration mocklet.io/provider=mock
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ae81ff">./k8s-scaler create deployments --scale 5000 --replicas 5 --containers 3 --namespace scale --node-selector type=mocklet --toleration mocklet.io/provider=mock</span>
 </code></pre></div><p><strong>Note:</strong> Using k8s-scaler you can also create/delete namespaces, daemonsets, statefulsets, replicationcontrollers, replicasets, jobs and cronjobs</p>
 <p>k8s-scaler also helps you in listing number of kubernetes resources per namespace as shown below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">vineeth@vineeth-Latitude<span style="color:#ae81ff">-7490</span> /bin (master) $ ./k8s-scaler list
-NAMESPACE    DEPLOYMENTS  REPLICASETS  DAEMONSETS  STATEFULSETS  PODS  JOBS  CRONJOBS  REPLICATION-CONTROLLERS
-test         <span style="color:#ae81ff">3000</span>         <span style="color:#ae81ff">3000</span>         <span style="color:#ae81ff">1000</span>        <span style="color:#ae81ff">500</span>           <span style="color:#ae81ff">7486</span>  <span style="color:#ae81ff">30</span>    <span style="color:#ae81ff">10</span>        <span style="color:#ae81ff">30</span>               
-default      <span style="color:#ae81ff">1300</span>         <span style="color:#ae81ff">1300</span>         <span style="color:#ae81ff">456</span>         <span style="color:#ae81ff">250</span>           <span style="color:#ae81ff">5642</span>  <span style="color:#ae81ff">10</span>    <span style="color:#ae81ff">5</span>         <span style="color:#ae81ff">5</span>                  
-kube-system  <span style="color:#ae81ff">8</span>            <span style="color:#ae81ff">11</span>           <span style="color:#ae81ff">4</span>           <span style="color:#ae81ff">0</span>             <span style="color:#ae81ff">15</span>    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>         <span style="color:#ae81ff">0</span>               
-mocklet      <span style="color:#ae81ff">3500</span>         <span style="color:#ae81ff">4000</span>         <span style="color:#ae81ff">1200</span>        <span style="color:#ae81ff">400</span>           <span style="color:#ae81ff">9348</span>  <span style="color:#ae81ff">50</span>    <span style="color:#ae81ff">30</span>        <span style="color:#ae81ff">35</span>     
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ae81ff">vineeth@vineeth-Latitude-7490 /bin (master) $ ./k8s-scaler list</span>
+<span style="color:#ae81ff">NAMESPACE    DEPLOYMENTS  REPLICASETS  DAEMONSETS  STATEFULSETS  PODS  JOBS  CRONJOBS  REPLICATION-CONTROLLERS</span>
+<span style="color:#ae81ff">test         3000         3000         1000        500           7486  30    10        30               </span>
+<span style="color:#ae81ff">default      1300         1300         456         250           5642  10    5         5                  </span>
+<span style="color:#ae81ff">kube-system  8            11           4           0             15    0     0         0               </span>
+<span style="color:#ae81ff">mocklet      3500         4000         1200        400           9348  50    30        35     </span>
 </code></pre></div><p>Using the <strong>mocklet</strong> and <strong>k8s-scaler</strong> you can create the large environments with ease. Running mocklet will provide the mock kubelet to run the desired number of resources and using k8s-scaler you can create desired number of kubernetes resources by running a single command in any kubernetes cluster.</p>
 <p>I hope these tools will help you in scale testing the tools built around kubernetes.</p>
 <p>Cheers!</p>

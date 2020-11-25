@@ -6,10 +6,15 @@
     <description>Recent content in Categories on Vineeth Pothulapati</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Feb 2020 09:32:45 -0400</lastBuildDate>
-    
-	<atom:link href="https://vineethweb.com/categories/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Mon, 02 Nov 2020 09:32:45 -0400</lastBuildDate><atom:link href="https://vineethweb.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Readings</title>
+      <link>https://vineethweb.com/categories/readings/</link>
+      <pubDate>Mon, 02 Nov 2020 09:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/categories/readings/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Containers</title>

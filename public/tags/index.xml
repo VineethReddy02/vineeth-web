@@ -6,10 +6,24 @@
     <description>Recent content in Tags on Vineeth Pothulapati</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Aug 2020 01:32:45 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2020 01:32:45 -0400</lastBuildDate><atom:link href="https://vineethweb.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CNCF</title>
+      <link>https://vineethweb.com/tags/cncf/</link>
+      <pubDate>Tue, 24 Nov 2020 01:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/tags/cncf/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="https://vineethweb.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    
+    <item>
+      <title>mentorship</title>
+      <link>https://vineethweb.com/tags/mentorship/</link>
+      <pubDate>Tue, 24 Nov 2020 01:32:45 -0400</pubDate>
+      
+      <guid>https://vineethweb.com/tags/mentorship/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Kubernetes</title>
