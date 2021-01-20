@@ -3,6 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://vineethweb.com/tags/personal-finance/</loc>
+    <lastmod>2021-01-19T09:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/readings/</loc>
+    <lastmod>2021-01-19T09:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/tags/</loc>
+    <lastmod>2021-01-19T09:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/readings/the_psychology_of_money/</loc>
+    <lastmod>2021-01-19T09:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/</loc>
+    <lastmod>2021-01-19T09:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/readings/lets_talk_money/</loc>
+    <lastmod>2020-12-19T09:32:45-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://vineethweb.com/tags/cncf/</loc>
     <lastmod>2020-11-24T01:32:45-04:00</lastmod>
   </url>
@@ -20,31 +50,6 @@
   <url>
     <loc>https://vineethweb.com/post/roadmap-to-cncf-mentee/</loc>
     <lastmod>2020-11-24T01:32:45-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vineethweb.com/tags/</loc>
-    <lastmod>2020-11-24T01:32:45-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vineethweb.com/</loc>
-    <lastmod>2020-11-24T01:32:45-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vineethweb.com/categories/</loc>
-    <lastmod>2020-11-02T09:32:45-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vineethweb.com/categories/readings/</loc>
-    <lastmod>2020-11-02T09:32:45-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vineethweb.com/readings/</loc>
-    <lastmod>2020-11-02T09:32:45-04:00</lastmod>
   </url>
   
   <url>
@@ -105,6 +110,11 @@
   <url>
     <loc>https://vineethweb.com/projects/k8s-scaler/</loc>
     <lastmod>2020-03-31T12:41:05-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vineethweb.com/categories/</loc>
+    <lastmod>2020-02-22T09:32:45-04:00</lastmod>
   </url>
   
   <url>
