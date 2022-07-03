@@ -7,15 +7,18 @@ menu = "main"
 &nbsp;
 &nbsp;
 
-**I'm a Software Engineer, who loves to work on cloud-native technologies.**
-
+**I'm a Product Manager, working in Observability space.**
 
 ### Experience:
 
-* #### [Software Engineer, Timescale](https://www.aquasec.com/) [Nov, 2020 - Present]
-    * Currently working on tobs & Promscale.
+* #### [Product Manager, Timescale](https://www.timescale.com/) [Dec, 2021 - Present]
+    * Building a single storage system for all Observability signals. 
 
-* #### [Software Engineer, Aqua Security](https://www.aquasec.com/) [June, 2019 - Nov, 2020]
+* #### [Software Engineer, Timescale](https://www.timescale.com/) [Nov, 2020 - Nov, 2021]
+    * Worked on tobs & Promscale.
+    * One of the maintainers to OpenTelemetry Operator
+
+* #### [Software Engineer, Aqua Security](https://www.aquasec.com/) [June, 2019 - Oct, 2020]
 
     * Developed a new kubernetes native security solution also referred as kube-native which enables discovery, security auditing and enforcement on top of kubernetes primitives, while integrating with the existing Aqua Security platform.
     * Developed various features in enterpirse image scanner.
